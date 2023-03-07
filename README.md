@@ -3,6 +3,11 @@ The website for the Five Pillars Cemetery Website
 
 Make sure that you have NPM installed (refer to google for instructiosn on how to do so)!
 
+## Instructions for Developing Site
+- Install NPM
+- Run `npm update`
+- Run `npm start`
+
 ## Available Scripts
 
 In the project directory, you can run:
