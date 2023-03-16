@@ -4,9 +4,9 @@ export const Janaza = () => {
   return (
     <div>
       <h1>Janaza</h1>
-
-      <h1> Organizing Janazah </h1>
-      <h2> Burial Procedure </h2> 
+ 
+      <h2> Organizing Janazah </h2>
+      <h3> Burial Procedure </h3> 
       <p>
       1. A grave is dug deep enough to totally hide the body of the deceased. 
       2. The grave should be always perpendicular (Horizontal) to the direction of Qiblah. 
@@ -28,7 +28,7 @@ export const Janaza = () => {
       </p>
 
 
-    <h1>Funeral Prayers - Method </h1>
+    <h2>Funeral Prayers - Method </h2>
     <p> Some things to keep in mind: 
         <ul> It is preferable that Salatul Janazah be performed outside the Mosque/the Musalla.</ul>
         <ul>All conditions for regular Salat are required in Salatul Janazah such as Tahara, Wudu, clean body and clothes, neeyah (Intention), and facing the Qiblah. </ul>
