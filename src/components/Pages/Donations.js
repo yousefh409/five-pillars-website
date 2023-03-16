@@ -1,5 +1,4 @@
 import React from "react";
-import "./src/index.css";
 import DonateButton from "../../DonateButton";
 
 export const Donations = () => {
@@ -21,7 +20,7 @@ export const Donations = () => {
         </h2>
         <div>
             <h3 class = "foolentreeing"> Volunteer
-                <p class = "vDesk">
+                <p >
                     Want to help out? Sign up for volunteering opportunities below.
                 </p>
             
