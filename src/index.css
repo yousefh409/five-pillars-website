@@ -15,9 +15,13 @@ p {
   font-family: "Asap", sans-serif;
   font-weight: 100;
   font-variant-ligatures: normal;
-  font-size: 2rem;
+  font-size: 1.75rem;
   letter-spacing: 1px;
-  
+  text-align: left;
+  margin-left: 0.5%;
+  margin-right: 5;
+  font-weight: lighter;
+
 }
 
 
@@ -28,10 +32,12 @@ h1 {
   font-size: 120px;
   color: #335823;
   text-align: left;
-  padding-left: 70px;
-  padding-right: 70px;
-  padding-bottom:20px;
-  padding-top: 20px;
+  font-size: 5rem;
+  text-align: left;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 
 }
 
@@ -66,24 +72,6 @@ h2 {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-
-.zubbort {
-  font-size: 2rem;
-  text-align: left;
-  margin-left: 0.5%;
-  margin-right: 5;
-  font-weight: lighter;
-}
-
-.bleaseHelp {
-  font-size: 5rem;
-  text-align: left;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
-  margin-bottom: 5%;
 }
 
 .vDesk {
@@ -128,4 +116,10 @@ margin-bottom: 2%
 #name {
   width: 3rem;
   height: 1rem;
+}
+
+fieldset{
+  border: 1px solid rgb(255,232,57);
+  width: 400px;
+  margin:auto;
 }
