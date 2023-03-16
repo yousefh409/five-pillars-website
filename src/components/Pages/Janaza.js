@@ -6,7 +6,7 @@ export const Janaza = () => {
       <h1>Organizing Janaza</h1>
  
       <h2> Burial Procedure </h2> 
-      <p>
+      <p class = "JanazaSteps">
       1. A grave is dug deep enough to totally hide the body of the deceased. 
       2. The grave should be always perpendicular (Horizontal) to the direction of Qiblah. 
       3. Only men are allowed to attend the burial. 
