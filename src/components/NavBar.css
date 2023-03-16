@@ -1,5 +1,7 @@
 .navbar {
-  background-color: #1f5156;
+  background-color: #113e0d;
+  font-family: "Asap", sans-serif;
+
   height: 80px;
   display: flex;
   justify-content: center;
@@ -20,7 +22,7 @@
 }
 
 .nav-logo {
-  color: #f5b921;
+  color: #e0d7c0;
   align-items: center;
   margin-left: 20px;
   cursor: pointer;
@@ -86,6 +88,7 @@
     left: -110%;
     opacity: 1;
     transition: all 0.5s ease;
+
   }
 
   .nav-menu.active {
@@ -113,6 +116,6 @@
     transform: translate(-100%, 60%);
     font-size: 1.8rem;
     cursor: pointer;
-    color: #ffdd40;
+    color: #ffe365;
   }
 }

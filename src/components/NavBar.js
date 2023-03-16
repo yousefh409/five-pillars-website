@@ -57,7 +57,7 @@ function NavBar() {
                 className="nav-links"
                 onClick={handleClick}
               >
-                Dontating
+                Donating
               </NavLink>
             </li>
             <li className="nav-item">
