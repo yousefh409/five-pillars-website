@@ -1,5 +1,5 @@
 import React from "react";
-import "./Donations.css";
+import "./src/index.css";
 import DonateButton from "../../DonateButton";
 
 export const Donations = () => {
