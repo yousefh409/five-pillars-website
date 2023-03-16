@@ -1,5 +1,5 @@
 import React from "react";
-import DonateButton from "../../DonateButton";
+// import DonateButton from "../../DonateButton";
 
 export const Donations = () => {
     const handleSubmit = event => {
