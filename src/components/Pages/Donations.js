@@ -11,9 +11,12 @@ export const Donations = () => {
     
         <h2 class = "bleaseHelp"> Donate 
             <p class = "zubbort">
+              <br></br>
                 Support the Five Pillars Cemetery by donating! If you wish to do so, please fill out the form below. Your genorisity is greatly appreciated!
+                
             </p><b></b>
             <div>
+            <br></br>
                ------ put donation thing here -----
             </div>
         
@@ -21,8 +24,17 @@ export const Donations = () => {
         <div>
             <h3 class = "foolentreeing"> Volunteer
                 <p >
-                    Want to help out? Sign up for volunteering opportunities below.
+                  <br></br><br></br><br></br><br></br>
+                    Want to help out? 
                 </p>
+                <p>
+                  <br></br><br></br><br></br><br></br>
+                Sign up for volunteering
+                  </p>
+                  <p>
+                    <br></br><br></br>
+                    opportunities below.
+                    </p>
             
             
             </h3>

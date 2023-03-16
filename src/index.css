@@ -62,15 +62,17 @@ code {
   margin-left: 0.5%;
   margin-right: 5;
   font-weight: lighter;
-
 }
+
 .bleaseHelp {
   font-size: 5rem;
   text-align: left;
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
+  margin-bottom: 5%;
 }
+
 .vDesk {
   font-size: 2rem;
   text-align: left;
@@ -108,4 +110,9 @@ margin-bottom: 2%
 }
 .boxy {
   margin-top: 10%
+}
+
+#name {
+  width: 3rem;
+  height: 1rem;
 }
