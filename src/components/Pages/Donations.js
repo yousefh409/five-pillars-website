@@ -22,22 +22,17 @@ export const Donations = () => {
         
         </h2>
         <div>
-            <h3 class = "foolentreeing"> Volunteer
+            <h2 class = "bleaseHelp"> Volunteer
                 <p >
-                  <br></br><br></br><br></br><br></br>
+                <br></br>
                     Want to help out? 
                 </p>
                 <p>
-                  <br></br><br></br><br></br><br></br>
-                Sign up for volunteering
-                  </p>
-                  <p>
-                    <br></br><br></br>
-                    opportunities below.
+                <br></br>
+                Sign up for volunteering opportunities below.
                     </p>
-            
-            
-            </h3>
+          
+            </h2>
             <form onSubmit={handleSubmit}>
         <fieldset class="boxy">
           <label>
@@ -52,8 +47,9 @@ export const Donations = () => {
             </input>
             </p>
           </label>
+          <button type="submit" >Submit</button>
         </fieldset>
-        <button type="submit">Submit</button>
+
       </form>
         </div>
       </h1>
