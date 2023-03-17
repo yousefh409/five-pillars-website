@@ -1,5 +1,5 @@
 import React from "react";
-import DonateButton from "../../DonateButton";
+// import DonateButton from "../../DonateButton";
 
 export const Donations = () => {
     const handleSubmit = event => {
@@ -9,8 +9,8 @@ export const Donations = () => {
       <h1>Support Us
         <b></b>
     
-        <h2 class = "bleaseHelp"> Donate 
-            <p class = "zubbort">
+        <h2> Donate 
+            <p>
               <br></br>
                 Support the Five Pillars Cemetery by donating! If you wish to do so, please fill out the form below. Your genorisity is greatly appreciated!
                 
@@ -22,8 +22,8 @@ export const Donations = () => {
         
         </h2>
         <div>
-            <h2 class = "bleaseHelp"> Volunteer
-                <p >
+            <h2> Volunteer
+                <p>
                 <br></br>
                     Want to help out? 
                 </p>
@@ -34,7 +34,7 @@ export const Donations = () => {
           
             </h2>
             <form onSubmit={handleSubmit}>
-        <fieldset class="boxy">
+        <fieldset>
           <label>
             <p class = "zName">Name
             <input class = "iName" name="name" />
