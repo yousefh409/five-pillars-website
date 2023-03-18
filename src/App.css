@@ -1,15 +1,17 @@
-/* * {
+.components {
   margin: 0;
   padding: 0;
 }
 
 body {
-  background-color: #b5fac7;
+  background-color: #faf8e3;
 }
-
+/*
 .pages {
-  color: #316685;
+  color: #ace1ff;
   text-align: center;
   font-size: 3.5rem;
   margin-top: 10%;
-} */
+}
+
+*/
