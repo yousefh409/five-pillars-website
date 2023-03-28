@@ -2,3 +2,15 @@
     display: flex;
     align-items: flex-start;
 }
+
+.blockWrapper {
+    border-style: solid;
+    border-radius: 5px;
+    padding: 7.5px;
+    margin: 3px;
+}
+
+.blockTitle {
+    font-size: 10px;
+}
+

@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import "./Walkway.css"
-class Walkway extends Component {
+class WalkwayPathHorizontal extends Component {
     constructor(props) {
         super(props);
     }
     render = () => {
         return (
-            <div className="walkway" />
+            <div className="walkwayPathHorizontal"></div>
         )
     };
 };
 
-export default Walkway;
+export default WalkwayPathHorizontal;

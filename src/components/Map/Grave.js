@@ -5,9 +5,11 @@ class Grave extends Component {
         super(props);
     }
     render = () => {
+        var id = this.props.sectionID + this.props.data.split(' ')[0];
+        var dateOfDeath = this.props.data.split(' ')[-1]
         return (
             <div className="grave">
-                {this.props.data}
+                {id}
             </div>
         )
     };
