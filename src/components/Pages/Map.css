@@ -1,5 +1,22 @@
 .mapWrapper {
     display: flex;
     /* align-items flex-start; */
-    height: 100%;
+    margin: 15px;
+    padding: 15px;
+    border: dashed grey;
+    overflow: scroll;
+}
+
+.legendTitle {
+    font-size: 25px;
+}
+
+.legendRow {
+    display: flex;
+    align-items: flex-start;
+}
+
+.legendOption {
+    font-size: 15px;
+    margin-left: 20px;
 }
