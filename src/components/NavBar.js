@@ -74,6 +74,17 @@ function NavBar() {
             <li className="nav-item">
               <NavLink
                 exact
+                to="/map"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Map
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
                 to="/contact"
                 activeClassName="active"
                 className="nav-links"
