@@ -7,6 +7,7 @@ import { Donations } from "./components/Pages/Donations";
 import { Janaza } from "./components/Pages/Janaza";
 import { NextSteps } from "./components/Pages/NextSteps";
 import { Visiting } from "./components/Pages/Visiting";
+import { Services } from "./components/Pages/Services";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/janaza" element={<Janaza />} />
             <Route path="/next-steps" element={<NextSteps />} />
             <Route path="/visiting" element={<Visiting />} />
+            <Route path="/services" element={<Services />} />
 
           </Routes>
         </div>

@@ -93,6 +93,17 @@ function NavBar() {
                 Support Us
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink
+                exact
+                to="/services"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+                Services
+              </NavLink>
+            </li>
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
