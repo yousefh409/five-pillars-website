@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import "./Services.css";
 import {useNavigate } from "react-router-dom";
 import { BrowserRouter as  Route, Routes } from "react-router-dom";
@@ -59,3 +60,33 @@ export const Services = () => {
   );
 }
 
+=======
+
+export const Services = () => {
+  return (
+    <div>
+        <h1> Services
+            
+        <h2> Burial Payment
+            <p>
+            How to pay burial fees: *Include information here*
+            </p>
+        <p>
+        <button onclick = "window.location.href='www.paypal.com';">Paypal</button>
+        </p>
+        </h2>
+
+        <h2> Headstone Payment
+            <p>
+            How to pay for a headstone: *Include information here*
+            </p>
+        <p>
+        <button onclick = "window.location.href='www.paypal.com';">Paypal</button>
+        </p>
+        </h2>
+
+        </h1>
+    </div>
+  );
+};
+>>>>>>> 29b5e5bd6e04d5499f33b74159b95ab544bd2650
