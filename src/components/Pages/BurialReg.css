@@ -1,0 +1,23 @@
+.collapsible .content {
+    padding: 6px;
+    background-color: #eeeeee;
+}
+.collapsible {
+    width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.collapsible .header {
+    background-color: #dddddd;
+    border-style: solid;
+    padding: 6px;
+    cursor: pointer;
+    text-align: center;
+    height: 40px;
+    font-size: xx-large;
+}
+.center{
+    diplay: flex;
+    width: 100%;
+    justify-content: center;
+}
