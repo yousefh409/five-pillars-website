@@ -5,6 +5,8 @@
     padding: 15px;
     border: dashed grey;
     overflow: scroll;
+    /* width: 80vw; */
+    /* height: 80vh; */
 }
 
 .legendTitle {

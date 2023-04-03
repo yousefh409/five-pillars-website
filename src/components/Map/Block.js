@@ -20,7 +20,9 @@ class Block extends Component {
         fetch("/data/Five Pillars - Left Side - BLOCK A.csv")
             .then((response) => response.text())
             .then((textContent) => {
-                const csv = convertCSVToArray(textContent, {
+                // Note: We add a "\n" here since the "convert-csv-to-array" package requires that
+                //       all CSV lines end in a newline character (which google sheet downloaded CSVs do not have)
+                const csv = convertCSVToArray(textContent + "\n", {
                     type: 'array',
                     separator: ',',
                   });

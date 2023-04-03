@@ -7,6 +7,7 @@ import Walkway from "../Map/Walkway";
 import WalkwayPathHorizontal from "../Map/WalkwayPathHorizontal";
 import WalkwayPathVertical from "../Map/WalkwayPathVertical";
 import "./Map.css";
+import ScrollContainer from 'react-indiana-drag-scroll'
 
 export const Map = () => {
   return (
