@@ -13,14 +13,14 @@ class Row extends Component {
         this.state = {
             data: []
         };
-        this.showFile(this.props.blockFile)
+        this.showFile(this.props.filename)
     }
 
     showFile = async (file) => {
-        fetch("/data/Five Pillars - Right Side - ROW AA.csv")
+        fetch("/data/" + file)
             .then((response) => response.text())
             .then((textContent) => {
-                const csv = convertCSVToArray(textContent, {
+                const csv = convertCSVToArray(textContent + "\n", {
                     type: 'array',
                     separator: ',',
                   });

@@ -13,11 +13,11 @@ class Block extends Component {
         this.state = {
             data: []
         };
-        this.showFile(this.props.blockFile)
+        this.showFile(this.props.filename)
     }
 
     showFile = async (file) => {
-        fetch("/data/Five Pillars - Left Side - BLOCK A.csv")
+        fetch("/data/" + file)
             .then((response) => response.text())
             .then((textContent) => {
                 // Note: We add a "\n" here since the "convert-csv-to-array" package requires that
@@ -43,8 +43,9 @@ class Block extends Component {
                                     return <div className="blockRow"> 
                                         {option.map((option, index) => {
                                             var trimmed = option.trim()
+                                            console.log(trimmed)
                                             return <div> 
-                                                {trimmed === "None"? 
+                                                {(trimmed === "Empty" || trimmed === "None")? 
                                                     <EmptyGrave />: 
                                                     (trimmed === "WALK WAY"?
                                                         <Walkway />: 

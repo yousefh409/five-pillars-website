@@ -29,54 +29,68 @@ export const Map = () => {
         </div>
         <div className="mapWrapper">
             <div>
-                <Block sectionID="A" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="A" filename="Five Pillars - Left Side - BLOCK A.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="B" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="B" filename="Five Pillars - Left Side - BLOCK B.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="C" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="C" filename="Five Pillars - Left Side - BLOCK C.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="D" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="D" filename="Five Pillars - Left Side - BLOCK D.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="E" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="E" filename="Five Pillars - Left Side - BLOCK E.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="F" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="F" filename="Five Pillars - Left Side - BLOCK F.csv"/>
             </div>
             <div>
-                <Block sectionID="G" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="G" filename="Five Pillars - Left Side - BLOCK G.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="H" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="H" filename="Five Pillars - Left Side - BLOCK H.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="I" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="I" filename="Five Pillars - Left Side - BLOCK I.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="J" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="J" filename="Five Pillars - Left Side - BLOCK J.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="K" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="K" filename="Five Pillars - Left Side - BLOCK K.csv"/>
                 <WalkwayPathHorizontal />
-                <Block sectionID="L" blockFile="Five Pillars - Left Side - BLOCK A.csv"/>
+                <Block sectionID="L" filename="Five Pillars - Left Side - BLOCK L.csv"/>
             </div>
+            <WalkwayPathVertical />
+            {/* <div>
+                <Block sectionID="M" filename="Five Pillars - Left Side - BLOCK G.csv"/>
+                <WalkwayPathHorizontal />
+                <Block sectionID="N" filename="Five Pillars - Left Side - BLOCK H.csv"/>
+                <WalkwayPathHorizontal />
+                <Block sectionID="P" filename="Five Pillars - Left Side - BLOCK I.csv"/>
+                <WalkwayPathHorizontal />
+                <Block sectionID="Q" filename="Five Pillars - Left Side - BLOCK J.csv"/>
+                <WalkwayPathHorizontal />
+                <Block sectionID="R" filename="Five Pillars - Left Side - BLOCK K.csv"/>
+                <WalkwayPathHorizontal />
+                <Block sectionID="S" filename="Five Pillars - Left Side - BLOCK L.csv"/>
+            </div> */}
             <WalkwayPathVertical />
             <div>
                 <Row sectionID="AA" filename="Five Pillars - Right Side - ROW AA.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="BB" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="BB" filename="Five Pillars - Right Side - ROW BB.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="CC" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="CC" filename="Five Pillars - Right Side - ROW CC.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="DD" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="DD" filename="Five Pillars - Right Side - ROW DD.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="EE" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="EE" filename="Five Pillars - Right Side - ROW EE.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="FF" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="FF" filename="Five Pillars - Right Side - ROW FF.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="GG" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="GG" filename="Five Pillars - Right Side - ROW GG.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="HH" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="HH" filename="Five Pillars - Right Side - ROW HH.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="II" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="II" filename="Five Pillars - Right Side - ROW II.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="JJ" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="JJ" filename="Five Pillars - Right Side - ROW JJ.csv"/>
                 <WalkwayPathHorizontal />
-                <Row sectionID="KK" filename="Five Pillars - Right Side - ROW AA.csv"/>
+                <Row sectionID="KK" filename="Five Pillars - Right Side - ROW KK.csv"/>
 
             </div>
         </div>
