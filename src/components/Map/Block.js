@@ -43,7 +43,6 @@ class Block extends Component {
                                     return <div className="blockRow"> 
                                         {option.map((option, index) => {
                                             var trimmed = option.trim()
-                                            console.log(trimmed)
                                             return <div> 
                                                 {(trimmed === "Empty" || trimmed === "None")? 
                                                     <EmptyGrave />: 

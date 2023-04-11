@@ -3,10 +3,13 @@
     /* align-items flex-start; */
     margin: 15px;
     padding: 15px;
-    border: dashed grey;
+    /* border: dashed grey; */
+    border: 10px solid transparent;
     overflow: scroll;
     /* width: 80vw; */
     /* height: 80vh; */
+    border-image: url("../../../public/images/border.png") 30 round;
+
 }
 
 .legendTitle {
