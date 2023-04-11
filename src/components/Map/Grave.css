@@ -1,16 +1,48 @@
 .grave {
     margin: 2px;
-    background-color:bisque;
-    width: 20px;
-    height: 20px;
+    background-color:wheat;
+    width: 28px;
+    height: 24px;
     font-size: 8px;
     text-align: center;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
 }
+
+.graveSelected {
+    margin: 2px;
+    background-color: rgb(120, 187, 120);
+    font-size: 9px;
+    color: black;
+    font-weight: bolder;
+    text-align: center;
+    -webkit-box-shadow:0 0 20px rgb(117, 174, 117); 
+    -moz-box-shadow: 0 0 20px rgb(117, 174, 117); 
+    box-shadow:0 0 20px rgb(117, 174, 117);
+    animation: bounce 0.8s linear infinite;
+    width: 28px;
+    height: 24px;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);} 
+    /* 40% {transform: translateY(-10px);}  */
+    60% {transform: translateY(-10px);} 
+ } 
+
+/* @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  } */
 
 .emptyGrave {
     margin: 2px;
-    width: 20px;
-    height: 20px;
+    width: 28px;
+    height: 24px;
     background-color: rgb(238, 223, 205);
 }
 

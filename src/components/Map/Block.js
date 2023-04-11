@@ -49,7 +49,7 @@ class Block extends Component {
                                                     <EmptyGrave />: 
                                                     (trimmed === "WALK WAY"?
                                                         <Walkway />: 
-                                                        <Grave sectionID={this.props.sectionID} data={trimmed}/>)}
+                                                        <Grave sectionID={this.props.sectionID} data={trimmed} addToNamesList={this.props.addToNamesList} selectedId={this.props.selectedId}/>)}
                                             </div>
                                         })}
                                     </div>

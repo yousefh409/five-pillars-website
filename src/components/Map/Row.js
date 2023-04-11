@@ -24,8 +24,6 @@ class Row extends Component {
                     type: 'array',
                     separator: ',',
                   });
-                  console.log(textContent)
-                  console.log(csv)
                 this.setState({data: csv})
             });
     }
@@ -48,7 +46,7 @@ class Row extends Component {
                                                     <EmptyGrave />: 
                                                     (trimmed === "WALK WAY"?
                                                         <Walkway />: 
-                                                        <Grave sectionID={this.props.sectionID} data={trimmed}/>)}
+                                                        <Grave sectionID={this.props.sectionID} data={trimmed} addToNamesList={this.props.addToNamesList} selectedId={this.props.selectedId}/>)}
                                             </div>
                                         })}
                                     </div>

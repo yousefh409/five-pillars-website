@@ -7,7 +7,7 @@ import { Donations } from "./components/Pages/Donations";
 import { Janaza } from "./components/Pages/Janaza";
 import { NextSteps } from "./components/Pages/NextSteps";
 import { Visiting } from "./components/Pages/Visiting";
-import { Map } from "./components/Pages/Map";
+import Map from "./components/Pages/Map";
 
 
 function App() {

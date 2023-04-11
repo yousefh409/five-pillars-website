@@ -10,6 +10,11 @@ class Grave extends Component {
         this.state = {
             hover: false
         };
+        var id = this.props.sectionID + this.props.data.split(' ')[0];
+        var dateOfDeath = this.props.data.split(' ').at(-1)
+        var name = this.props.data.split(' ').slice(1, -1).join(' ')
+        var tooltiptest = 'this is <br /> a test';
+        this.props.addToNamesList(id, name)
     }
 
     handleMouseIn() {
@@ -25,11 +30,11 @@ class Grave extends Component {
         var dateOfDeath = this.props.data.split(' ').at(-1)
         var name = this.props.data.split(' ').slice(1, -1).join(' ')
         var tooltiptest = 'this is <br /> a test';
-
         return (
             <div>
-                <div className="grave"  data-tooltip-id="my-tooltip" data-tooltip-html={name + " <br /> Date of Death: " + dateOfDeath} >
-                    {id}
+                <div className={this.props.selectedId == id? "graveSelected": "grave"}  data-tooltip-id="my-tooltip" data-tooltip-html={name + " <br /> Date of Death: " + dateOfDeath} >
+                    
+                    <div id={id+"-grave"} className="graveText">{id}</div>
                 </div>
             </div>
         )

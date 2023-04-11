@@ -12,7 +12,9 @@
     "react-indiana-drag-scroll": "^2.2.0",
     "react-router-dom": "^6.8.1",
     "react-scripts": "^5.0.1",
+    "react-search-box": "^3.0.0",
     "react-tooltip": "^5.11.1",
+    "seamless-scroll-polyfill": "^2.3.4",
     "web-vitals": "^3.1.1"
   },
   "scripts": {
