@@ -13,3 +13,14 @@
     height: 20px;
     background-color: rgb(238, 223, 205);
 }
+
+.graveInfo {
+    /* position: fixed; */
+    background-color: white;
+    /* margin-bottom: 100px; */
+    position: absolute;
+    /* left: 0; */
+    /* bottom: 30px; */
+    /* margin-bottom: 500px; */
+    bottom: 500px;
+}

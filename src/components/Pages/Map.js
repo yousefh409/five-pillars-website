@@ -8,25 +8,13 @@ import WalkwayPathHorizontal from "../Map/WalkwayPathHorizontal";
 import WalkwayPathVertical from "../Map/WalkwayPathVertical";
 import "./Map.css";
 import ScrollContainer from 'react-indiana-drag-scroll'
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
 
 export const Map = () => {
   return (
     <div>
-        <div>
-            <p className="legendTitle">Legend</p>
-            <div className="legendRow">
-                <div className="legendOption">Grave = </div>
-                <Grave sectionID={"-"} data={"- - -"}/>
-            </div>
-            <div className="legendRow">
-                <div className="legendOption">Empty Grave = </div>
-                <EmptyGrave />
-            </div>
-            <div className="legendRow">
-                <div className="legendOption">Walkway = </div>
-                <Walkway />
-            </div>
-        </div>
+        <Tooltip id="my-tooltip"/>
         <div className="mapWrapper">
             <div>
                 <Block sectionID="A" filename="Five Pillars - Left Side - BLOCK A.csv"/>
