@@ -71,15 +71,15 @@ class Map extends React.Component {
                                 //     behavior:"smooth",
                                 //     block: 'center'
                                 // });
-                                // scrollIntoView(my_element, {
-                                //     behavior: "smooth",
-                                //     block: 'center',
-                                //     // inline: 'center'
-                                // },
-                                // {
-                                //   duration: 250 // aprox. the duration that chrome uses,
-                                // }
-                                // );
+                                scrollIntoView(my_element, {
+                                    behavior: "smooth",
+                                    block: 'center',
+                                    // inline: 'center'
+                                },
+                                {
+                                  duration: 250 // aprox. the duration that chrome uses,
+                                }
+                                );
 
                                 // setTimeout(function () {
 
