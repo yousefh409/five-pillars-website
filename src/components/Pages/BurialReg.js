@@ -20,57 +20,57 @@ import StripeContainer from "./StripeContainer";
 
 //product object
 function PaymentForm() {
-    const [success, setSuccess ] = useState(false)
+    const [success, setSuccess] = useState(false)
     const stripe = useStripe()
     const elements = useElements()
 
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const {error, paymentMethod} = await stripe.createPaymentMethod({
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
             type: "card",
             card: elements.getElement(CardElement)
         })
 
 
-    if(!error) {
-        try {
-            const {id} = paymentMethod
-            const response = await axios.post("http://localhost:3000/zeForm/Payment", {
-                amount: 1000,
-                id
-            })
+        if (!error) {
+            try {
+                const { id } = paymentMethod
+                const response = await axios.post("http://localhost:3000/zeForm/Payment", {
+                    amount: 1000,
+                    id
+                })
 
-            if(response.data.success) {
-                console.log("Successful payment")
-                setSuccess(true);
+                if (response.data.success) {
+                    console.log("Successful payment")
+                    setSuccess(true);
+                }
+
+            } catch (error) {
+                console.log("Error", error)
             }
-
-        } catch (error) {
-            console.log("Error", error)
+        } else {
+            console.log(error.message)
         }
-    } else {
-        console.log(error.message)
     }
-}
 
     return (
         <>
-        {!success ? 
-        <form onSubmit={handleSubmit}>
-            <fieldset className="FormGroup">
-                <div className="FormRow">
-                    <CardElement />
+            {!success ?
+                <form onSubmit={handleSubmit}>
+                    <fieldset className="FormGroup">
+                        <div className="FormRow">
+                            <CardElement />
+                        </div>
+                    </fieldset>
+                    <button>Pay</button>
+                </form>
+                :
+                <div>
+                    <h2>Payment Successful! See you at the graveyard. </h2>
                 </div>
-            </fieldset>
-            <button>Pay</button>
-        </form>
-        :
-       <div>
-           <h2>Payment Successful! See you at the graveyard. </h2>
-       </div> 
-        }
-            
+            }
+
         </>
     )
 }
@@ -102,26 +102,31 @@ function Collapsible() {
     const [extras, setExtras] = useState('')
     const [specials, setSpecials] = useState('')
     const [consentToPay, setConsentToPay] = useState(false)
+    const [productId, setProductId] = useState(1);
     const typeOfPayment = useState('Prepaid')
 
     const PUBLIC_KEY = "pk_test_51MrSm9Ipjb8xd8GP5cQIYeRavMUQDHys9hzs4GnIPo7TtQW8fiNfaxixJSIdXyIwsKSDAQ2XJCfIiDbUPzRQOHDF00IStxnPIj"
 
     const stripeTestPromise = loadStripe(PUBLIC_KEY)
 
-        
+
     const { getCollapseProps, getToggleProps, isExpanded } = useCollapse(config);
 
     const calculatePrice = () => {
         if (isChild === 'Yes') {
             if (extras === "Yes") {
                 setPrice(3000);
+                setProductId(6)
             } else {
                 setPrice(2500)
+                setProductId(5)
             }
         } else if (extras === 'No') {
             setPrice(3900)
+            setProductId(1)
         } else {
             setPrice(4400)
+            setProductId(2)
         }
         setCalcPrice(true)
         console.log(price)
@@ -183,16 +188,17 @@ function Collapsible() {
             <div {...getCollapseProps()}>
                 <div className="content">
                     <br></br>
-                    <form autoComplete="off" className='form-group'
+                    <form autoComplete="off" 
                         onSubmit={handleSubmit}
+                        className="bigMama"
                     >
-                        <label for="ppaid">How was prepaid?</label><br></br>
-                        <input type="number" id="ppaid" name="Prepaid" placeholder="Enter Amount" required className='form-control'
+                        <label for="ppaid" className="head">How much was prepaid?</label><br></br>
+                        <input type="number" id="ppaid" name="Prepaid" placeholder="Enter Amount" required className="fill_me_with_letters"
                             onChange={(e) => setPrepaid(e.target.value)} value={prepaid}
                         ></input> <br></br><br></br>
 
-                        <label for="purchaser">Type of purchaser? </label><br></br>
-                        <input id="TypeOPurchaser" name="purchaser" type="text" list="purchasers" required
+                        <label for="purchaser" className="head">Type of purchaser? </label><br></br>
+                        <input id="TypeOPurchaser" name="purchaser" type="text" className="fill_me_with_letters" list="purchasers" required
                             onChange={(e) => setPurchaser(e.target.value)} value={purchaser}
                         />
                         <datalist id="purchasers">
@@ -200,18 +206,18 @@ function Collapsible() {
                             <option value="Individual">Individual</option>
                         </datalist><br></br><br></br>
 
-                        <label for="deceasedName">Name of Deceased <span>&#40;</span>First Last<span>&#41;</span>:</label><br></br>
-                        <input type="text" id="deceasedName" name="deceasedName" className="form-control" placeholder="Please Enter Name of Deceased" required
+                        <label for="deceasedName" className="head">Name of Deceased <span>&#40;</span>First Last<span>&#41;</span>:</label><br></br>
+                        <input type="text" id="deceasedName" name="deceasedName" className="fill_me_with_letters" placeholder="Please Enter Name of Deceased" required
                             onChange={(e) => setDeceasedName(e.target.value)} value={deceasedName}
                         ></input><br></br><br></br>
 
-                        <label for="deceasedDay">Deceased Day: </label>
-                        <input type="number" min="1" max="31" id="deceasedDay" name="deceasedDay" className="form-control" required
+                        <label for="deceasedDay" className="head">Deceased Day: </label>
+                        <input type="number" min="1" max="31" id="deceasedDay" name="deceasedDay" className="fill_me_with_letters" required
                             onChange={(e) => setDeceasedDay(e.target.value)} value={deceasedDay}
                         ></input><br></br><br></br>
 
-                        <label for="deceasedMonth">Deceased Month: </label>
-                        <input id="deceasedMonth" name="deceasedMonth" type="text" list='months' required
+                        <label for="deceasedMonth" className="head">Deceased Month: </label>
+                        <input id="deceasedMonth" name="deceasedMonth" className="fill_me_with_letters" type="text" list='months' required
                             onChange={(e) => setDeceasedMonth(e.target.value)} value={deceasedMonth}
                         />
                         <datalist id='months'>
@@ -229,34 +235,34 @@ function Collapsible() {
                             <option value="December">December</option>
                         </datalist><br></br><br></br>
 
-                        <label for="deceasedYear">Deceased Year: </label>
-                        <input type="number" min="2023" max="2023" id="deceasedYear" name="deceasedYear" className='form-control' required
+                        <label for="deceasedYear" className="head">Deceased Year: </label>
+                        <input type="number" min="2023" max="2023" id="deceasedYear" name="deceasedYear" className="fill_me_with_letters" required
                             onChange={(e) => setDeceasedYear(e.target.value)} value={deceasedYear}
                         ></input><br></br><br></br>
 
                         <h2>Billing Information</h2>
-                        <label for="FirstName">First Name</label><br></br>
-                        <input type="text" id="FirstName" name="FirstName" required
+                        <label for="FirstName" className="head">First Name</label><br></br>
+                        <input type="text" id="FirstName" name="FirstName" className="fill_me_with_letters" required
                             onChange={(e) => setFirstName(e.target.value)} value={firstName}
                         ></input><br></br><br></br>
 
-                        <label for="LastName">Last Name</label><br></br>
-                        <input type="text" id="LastName" name="LastName" required
+                        <label for="LastName" className="head">Last Name</label><br></br>
+                        <input type="text" id="LastName" name="LastName" required className="fill_me_with_letters"
                             onChange={(e) => setLastname(e.target.value)} value={lastName}
                         ></input><br></br><br></br>
 
-                        <label for="Address">Street Address</label><br></br>
-                        <input type="text" id="Address" name="Address" required
+                        <label for="Address" className="head">Street Address</label><br></br>
+                        <input type="text" id="Address" name="Address" required className="fill_me_with_letters"
                             onChange={(e) => setStreet(e.target.value)} value={street}
                         ></input><br></br><br></br>
 
-                        <label for="City">City</label><br></br>
-                        <input type="text" id="City" name="City" required
+                        <label for="City" className="head">City</label><br></br>
+                        <input type="text" id="City" name="City" required className="fill_me_with_letters"
                             onChange={(e) => setCity(e.target.value)} value={city}
                         ></input><br></br><br></br>
 
-                        <label for="Country">Country</label><br></br>
-                        <input list="country" type="text" name="country" class="datalist-input" required
+                        <label for="Country" className="head">Country</label><br></br>
+                        <input list="country" type="text" name="country" class="datalist-input" required className="fill_me_with_letters"
                             onChange={(e) => setCountry(e.target.value)} value={country}
                         />
                         <datalist id="country">
@@ -501,8 +507,8 @@ function Collapsible() {
                             <option value="Zimbabwe" />
                         </datalist><br></br><br></br>
 
-                        <label for="State">State <span>&#40;</span>Type N/A if outside US<span>&#41;</span></label><br></br>
-                        <input list="states" id="State" name="State" required
+                        <label for="State" className="head">State <span>&#40;</span>Type N/A if outside US<span>&#41;</span></label><br></br>
+                        <input list="states" id="State" name="State" required className="fill_me_with_letters"
                             onChange={(e) => setState(e.target.value)} value={state}
                         ></input>
                         <datalist id="states">
@@ -560,25 +566,25 @@ function Collapsible() {
                             <option value="N/A"></option>
                         </datalist><br></br><br></br>
 
-                        <label for="ZipCode">Zip Code</label><br></br>
-                        <input type="number" id="Zip Code" name="Zip Code" required
+                        <label for="ZipCode" className="head">Zip Code</label><br></br>
+                        <input type="number" id="Zip Code" name="Zip Code" required className="fill_me_with_letters"
                             onChange={(e) => setZip(e.target.value)} value={zip}
                         ></input><br></br><br></br>
 
-                        <label for="Speshial Requeshts">Special Requests</label> <br></br>
-                        <input type="text" id="requests" name="requests"
+                        <label for="Speshial Requeshts" className="head">Special Requests</label> <br></br>
+                        <input type="text" id="requests" name="requests" className="fill_me_with_letters"
                             onChange={(e) => setSpecials(e.target.value)} value={specials}
                         ></input><br></br><br></br>
 
 
                         <h2>Pricing Details</h2><br></br>
-                        <label for="WeekendServices">Weekend or Holiday Service?</label><br></br>
-                        <input list="yesNo" id="weekends" name="weekends" required
+                        <label for="WeekendServices" className="head">Weekend or Holiday Service?</label><br></br>
+                        <input list="yesNo" id="weekends" name="weekends" required className="fill_me_with_letters"
                             onChange={(e) => setExtras(e.target.value)} value={extras}
                         ></input><br></br><br></br>
 
-                        <label for="ChildQ">Was the deceased a child of less than 34" in height?</label><br></br>
-                        <input id="isAChild" name="isAChild" type="text" list="yesNo" required
+                        <label for="ChildQ" className="head">Was the deceased a child of less than 34" in height?</label><br></br>
+                        <input id="isAChild" name="isAChild" type="text" list="yesNo" required className="fill_me_with_letters"
                             onChange={(e) => setChild(e.target.value)} value={isChild} />
                         <datalist id="yesNo">
                             <option value="Yes">Yes</option>
@@ -587,10 +593,10 @@ function Collapsible() {
 
                         {calcPrice ? <p>Price: ${price}.00 <br></br>
                             {consentToPay ?
-                             <Elements stripe={stripeTestPromise}>
-			                    <PaymentForm />
-		                    </Elements>
-                            : <button onClick={() => setConsentToPay(true)}>Pay with Card</button>}
+                                <Elements stripe={stripeTestPromise}>
+                                    <PaymentForm />
+                                </Elements>
+                                : <button onClick={() => setConsentToPay(true)}>Pay with Card</button>}
                         </p>
                             :
                             <button onClick={() => calculatePrice()}> Calculate Price</button>}
@@ -625,6 +631,9 @@ function Collapsibles() {
     const [extras, setExtras] = useState('')
     const [specials, setSpecials] = useState('')
     const [consentToPay, setConsentToPay] = useState(false)
+    const [productId, setProductId] = useState(1);
+
+
     const typeOfPayment = useState('First Time');
 
     const PUBLIC_KEY = "pk_test_51MrSm9Ipjb8xd8GP5cQIYeRavMUQDHys9hzs4GnIPo7TtQW8fiNfaxixJSIdXyIwsKSDAQ2XJCfIiDbUPzRQOHDF00IStxnPIj"
@@ -635,13 +644,17 @@ function Collapsibles() {
         if (isChild === 'Yes') {
             if (extras === "Yes") {
                 setPrice(3000);
+                setProductId(6)
             } else {
                 setPrice(2500)
+                setProductId(5)
             }
         } else if (extras === 'No') {
             setPrice(5900)
+            setProductId(3)
         } else {
             setPrice(6400)
+            setProductId(4)
         }
         setCalcPrice(true)
         console.log(price)
@@ -706,7 +719,7 @@ function Collapsibles() {
                     <form autoComplete="off" className='form-group'
                         onSubmit={handleSubmit}
                     >
-                       
+
 
                         <label for="purchaser">Type of purchaser? </label><br></br>
                         <input id="TypeOPurchaser" name="purchaser" type="text" list="purchasers" required
@@ -1103,11 +1116,29 @@ function Collapsibles() {
                         </datalist><br></br><br></br>
 
                         {calcPrice ? <p>Price: ${price}.00 <br></br>
-                            {consentToPay ?
-                             <Elements stripe={stripeTestPromise}>
-			                    <PaymentForm />
-		                    </Elements>
-                            : <button onClick={() => setConsentToPay(true)}>Pay with Card</button>}
+                            <button onClick={() => {
+                                fetch("http://localhost:3000/create-checkout-session", {
+                                    method: "POST",
+                                    headers: {
+                                        "Content-Type": "application/json",
+                                    },
+                                    body: JSON.stringify({
+                                        items: [
+                                            { id: productId, quantity: 1 },
+                                        ],
+                                    }),
+                                })
+                                    .then(res => {
+                                        if (res.ok) return res.json()
+                                        return res.json().then(json => Promise.reject(json))
+                                    })
+                                    .then(({ url }) => {
+                                        window.location = url
+                                    })
+                                    .catch(e => {
+                                        console.error(e.error)
+                                    })
+                            }}>Checkout</button>
                         </p>
                             :
                             <button onClick={() => calculatePrice()}> Calculate Price</button>}

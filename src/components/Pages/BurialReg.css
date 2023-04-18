@@ -1,6 +1,6 @@
 .collapsible .content {
     padding: 6px;
-    background-color: #eeeeee;
+    background-color:forestgreen;
 }
 .collapsible {
     width: 1250px;
@@ -20,4 +20,24 @@
     diplay: flex;
     width: 100%;
     justify-content: center;
+}
+
+.bigMama {
+    align-items: center;
+    text-align: left;
+    margin-left: 2.5%;
+    
+}
+.fill_me_with_letters {
+    width: 1150px;
+    height: 50px;
+    font-size: 200%;
+    text-align: left;
+    text-indent: 2.5%;
+    background-color: #d8f2d0;
+    border-color: darkgreen;
+}
+
+.head {
+    font-size: 200%
 }

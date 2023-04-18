@@ -3,6 +3,14 @@ import React from "react";
 export const Home = () => {
   return (
     <div>
+      </div>
+  )
+}
+/*
+
+export const Home = () => {
+  return (
+    <div>
       <h1>Home</h1>
 
     
@@ -15,9 +23,9 @@ export const Home = () => {
 
          <rs-layer-wrap class="rs-parallax-wrap" style="position: absolute; display: block; pointer-events: auto; left: 605px; top: 273px; z-index: 7; visibility: visible; perspective: 601px;"><rs-loop-wrap style="position:absolute;display:block;"><rs-mask-wrap style="position: absolute; display: block; overflow: visible;"><a id="slider-2-slide-4-layer-2" class="rs-layer rev-btn" href="https://gardens-of-peace.org.uk/#our-cemetery-sites" target="_self" rel="nofollow" data-type="button" data-rsp_ch="on" data-xy="x:c;yo:372px,372px,372px,273px;" data-text="w:normal;s:21,21,21,20;l:49,49,49,44;fw:500;a:center;" data-dim="w:270px,270px,270px,268px;h:49px,49px,49px,44px;minh:0,0,0,none;" data-padding="r:31,31,31,32;l:31,31,31,32;" data-border="bor:25px,25px,25px,25px;" data-frame_999="o:0;st:w;" data-frame_hover="bgc:#232323;bor:25px,25px,25px,25px;bri:120%;" style="z-index: 7; background-color: rgb(0, 104, 55); font-family: Roboto; color: rgb(255, 255, 255); text-decoration: none; white-space: normal; width: 198.281px; height: 35.9844px; min-height: 0px; min-width: 0px; max-height: none; max-width: none; text-align: center;
              line-height: 36px; letter-spacing: 0px; font-weight: 500; font-size: 15px; padding-left: 23px; border-radius: 25px; padding-right: 23px; transform-origin: 50% 50%; opacity: 1; transform: translate(0px, 0px); visibility: visible; backdrop-filter: none; filter: brightness(100%);" data-idcheck="true" data-stylerecorder="true" data-initialised="true">Our Cemetery Sites
-            </a></rs-mask-wrap></rs-loop-wrap></rs-layer-wrap> {/*<!-- */}
-    {/* -->						</rs-slide> */}
-
+            </a></rs-mask-wrap></rs-loop-wrap></rs-layer-wrap> {/*<!-- */
+    /* -->						</rs-slide> */
+/*
       <rs-static-layers data-key="staticlayers">
       </rs-static-layers>
           <rs-arrow style="opacity: 1; transform: translate(-60px, -55px); top: 50%; left: 100%;"
@@ -43,5 +51,4 @@ export const Home = () => {
 
 
     </div>
-  );
-};
+  );*/
