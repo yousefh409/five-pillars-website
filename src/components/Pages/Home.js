@@ -14,6 +14,7 @@ export const Home = () => {
       <h1>Home</h1>
 
     
+<<<<<<< HEAD
     <rs-layer-wrap class="rs-parallax-wrap" style="position: absolute; display: block; pointer-events: auto; left: 411px; top: 144px; z-index: 5; visibility: visible; perspective: 601px;"><rs-loop-wrap style="position:absolute;display:block;"><rs-mask-wrap style="position: absolute; display: block; overflow: visible;"><rs-layer id="slider-2-slide-4-layer-0" data-type="text" data-rsp_ch="on" data-xy="x:c;yo:197px,197px,197px,125px;" data-text="w:normal;s:87,87,87,42;l:110,110,110,57;fw:700;a:center;" data-frame_999="o:0;st:w;" style="z-index: 5; font-family: &quot;PT Serif&quot;; height: auto; width: auto; color: rgb(255, 255, 255); text-decoration: none; white-space: nowrap; min-height: 0px; min-width: 0px; max-height: none; max-width: none; text-align: center; line-height: 81px; letter-spacing: 0px; font-weight: 700; font-size: 64px; transform-origin: 50% 50%; opacity: 1; transform: translate(0px, 0px); visibility: visible;" class="rs-layer" data-idcheck="true" data-stylerecorder="true" data-initialised="true">Muslim Cemeteries
             </rs-layer></rs-mask-wrap></rs-loop-wrap></rs-layer-wrap>
 
@@ -49,6 +50,8 @@ export const Home = () => {
         <h2 class="title-heading-center fusion-responsive-typography-calculated" style="margin:0;--fontSize:38;line-height:1.26;">In the Name of Allãh, the Most Beneficent, the Most Merciful</h2>
            <i>“Truly! To Allãh we belong and truly, to Him we shall return”&nbsp;</i>
 
+=======
+>>>>>>> f5f2984d08513117adfabbf641d2100fa138e2f3
 
     </div>
   );*/
