@@ -16,3 +16,34 @@
     text-decoration: underline;
 }
 
+.blockBlank {
+    width: 20vw;
+    min-width: 80px;
+    height: 50px;
+}
+
+.blockBlankSelected {
+    width: 20vw;
+    background-color: rgb(147, 235, 147);
+    min-width: 80px;
+    height: 50px;
+    font-size: small;
+    text-align: center;
+    padding: 4px;
+}
+
+.rowBlank {
+    width: 40vw;
+    min-width: 160px;
+    height: 50px;
+}
+
+.rowBlankSelected {
+    width: 40vw;
+    background-color: rgb(147, 235, 147);
+    min-width: 160px;
+    height: 50px;
+    font-size: small;
+    text-align: center;
+    padding: 4px;
+}

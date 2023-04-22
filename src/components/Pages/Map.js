@@ -21,9 +21,28 @@ class Map extends React.Component {
         super(props);
         this.state = ({
             names: [],
-            selectedId: "none"
+            selectedId: "none",
+            width: 0,
+            height: 0,
+            selectedSection: "none"
         })
         this.addToNamesList=this.addToNamesList.bind(this);
+        this.selectSection=this.selectSection.bind(this);
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+
+    }
+
+    componentDidMount() {
+       this.updateWindowDimensions();
+       window.addEventListener('resize', this.updateWindowDimensions);
+    }
+      
+    componentWillUnmount() {
+       window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+      
+    updateWindowDimensions() {
+       this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
 
     addToNamesList(id, name) {
@@ -33,6 +52,14 @@ class Map extends React.Component {
             value: name
         })
         this.setState({names: copy});
+    }
+
+    selectSection(sectionID) {
+        if (sectionID === this.state.selectedSection) {
+            this.setState({selectedSection: "none"})
+        } else {
+            this.setState({selectedSection: sectionID})
+        }
     }
 
     render() {
@@ -99,32 +126,55 @@ class Map extends React.Component {
                     </div>
                     <Tooltip id="my-tooltip"/>
                     <div className="mapWrapper">
-                    
                         <div>
-                            <Block sectionID="A" filename="Five Pillars - Left Side - BLOCK A.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("A") }): (() => {})}>
+                                <Block sectionID="A" filename="Five Pillars - Left Side - BLOCK A.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="B" filename="Five Pillars - Left Side - BLOCK B.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("B") }): (() => {})}>
+                                <Block sectionID="B" filename="Five Pillars - Left Side - BLOCK B.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="C" filename="Five Pillars - Left Side - BLOCK C.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("C") }): (() => {})}>
+                                <Block sectionID="C" filename="Five Pillars - Left Side - BLOCK C.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="D" filename="Five Pillars - Left Side - BLOCK D.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("D") }): (() => {})}>
+                                <Block sectionID="D" filename="Five Pillars - Left Side - BLOCK D.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="E" filename="Five Pillars - Left Side - BLOCK E.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("E") }): (() => {})}>
+                                <Block sectionID="E" filename="Five Pillars - Left Side - BLOCK E.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="F" filename="Five Pillars - Left Side - BLOCK F.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("F") }): (() => {})}>
+                                <Block sectionID="F" filename="Five Pillars - Left Side - BLOCK F.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                         </div>
                         <div>
-                            <Block sectionID="G" filename="Five Pillars - Left Side - BLOCK G.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("G") }): (() => {})}>
+                                <Block sectionID="G" filename="Five Pillars - Left Side - BLOCK G.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="H" filename="Five Pillars - Left Side - BLOCK H.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("H") }): (() => {})}>
+                                <Block sectionID="H" filename="Five Pillars - Left Side - BLOCK H.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="I" filename="Five Pillars - Left Side - BLOCK I.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("I") }): (() => {})}>
+                                <Block sectionID="I" filename="Five Pillars - Left Side - BLOCK I.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="J" filename="Five Pillars - Left Side - BLOCK J.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("J") }): (() => {})}>
+                                <Block sectionID="J" filename="Five Pillars - Left Side - BLOCK J.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="K" filename="Five Pillars - Left Side - BLOCK K.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("K") }): (() => {})}>
+                                <Block sectionID="K" filename="Five Pillars - Left Side - BLOCK K.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Block sectionID="L" filename="Five Pillars - Left Side - BLOCK L.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("L") }): (() => {})}>
+                                <Block sectionID="L" filename="Five Pillars - Left Side - BLOCK L.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                         </div>
                         <WalkwayPathVertical />
                         {/* <div>
@@ -142,27 +192,49 @@ class Map extends React.Component {
                         </div> */}
                         <WalkwayPathVertical />
                         <div>
-                            <Row sectionID="AA" filename="Five Pillars - Right Side - ROW AA.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("AA") }): (() => {})}>
+                                 <Row sectionID="AA" filename="Five Pillars - Right Side - ROW AA.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="BB" filename="Five Pillars - Right Side - ROW BB.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("BB") }): (() => {})}>
+                                <Row sectionID="BB" filename="Five Pillars - Right Side - ROW BB.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="CC" filename="Five Pillars - Right Side - ROW CC.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("CC") }): (() => {})}>
+                                <Row sectionID="CC" filename="Five Pillars - Right Side - ROW CC.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="DD" filename="Five Pillars - Right Side - ROW DD.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("DD") }): (() => {})}>
+                                 <Row sectionID="DD" filename="Five Pillars - Right Side - ROW DD.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="EE" filename="Five Pillars - Right Side - ROW EE.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("EE") }): (() => {})}>
+                                <Row sectionID="EE" filename="Five Pillars - Right Side - ROW EE.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="FF" filename="Five Pillars - Right Side - ROW FF.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("FF") }): (() => {})}>
+                                <Row sectionID="FF" filename="Five Pillars - Right Side - ROW FF.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="GG" filename="Five Pillars - Right Side - ROW GG.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("GG") }): (() => {})}>
+                                <Row sectionID="GG" filename="Five Pillars - Right Side - ROW GG.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="HH" filename="Five Pillars - Right Side - ROW HH.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("HH") }): (() => {})}>
+                                <Row sectionID="HH" filename="Five Pillars - Right Side - ROW HH.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="II" filename="Five Pillars - Right Side - ROW II.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("II") }): (() => {})}>
+                                <Row sectionID="II" filename="Five Pillars - Right Side - ROW II.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="JJ" filename="Five Pillars - Right Side - ROW JJ.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("JJ") }): (() => {})}>
+                                <Row sectionID="JJ" filename="Five Pillars - Right Side - ROW JJ.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
                             <WalkwayPathHorizontal />
-                            <Row sectionID="KK" filename="Five Pillars - Right Side - ROW KK.csv" addToNamesList={this.addToNamesList} selectedId={this.state.selectedId}/>
+                            <div onClick={this.state.width < 7000? (() => { this.selectSection("KK") }): (() => {})}>
+                                <Row sectionID="KK" filename="Five Pillars - Right Side - ROW KK.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+                            </div>
 
                     </div>
                 </div>

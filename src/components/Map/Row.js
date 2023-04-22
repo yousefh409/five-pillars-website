@@ -11,10 +11,26 @@ class Row extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: []
+            data: [],
+            width: 0,
+            height: 0
         };
         this.showFile(this.props.filename)
+        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
+
+    componentDidMount() {
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+      }
+      
+      updateWindowDimensions() {
+        this.setState({ width: window.innerWidth, height: window.innerHeight });
+      }
 
     showFile = async (file) => {
         fetch("/data/" + file)
@@ -33,8 +49,8 @@ class Row extends Component {
             <div className="blockWrapper">
                 <p className="blockTitle">Row {this.props.sectionID}</p>
                 <div>
-                    {this.state.data.length == 0? 
-                        (<p>Loading</p>): 
+                    {(this.state.width < 7000 && this.props.selectedSection != this.props.sectionID) || this.state.data.length == 0? 
+                        ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div className="rowBlankSelected"> Tap to see exact location</div>: <div className="rowBlank"></div>): 
                         (
                             <div>
                                 {this.state.data.map((option, index) => {
