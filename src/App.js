@@ -8,6 +8,8 @@ import { Janaza } from "./components/Pages/Janaza";
 import { NextSteps } from "./components/Pages/NextSteps";
 import { Visiting } from "./components/Pages/Visiting";
 import Map from "./components/Pages/Map";
+import { Services } from "./components/Pages/Services";
+import { BurialReg } from "./components/Pages/BurialReg";
 
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route path="/next-steps" element={<NextSteps />} />
             <Route path="/visiting" element={<Visiting />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/zeForm" element={<BurialReg />} />
 
           </Routes>
         </div>
