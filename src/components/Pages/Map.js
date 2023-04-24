@@ -54,6 +54,7 @@ class Map extends React.Component {
             })
         } 
         this.setState({names: copy});
+        console.log(copy)
         // console.log(this.state.names)
     }
 
@@ -92,38 +93,18 @@ class Map extends React.Component {
                             data={this.state.names}
                             onSelect={(record) => {
                                 this.setState({selectedId: record.item.key})
-                                // console.log(this.state.selectedId)
 
-                                // console.log()
                                 var my_element = document.getElementById("section-" + this.state.selectedId.slice(0, 2));
-                                // console.log(my_element)
-                                // window.scrollTo({
-                                //     top: my_element.offsetTop,
-                                //     behavior:"smooth",
-                                //     block: 'center'
-                                // });
                                 scrollIntoView(my_element, {
                                     behavior: "smooth",
                                     block: 'center',
                                     inline: 'center'
                                 },
                                 {
-                                  duration: 250 // aprox. the duration that chrome uses,
+                                    duration: 250 // aprox. the duration that chrome uses,
                                 }
                                 );
 
-                                // setTimeout(function () {
-
-                            //     scrollIntoView(my_element, {
-                            //         behavior: "smooth",
-                            //         block: 'center',
-                            //         // inline: 'center'
-                            //     },
-                            //     {
-                            //       duration: 250 // aprox. the duration that chrome uses,
-                            //     }
-                            //     );
-                            // }, 250  );
                             }}
                             autoFocus
                         />

@@ -41,15 +41,17 @@ class Row extends Component {
                     separator: ',',
                   });
                 this.setState({data: csv})
-                // for (const row of csv) {
-                //     for (const grave of row) {
-                //         var trimmed = grave.trim()
-                //         var id = this.props.sectionID + trimmed.split(' ')[0];
-                //         var dateOfDeath = trimmed.split(' ').at(-1)
-                //         var name = trimmed.split(' ').slice(1, -1).join(' ')
-                //         this.props.addToNamesList(id, name)
-                //     }
-                // }
+                for (const row of csv) {
+                    for (const grave of row) {
+                        var trimmed = grave.trim()
+                        if (!(trimmed === "Empty" || trimmed === "None" || trimmed === "WALK WAY")) {
+                            var id = this.props.sectionID + trimmed.split(' ')[0];
+                            var dateOfDeath = trimmed.split(' ').at(-1)
+                            var name = trimmed.split(' ').slice(1, -1).join(' ')
+                            this.props.addToNamesList(id, name)
+                        }
+                    }
+                }
             });
     }
 
