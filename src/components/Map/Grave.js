@@ -10,11 +10,6 @@ class Grave extends Component {
         this.state = {
             hover: false
         };
-        var id = this.props.sectionID + this.props.data.split(' ')[0];
-        var dateOfDeath = this.props.data.split(' ').at(-1)
-        var name = this.props.data.split(' ').slice(1, -1).join(' ')
-        var tooltiptest = 'this is <br /> a test';
-        this.props.addToNamesList(id, name)
     }
 
     handleMouseIn() {

@@ -43,27 +43,36 @@ class Block extends Component {
                     separator: ',',
                   });
                 this.setState({data: csv})
+                for (const row of csv) {
+                    for (const grave of row) {
+                        var trimmed = grave.trim()
+                        var id = this.props.sectionID + trimmed.split(' ')[0];
+                        var dateOfDeath = trimmed.split(' ').at(-1)
+                        var name = trimmed.split(' ').slice(1, -1).join(' ')
+                        this.props.addToNamesList(id, name)
+                    }
+                }
             });
     }
 
     render = () => {
         return (
             <div className="blockWrapper">
-                <p className="blockTitle">Block {this.props.sectionID}</p>
+                <p className="blockTitle">Block {this.props.sectionID[0]}</p>
                 <div>
                     {(this.state.width < 7000 && this.props.selectedSection != this.props.sectionID) || this.state.data.length == 0? 
-                        ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div className="blockBlankSelected"> Tap to see exact location</div>: <div className="blockBlank"></div>): 
+                        ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div id={"section-" + this.props.sectionID} className="blockBlankSelected"> Tap to see exact location</div>: <div className="blockBlank"></div>): 
                         (<div>
-                                {this.state.data.map((option, index) => {
+                                {this.state.data.map((option1, index1) => {
                                     return <div className="blockRow"> 
-                                        {option.map((option, index) => {
-                                            var trimmed = option.trim()
+                                        {option1.map((option2, index2) => {
+                                            var trimmed = option2.trim()
                                             return <div> 
                                                 {(trimmed === "Empty" || trimmed === "None")? 
                                                     <EmptyGrave />: 
                                                     (trimmed === "WALK WAY"?
                                                         <Walkway />: 
-                                                        <Grave sectionID={this.props.sectionID} data={trimmed} addToNamesList={this.props.addToNamesList} selectedId={this.props.selectedId}/>)}
+                                                        <Grave sectionID={this.props.sectionID} data={trimmed} selectedId={this.props.selectedId}/>)}
                                             </div>
                                         })}
                                     </div>

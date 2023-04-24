@@ -41,6 +41,15 @@ class Row extends Component {
                     separator: ',',
                   });
                 this.setState({data: csv})
+                // for (const row of csv) {
+                //     for (const grave of row) {
+                //         var trimmed = grave.trim()
+                //         var id = this.props.sectionID + trimmed.split(' ')[0];
+                //         var dateOfDeath = trimmed.split(' ').at(-1)
+                //         var name = trimmed.split(' ').slice(1, -1).join(' ')
+                //         this.props.addToNamesList(id, name)
+                //     }
+                // }
             });
     }
 
@@ -50,7 +59,7 @@ class Row extends Component {
                 <p className="blockTitle">Row {this.props.sectionID}</p>
                 <div>
                     {(this.state.width < 7000 && this.props.selectedSection != this.props.sectionID) || this.state.data.length == 0? 
-                        ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div className="rowBlankSelected"> Tap to see exact location</div>: <div className="rowBlank"></div>): 
+                        ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div id={"section-" + this.props.sectionID} className="rowBlankSelected"> Tap to see exact location</div>: <div className="rowBlank"></div>): 
                         (
                             <div>
                                 {this.state.data.map((option, index) => {
@@ -62,7 +71,7 @@ class Row extends Component {
                                                     <EmptyGrave />: 
                                                     (trimmed === "WALK WAY"?
                                                         <Walkway />: 
-                                                        <Grave sectionID={this.props.sectionID} data={trimmed} addToNamesList={this.props.addToNamesList} selectedId={this.props.selectedId}/>)}
+                                                        <Grave sectionID={this.props.sectionID} data={trimmed} selectedId={this.props.selectedId}/>)}
                                             </div>
                                         })}
                                     </div>

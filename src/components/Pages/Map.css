@@ -1,15 +1,18 @@
 .mapWrapper {
     display: flex;
     /* align-items flex-start; */
-    margin: 15px;
+    margin: 20px;
     padding: 15px;
     /* border: dashed grey; */
-    border: 10px solid transparent;
-    overflow: scroll;
+    border: 25px solid transparent;
+    overflow: auto;
     /* width: 80vw; */
     /* height: 80vh; */
-    border-image: url("../../../public/images/border.png") 30 round;
-
+    border-image: url("../../../public/images/tree-border.png");
+    border-image-slice: 33% 33% 33% 33%;
+    border-image-width: 1.5em 1.5em 1.5em 1.5em;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: round round;
 }
 
 .legendTitle {
