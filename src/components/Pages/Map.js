@@ -45,17 +45,15 @@ class Map extends React.Component {
        this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
 
-    addToNamesList(id, name) {
+    addToNamesList(id, name, dateOfDeath) {
         let copy = this.state.names;
         if (!copy.includes({key: id, value: name})) {
             copy.push({
                 key: id,
-                value: name
+                value: name + " (DOD: " + dateOfDeath + ")"
             })
         } 
         this.setState({names: copy});
-        console.log(copy)
-        // console.log(this.state.names)
     }
 
     selectSection(sectionID) {

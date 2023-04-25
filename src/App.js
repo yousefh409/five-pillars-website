@@ -8,6 +8,7 @@ import { Janaza } from "./components/Pages/Janaza";
 import { NextSteps } from "./components/Pages/NextSteps";
 import { Visiting } from "./components/Pages/Visiting";
 import Map from "./components/Pages/Map";
+import Footer from "./components/Footer";
 
 
 function App() {
@@ -25,9 +26,10 @@ function App() {
             <Route path="/next-steps" element={<NextSteps />} />
             <Route path="/visiting" element={<Visiting />} />
             <Route path="/map" element={<Map />} />
-
           </Routes>
         </div>
+
+        <Footer />
       </Router>
   </>
   );
