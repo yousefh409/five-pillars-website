@@ -1,0 +1,13 @@
+.deOffer {
+    margin-left: 6%;
+}
+
+.sacredButton{
+  margin: auto;
+  width: 20%;
+  height: 10%;
+  border: 3px solid green;
+  padding: 10px;
+  margin-left: 40%;
+  font-size: x-large;
+}
