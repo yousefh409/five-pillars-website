@@ -1,0 +1,39 @@
+.mapWrapper {
+    display: flex;
+    /* align-items flex-start; */
+    margin: 20px;
+    padding: 15px;
+    /* border: dashed grey; */
+    border: 25px solid transparent;
+    overflow: auto;
+    /* width: 80vw; */
+    /* height: 80vh; */
+    border-image: url("../../../public/images/tree-border.png");
+    border-image-slice: 33% 33% 33% 33%;
+    border-image-width: 1.5em 1.5em 1.5em 1.5em;
+    border-image-outset: 0px 0px 0px 0px;
+    border-image-repeat: round round;
+}
+
+.legendTitle {
+    font-size: 25px;
+    margin: 10px;
+    text-decoration: underline;
+}
+
+.legendRow {
+    display: flex;
+    align-items: flex-start;
+}
+
+.legendOption {
+    font-size: 15px;
+    margin-left: 20px;
+}
+
+.searchBar {
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-top: 15px;
+
+}
