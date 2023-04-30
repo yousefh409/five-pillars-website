@@ -11,15 +11,11 @@ import Map from "./components/Pages/Map";
 import Footer from "./components/Footer";
 import { Services } from "./components/Pages/Services";
 import { BurialReg } from "./components/Pages/BurialReg";
-import logo from "./image (1).jpeg"
 
 function App() {
   return (
 
     <>
-      <div style={{textAlign:"center"}}>
-        <img src={logo} style={{height:"10vh"}}></img>
-      </div>
       <Router>
         <NavBar />
 

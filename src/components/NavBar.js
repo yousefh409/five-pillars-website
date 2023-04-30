@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
+import logo from "../image (1).jpeg"
 
 function NavBar() {
   const [click, setClick] = useState(false);
@@ -13,13 +14,15 @@ function NavBar() {
   };
 
   return (
-    <>
+    <div className="navbarWrapper">
+     <div style={{textAlign:"center"}}>
+          <img src={logo} style={{height:"8vh"}}></img>
+        </div>
       <nav className="navbar">
         <div className="nav-container">
-          <NavLink exact to="/" className="nav-logo">
+          {/* <NavLink exact to="/" className="nav-logo">
             Five Pillars
-            {/* <i className="fas fa-code"></i> */}
-          </NavLink>
+          </NavLink> */}
 
           <ul className={click ? "nav-menu active" : "nav-menu"}>
             <li className="nav-item">
@@ -111,7 +114,7 @@ function NavBar() {
               </NavLink>
             </li>
 
-            <li className="nav-item dropdown-toggle" onClick={handleDropdown}>
+            {/* <li className="nav-item dropdown-toggle" onClick={handleDropdown}>
                           <NavLink
                             exact
                             to="#"
@@ -146,8 +149,8 @@ function NavBar() {
                               </li>
                             </ul>
                           )}
-                        </li>
-            <li className="nav-item">
+                        </li> */}
+            {/* <li className="nav-item">
                           <NavLink
                             exact
                             to="/services"
@@ -157,14 +160,14 @@ function NavBar() {
                           >
                             Information
                           </NavLink>
-                        </li>
+                        </li> */}
           </ul>
           <div className="nav-icon" onClick={handleClick}>
             <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
           </div>
         </div>
       </nav>
-    </>
+    </div>
   );
 }
 
