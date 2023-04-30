@@ -1,8 +1,10 @@
 import React from "react";
+import {Homepage} from "./Home2";
 
 export const Home = () => {
   return (
     <div>
+<<<<<<< HEAD
       </div>
   )
 }
@@ -52,6 +54,10 @@ export const Home = () => {
 
 =======
 >>>>>>> f5f2984d08513117adfabbf641d2100fa138e2f3
+=======
+      
+      <Homepage />
+>>>>>>> 937b19a596b07e1b6edbd16ae52d2ea717488031
 
     </div>
   );*/

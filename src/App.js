@@ -1,6 +1,6 @@
 import "./App.css";
 import NavBar from "./components/NavBar";
-import { BrowserRouter as Router,  Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Home } from "./components/Pages/Home";
 import { Contact } from "./components/Pages/Contact";
 import { Donations } from "./components/Pages/Donations";
@@ -9,11 +9,15 @@ import { NextSteps } from "./components/Pages/NextSteps";
 import { Visiting } from "./components/Pages/Visiting";
 import { Services } from "./components/Pages/Services";
 import { BurialReg } from "./components/Pages/BurialReg";
-
+import logo from "./image (1).png"
 
 function App() {
   return (
+
     <>
+      <div style={{textAlign:"center"}}>
+        <img src={logo} style={{height:"10vh"}}></img>
+      </div>
       <Router>
         <NavBar />
 
@@ -31,7 +35,7 @@ function App() {
           </Routes>
         </div>
       </Router>
-  </>
+    </>
   );
 }
 
