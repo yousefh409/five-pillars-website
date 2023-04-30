@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Home.css";
+import "./Home2.css";
 import capture from '../../Capture.jpg';
 import bury from '../../bury.jpg';
 import Carousel from 'react-bootstrap/Carousel';
@@ -7,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import cemetarypic from '../../cemetarypic.jpg';
 import graves from '../../graves.jpeg';
 import gate from '../../gate.jpeg';
-import logo from '../../image (1).png';
+import logo from '../../image (1).jpeg';
 // import logo from '../../.png';
 export const Homepage = () => {
     return (
