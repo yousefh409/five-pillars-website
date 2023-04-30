@@ -37,9 +37,9 @@ h1 {
   text-align: left;
   font-size: 5rem;
   text-align: left;
-  margin-left: 10%;
-  margin-right: 10%;
-  margin-top: 5%;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 2%;
   margin-bottom: 2%;
 
 }
@@ -67,8 +67,8 @@ h2 {
   text-align: left;
   padding-bottom: 40px;
   padding-top: 40px;
-  padding-left: 90px;
-  padding-right: 70px;
+  padding-left: 10px;
+  /* padding-right: 70px; */
 
 }
 
@@ -125,4 +125,8 @@ fieldset{
   border: 1px solid rgb(255,232,57);
   width: 400px;
   margin:auto;
+}
+
+li {
+  margin-bottom: 10px;
 }
