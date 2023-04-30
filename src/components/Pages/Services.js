@@ -12,7 +12,7 @@ export const Services = () => {
   const navigate = useNavigate();
   return (
   
-    <div>
+    <div className="pageContainer">
     
       <h1> Services 
       </h1>

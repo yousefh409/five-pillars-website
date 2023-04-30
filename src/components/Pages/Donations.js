@@ -5,7 +5,7 @@ export const Donations = () => {
     const handleSubmit = event => {
         event.preventDefault();}
   return (
-    <div>
+    <div className="pageContainer">
       <h1>Support Us
         <b></b>
     

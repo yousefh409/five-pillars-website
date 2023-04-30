@@ -2,7 +2,7 @@ import React from "react";
 
 export const Visiting = () => {
   return (
-    <div>
+    <div className="pageContainer">
       <h1>Visiting
 
         <h2> Etiquettes and sunnahs when visiting the grave
