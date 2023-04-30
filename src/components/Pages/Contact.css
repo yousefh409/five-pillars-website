@@ -50,9 +50,15 @@
   font-weight: bold;
   cursor: pointer;
 }*/
-.container {
+
+.contactUsRow {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+
+}
+.contactUsContainer {
+  padding: 50px;
 }
 
 /*.info-section {
@@ -63,19 +69,26 @@
   padding-top: 1rem;
 }*/
 .info-section {
-  padding-top: 247.5px;
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 14px;
+  /* padding-top: 247.5px; */
+  /* position: absolute; */
+  /* top: 20px; */
+  /* right: 20px; */
+  font-size: 12px;
+  /* width: 50vw; */
 }
 
 .info-section p {
-  margin: 0.5rem 0;
+  /* margin: 0.5rem 0; */
+  font-size: x-large;
 }
 
+.contacTitle {
+  font-size: x-large;
+  text-decoration: underline;
+  margin-top: 15px;
+}
 .main-section {
-  flex-basis: 70%;
+  /* flex-basis: 70%; */
 }
 
 @media (max-width: 768px) {
