@@ -173,7 +173,6 @@ class Map extends React.Component {
                             <WalkwayPathHorizontal />
                             <Block sectionID="S" filename="Five Pillars - Left Side - BLOCK L.csv"/>
                         </div> */}
-                        <WalkwayPathVertical />
                         <div>
                             <div onClick={this.state.width < 7000? (() => { this.selectSection("AA") }): (() => {})}>
                                  <Row sectionID="AA" filename="Five Pillars - Right Side - ROW AA.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>

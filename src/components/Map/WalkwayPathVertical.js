@@ -6,7 +6,10 @@ class WalkwayPathVertical extends Component {
     }
     render = () => {
         return (
-            <div className="walkwayPathVertical"></div>
+            <div>
+                <div className="walkwayPathVertical"></div>
+                <div className="walkwayPathGate"> Gate </div>
+            </div>
         )
     };
 };
