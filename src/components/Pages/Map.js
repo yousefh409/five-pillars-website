@@ -68,7 +68,8 @@ class Map extends React.Component {
 
         return (<div>
                     <div>
-                        <p className="legendTitle">Legend</p>
+                        <h1 >Map</h1>
+                        <h3 >Legend</h3>
                         <div className="legendRow">
                             <div className="legendOption">&nbsp; • Grave = &nbsp;</div>
                             <Grave addToNamesList={() => {}} sectionID={"-"} data={"- - -"}/>

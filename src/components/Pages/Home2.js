@@ -10,6 +10,7 @@ import graves from '../../graves.jpeg';
 import gate from '../../gate.jpeg';
 import logo from '../../image (1).jpeg';
 // import logo from '../../.png';
+
 export const Homepage = () => {
     return (
 

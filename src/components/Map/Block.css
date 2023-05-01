@@ -19,7 +19,7 @@
 .blockBlank {
     width: 19vw;
     min-width: 80px;
-    height: 50px;
+    height: 150px;
 }
 
 .blockBlankSelected {
@@ -35,7 +35,7 @@
 .rowBlank {
     width: 40vw;
     min-width: 160px;
-    height: 50px;
+    height: 35px;
 }
 
 .rowBlankSelected {

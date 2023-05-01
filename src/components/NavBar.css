@@ -6,7 +6,7 @@
   background-color: #113e0d;
   font-family: "Asap", sans-serif;
 
-  height: 80px;
+  height: 20%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -17,12 +17,57 @@
   width: 100%;
 }
 
+/* @media screen and (min-width: 960px) { */
+  .navbarTitle {
+    text-align: center;
+    color: #faf8e3;
+    font-size: x-large;
+    padding: 10px;
+  }
+
+  .navbarLogoTitle {
+    height: 0;
+  }
+/* } */
+
+/* @media screen and (max-width: 960px) {
+  .navbarTitle {
+    height: 0;
+    font-size: 0px;
+  }
+
+  .navbarLogoTitle {
+    height: 10vh;
+    padding: 10px;
+    text-align: center;
+    margin: auto auto;
+    justify-content: center;
+  }
+} */
+
+@media screen and (min-width: 960px) {
+  .navbarLogo {
+    margin: 20px;
+    height: 12vh;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .navbarLogo {
+    height: 0;
+  }
+}
+
+.navbarLogoContainer {
+  display: flex;
+  justify-content: space-between;
+}
 .nav-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80px;
+  height: 20%;
   max-width: 1500px;
 }
 
@@ -97,7 +142,7 @@
   }
 
   .nav-menu.active {
-    background: #1f5156;
+    background: #1f5628;
     left: 0px;
     opacity: 1;
     transition: all 0.5s ease;

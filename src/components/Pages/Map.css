@@ -15,11 +15,6 @@
     border-image-repeat: round round;
 }
 
-.legendTitle {
-    font-size: 25px;
-    margin: 10px;
-    text-decoration: underline;
-}
 
 .legendRow {
     display: flex;
