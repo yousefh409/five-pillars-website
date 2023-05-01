@@ -1,4 +1,6 @@
 import React from "react";
+import Button from 'react-bootstrap/Button';
+
 // import DonateButton from "../../DonateButton";
 
 export const Donations = () => {
@@ -6,10 +8,10 @@ export const Donations = () => {
         event.preventDefault();}
   return (
     <div className="pageContainer">
-      <h1>Support Us
+      <h1>Support 5 Pillars Cemetary</h1>
         <b></b>
     
-        <h2> Donate 
+        <h2> Donate </h2>
             <p>
               <br></br>
                 Support the Five Pillars Cemetery by donating! If you wish to do so, please fill out the form below. Your genorisity is greatly appreciated!
@@ -20,39 +22,40 @@ export const Donations = () => {
                ------ put donation thing here -----
             </div>
         
-        </h2>
+        
         <div>
-            <h2> Volunteer
+            <h2> Volunteer</h2>
                 <p>
-                <br></br>
+                
                     Want to help out? 
                 </p>
                 <p>
                 <br></br>
                 Sign up for volunteering opportunities below.
                     </p>
+                <br></br>
           
-            </h2>
+            
             <form onSubmit={handleSubmit}>
         <fieldset>
           <label>
-            <p class = "zName">Name
+            <p>Name:
             <input class = "iName" name="name" />
             </p>
           </label>
           <label>
-            <p class="zEmail">Email        
+            <p>Email :       
             <input class = "iMail" email = "email">
 
             </input>
             </p>
           </label>
-          <button type="submit" >Submit</button>
+          <Button type="submit" >Submit</Button>
         </fieldset>
 
       </form>
         </div>
-      </h1>
+      
 
     </div>
     
