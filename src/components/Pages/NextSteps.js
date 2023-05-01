@@ -8,7 +8,7 @@ export const NextSteps = () => {
       <div>
 
         <h1><b>What to do When Someone Dies</b></h1>
-        <h2> Introduction
+        <h2> Introduction</h2>
                 <p><br></br>
                     The death of someone in the family or of a friend is often a time of great stress and emotion.
 
@@ -30,7 +30,7 @@ export const NextSteps = () => {
                 <p> Translation: <br></br>
                     Indeed to Allãh do we belong and to Him we shall return.
                      </p> <p class="translation">(Sũrah alBaqarah Verse 156, Sahĩh Muslim 918)</p>
-                </h2>
+                
 
 
       </div>

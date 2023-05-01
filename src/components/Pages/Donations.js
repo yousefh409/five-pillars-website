@@ -17,10 +17,7 @@ export const Donations = () => {
                 Support the Five Pillars Cemetery by donating! If you wish to do so, please fill out the form below. Your genorisity is greatly appreciated!
                 
             </p><b></b>
-            <div>
-            <br></br>
-               ------ put donation thing here -----
-            </div>
+
         
         
         <div>
