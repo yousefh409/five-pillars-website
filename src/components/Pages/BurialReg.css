@@ -1,6 +1,6 @@
 .collapsible .content {
     padding: 6px;
-    background-color:forestgreen;
+    background-color: #1f5628d7;
 }
 .collapsible {
     width: 1250px;
@@ -35,7 +35,7 @@
     text-align: left;
     text-indent: 2.5%;
     background-color: #d8f2d0;
-    border-color: darkgreen;
+    border-color: #1f5628;
 }
 
 .head {

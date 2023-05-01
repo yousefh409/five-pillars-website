@@ -6,8 +6,11 @@
   margin: auto;
   width: 20%;
   height: 10%;
-  border: 3px solid green;
+  border: 0px solid ;
+  background: #1f5628;
   padding: 10px;
   margin-left: 40%;
-  font-size: x-large;
+  font-size: large;
+  border-radius: 15px;
+  color: #ffffff
 }
