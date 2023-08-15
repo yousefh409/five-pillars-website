@@ -17,7 +17,7 @@
     font-size: xx-large;
 }
 .center{
-    diplay: flex;
+    display: flex;
     width: 100%;
     justify-content: center;
 }

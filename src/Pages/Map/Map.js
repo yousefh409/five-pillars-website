@@ -1,13 +1,13 @@
 import React from "react";
-import Block from "../Map/Block";
-import EmptyGrave from "../Map/EmptyGrave";
-import Grave from "../Map/Grave";
-import Row from "../Map/Row";
-import BigWalkway from "../Map/BigWalkway";
+import Block from "../../components/Map/Block";
+import EmptyGrave from "../../components/Map/EmptyGrave";
+import Grave from "../../components/Map/Grave";
+import Row from "../../components/Map/Row";
+import BigWalkway from "../../components/Map/BigWalkway";
 
-import Walkway from "../Map/BigWalkway";
-import WalkwayPathHorizontal from "../Map/WalkwayPathHorizontal";
-import WalkwayPathVertical from "../Map/WalkwayPathVertical";
+import Walkway from "../../components/Map/BigWalkway";
+import WalkwayPathHorizontal from "../../components/Map/WalkwayPathHorizontal";
+import WalkwayPathVertical from "../../components/Map/WalkwayPathVertical";
 import "./Map.css";
 import ScrollContainer from 'react-indiana-drag-scroll'
 import { Tooltip } from 'react-tooltip'

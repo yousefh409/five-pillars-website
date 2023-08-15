@@ -1,21 +1,17 @@
 import axios from "axios";
 import React from "react";
 import { useCollapse } from 'react-collapsed';
-import StripeCheckout from 'react-stripe-checkout';
+// import StripeCheckout from 'react-stripe-checkout';
 import { useState } from 'react';
-import { toast } from 'react-toastify';
+// import { toast } from 'react-toastify';
 import "react-toastify/dist/ReactToastify.css";
 import "./BurialReg.css";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import { Elements } from "@stripe/react-stripe-js"
 import { loadStripe } from "@stripe/stripe-js"
-import { ToastContainer } from 'react-toastify';
-import { otherPropsFromToastConfigure } from 'react-toastify';
-import StripeContainer from "./StripeContainer";
-
-
-
-
+// import { ToastContainer } from 'react-toastify';
+// import { otherPropsFromToastConfigure } from 'react-toastify';
+// import StripeContainer from "./StripeContainer";
 
 
 //product object
@@ -102,7 +98,7 @@ function Collapsible() {
     const [extras, setExtras] = useState('')
     const [specials, setSpecials] = useState('')
     const [consentToPay, setConsentToPay] = useState(false)
-    const [productId, setProductId] = useState(1);
+    // const [productId, setProductId] = useState(1);
     const typeOfPayment = useState('Prepaid')
 
     const PUBLIC_KEY = "pk_test_51MrSm9Ipjb8xd8GP5cQIYeRavMUQDHys9hzs4GnIPo7TtQW8fiNfaxixJSIdXyIwsKSDAQ2XJCfIiDbUPzRQOHDF00IStxnPIj"
@@ -116,17 +112,17 @@ function Collapsible() {
         if (isChild === 'Yes') {
             if (extras === "Yes") {
                 setPrice(3000);
-                setProductId(6)
+                // setProductId(6)
             } else {
                 setPrice(2500)
-                setProductId(5)
+                // setProductId(5)
             }
         } else if (extras === 'No') {
             setPrice(3900)
-            setProductId(1)
+            // setProductId(1)
         } else {
             setPrice(4400)
-            setProductId(2)
+            // setProductId(2)
         }
         setCalcPrice(true)
         console.log(price)
@@ -630,15 +626,15 @@ function Collapsibles() {
     const [zip, setZip] = useState('')
     const [extras, setExtras] = useState('')
     const [specials, setSpecials] = useState('')
-    const [consentToPay, setConsentToPay] = useState(false)
+    // const [consentToPay, setConsentToPay] = useState(false)
     const [productId, setProductId] = useState(1);
 
 
     const typeOfPayment = useState('First Time');
 
-    const PUBLIC_KEY = "pk_test_51MrSm9Ipjb8xd8GP5cQIYeRavMUQDHys9hzs4GnIPo7TtQW8fiNfaxixJSIdXyIwsKSDAQ2XJCfIiDbUPzRQOHDF00IStxnPIj"
+    // const PUBLIC_KEY = "pk_test_51MrSm9Ipjb8xd8GP5cQIYeRavMUQDHys9hzs4GnIPo7TtQW8fiNfaxixJSIdXyIwsKSDAQ2XJCfIiDbUPzRQOHDF00IStxnPIj"
 
-    const stripeTestPromise = loadStripe(PUBLIC_KEY)
+    // const stripeTestPromise = loadStripe(PUBLIC_KEY)
 
     const calculatePrice = () => {
         if (isChild === 'Yes') {
@@ -703,7 +699,7 @@ function Collapsibles() {
             setExtras('')
             setCalcPrice(false)
             setPrice(3900)
-            setConsentToPay(false)
+            // setConsentToPay(false)
         })
 
     }

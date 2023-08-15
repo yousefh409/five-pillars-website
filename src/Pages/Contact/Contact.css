@@ -87,9 +87,6 @@
   text-decoration: underline;
   margin-top: 15px;
 }
-.main-section {
-  /* flex-basis: 70%; */
-}
 
 @media (max-width: 768px) {
   .container {

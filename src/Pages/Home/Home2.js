@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Home.css";
-import "./Home2.css";
-import capture from '../../Capture.jpg';
+// import "./Home2.css";
+// import capture from '../../Capture.jpg';
 import bury from '../../bury.jpg';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from 'react-bootstrap/Button';
-import cemetarypic from '../../cemetarypic.jpg';
+// import cemetarypic from '../../cemetarypic.jpg';
 import graves from '../../graves.jpeg';
 import gate from '../../gate.jpeg';
-import logo from '../../image (1).jpeg';
 // import logo from '../../.png';
 
 export const Homepage = () => {
@@ -75,7 +74,7 @@ export const Homepage = () => {
 
                                         <section class="about-us">
                                             <div class="about">
-                                                <img src={bury} class="pic" />
+                                                <img src={bury} alt="" class="pic" />
                                                 <div class="text">
                                                     <h2 style={{ padding: "0", fontSize: "8vw" }}>About Us</h2>
                                                     <h5>Local Cemetary</h5>

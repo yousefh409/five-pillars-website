@@ -1,12 +1,6 @@
 import React from "react";
 import "./Services.css";
 import {useNavigate } from "react-router-dom";
-import { BrowserRouter as  Route, Routes } from "react-router-dom";
-
-function formingDeals(){
-
-  return <div> Burial Registration</div>
-}
 
 export const Services = () => {
   const navigate = useNavigate();
@@ -54,35 +48,3 @@ export const Services = () => {
     </div> 
   );
 }
-
-/*
-
-export const Services = () => {
-  return (
-    <div>
-        <h1> Services
-            
-        <h2> Burial Payment
-            <p>
-            How to pay burial fees: *Include information here*
-            </p>
-        <p>
-        <button onclick = "window.location.href='www.paypal.com';">Paypal</button>
-        </p>
-        </h2>
-
-        <h2> Headstone Payment
-            <p>
-            How to pay for a headstone: *Include information here*
-            </p>
-        <p>
-        <button onclick = "window.location.href='www.paypal.com';">Paypal</button>
-        </p>
-        </h2>
-
-        </h1>
-    </div>
-  );
-};
->>>>>>> 29b5e5bd6e04d5499f33b74159b95ab544bd2650
-*/

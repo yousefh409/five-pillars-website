@@ -1,17 +1,12 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "./NavBar.css";
-import logo from "../logo.png"
+import logo from "../../logo.png"
 
 function NavBar() {
   const [click, setClick] = useState(false);
 
   const handleClick = () => setClick(!click);
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const handleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
 
   return (
     <div className="navbarWrapper">
@@ -20,7 +15,7 @@ function NavBar() {
         </div>
       
       <div className="navbarLogoContainer">
-        <img className="navbarLogo" src={logo}></img>
+        <img className="navbarLogo" alt="" src={logo}></img>
         <nav className="navbar">
           <div className="nav-container">
             {/* <NavLink exact to="/" className="nav-logo">
@@ -169,7 +164,7 @@ function NavBar() {
             </div>
           </div>
         </nav>
-        <img className="navbarLogo" src={logo}></img>
+        <img className="navbarLogo" alt="" src={logo}></img>
       </div>
     </div>
   );
