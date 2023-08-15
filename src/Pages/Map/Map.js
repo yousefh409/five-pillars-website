@@ -4,6 +4,7 @@ import EmptyGrave from "../../components/Map/EmptyGrave";
 import Grave from "../../components/Map/Grave";
 import Row from "../../components/Map/Row";
 import BigWalkway from "../../components/Map/BigWalkway";
+import Title from "../../components/Title/Title";
 
 import Walkway from "../../components/Map/BigWalkway";
 import WalkwayPathHorizontal from "../../components/Map/WalkwayPathHorizontal";
@@ -14,6 +15,7 @@ import { Tooltip } from 'react-tooltip'
 import 'react-tooltip/dist/react-tooltip.css'
 import ReactSearchBox from "react-search-box";
 import { scrollIntoView } from "seamless-scroll-polyfill";
+import SubTitle from "../../components/Title/SubTitle";
 
 class Map extends React.Component {
 
@@ -66,11 +68,11 @@ class Map extends React.Component {
 
     render() {
 
-        return (<div>
+        return (<div className="p-12 lg:px-64 pb-24">
                     <div>
-                        <h1 >Map</h1>
-                        <h3 >Legend</h3>
-                        <div className="legendRow">
+                    <Title content="Map"></Title>
+<SubTitle content="Legend"/>                       
+ <div className="legendRow">
                             <div className="legendOption">&nbsp; • Grave = &nbsp;</div>
                             <Grave addToNamesList={() => {}} sectionID={"-"} data={"- - -"}/>
                         </div>

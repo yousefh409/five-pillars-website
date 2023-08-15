@@ -8,6 +8,8 @@ import Button from 'react-bootstrap/Button';
 // import cemetarypic from '../../cemetarypic.jpg';
 import graves from '../../graves.jpeg';
 import gate from '../../gate.jpeg';
+import Title from "../../components/Title/Title";
+import SubTitle from "../../components/Title/SubTitle";
 // import logo from '../../.png';
 
 export const Homepage = () => {
@@ -76,8 +78,8 @@ export const Homepage = () => {
                                             <div class="about">
                                                 <img src={bury} alt="" class="pic" />
                                                 <div class="text">
-                                                    <h2 style={{ padding: "0", fontSize: "8vw" }}>About Us</h2>
-                                                    <h5>Local Cemetary</h5>
+                                                    <Title content="About Us"/>
+                                                    <SubTitle content="Local Cemetery"/>
                                                     <p>5 Pillars Cemetery is the first and the oldest cemetery for Muslims in the San Francisco-Bay Area.
                                                         Efforts to search for land and establish a Muslim-owned cemetery started around the year 1994–1995.
                                                         As the Muslim population continues to grow, the need for a Muslim cemetery to complement the funeral services and related facilities at mosques is a

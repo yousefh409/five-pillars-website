@@ -51,7 +51,7 @@ function PaymentForm() {
     }
 
     return (
-        <>
+        <div className="p-12 lg:px-64 pb-24">
             {!success ?
                 <form onSubmit={handleSubmit}>
                     <fieldset className="FormGroup">
@@ -67,7 +67,7 @@ function PaymentForm() {
                 </div>
             }
 
-        </>
+        </div>
     )
 }
 

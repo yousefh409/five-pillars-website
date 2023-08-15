@@ -1,15 +1,17 @@
 import React from "react";
+import SubTitle from "../../components/Title/SubTitle";
+import Title from "../../components/Title/Title";
 import "./NextSteps.css";
 
 export const NextSteps = () => {
   return (
 
-    <div className="nextStepsContainer">
+    <div className="p-12 lg:px-64 pb-24">
       <div>
 
-        <h1><b>What to do When Someone Dies</b></h1>
-        <h2> Introduction</h2>
-                <p><br></br>
+        <Title content="What to do When Someone Dies"></Title>
+    <SubTitle content="Introduction"/>             
+   <p>
                     The death of someone in the family or of a friend is often a time of great stress and emotion.
 
                     Quite often people are not familiar with what to do, either from a religious point of view or in terms of the practical steps that need to be completed to bury one’s loved ones.
@@ -24,7 +26,10 @@ export const NextSteps = () => {
 
 
                 </p>
-                <p class="arabicDua"><b>إِنَّا لِلّهِ وَإِنَّـا إِلَيْهِ رَاجِعُونَ</b></p>
+                <div className='flex justify-start'>
+                <p className="text-2xl">إِنَّا لِلّهِ وَإِنَّـا إِلَيْهِ رَاجِعُونَ</p>
+
+                </div>
 
               <br></br>
                 <p> Translation: <br></br>

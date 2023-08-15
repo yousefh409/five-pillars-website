@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Contact.css";
+import Title from "../../components/Title/Title";
 
 export const Contact = () => {
   const [email, setEmail] = useState('');
@@ -17,56 +17,59 @@ export const Contact = () => {
   };
 
   return (
-    <div className="contactUsContainer">
-      <h1>Contact Us</h1>
-      <div className="contactUsRow">
-        <div className="main-section">
-          <h2>Map</h2>
-          <div className="map-text">
-            <p style={{ fontSize: "20px" }}>
+    <div className="p-12 lg:px-64 pb-24">
+      <div className="flex flex-col md:flex-row">
+        <div className="lg:w-1/2 lg:pr-8">
+          {/* Left column content */}
+          <div>
+            <Title content="Contact Info" />
+            <div className="ml-6">
+              {/* Contact Info */}
+              <div className="ml-6">
+          <div className="subtitle-font text-3xl text-black py-4">Phone</div>
+          <p className='text-lg'>(510) 552-7755 - Adnan Zaki</p>
+          <p className='text-lg'>(510) 517-8397 - Mohammad Zaki</p>
+          <div className="subtitle-font text-3xl text-black py-4">Email</div>
+          <p className='text-lg'>info@5pillarscemetery.com</p>
+          <div className="subtitle-font text-3xl text-black py-4">Hours</div>
+          <p className='text-lg'>10 AM - 5 PM Mon - Sun</p>
+          <div className="subtitle-font text-3xl text-black py-4">Address</div>
+          <p className='text-lg'>39675 Cedar Blvd. Ste: 1001A,</p>
+          <p className='text-lg'>Newark, CA 94560</p>
+          </div>
+            </div>
+          </div>
+          <div className="map-text lg:hidden">
+            {/* Map text for small screens */}
+            <Title content="Map" />
+            <p className="mb-4 text-lg">
               1761 Laughlin Rd, Livermore, CA 94551
             </p>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.657283261851!2d-121.70941822415733!3d37.727721571997314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fe12ff32b1385%3A0xf58f6aba7af5b5a3!2sFive%20Pillars%20Islamic%20Cemetery!5e0!3m2!1sen!2sus!4v1679177976590!5m2!1sen!2sus"
+              width="400"
+              height="350"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.657283261851!2d-121.70941822415733!3d37.727721571997314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fe12ff32b1385%3A0xf58f6aba7af5b5a3!2sFive%20Pillars%20Islamic%20Cemetery!5e0!3m2!1sen!2sus!4v1679177976590!5m2!1sen!2sus"
-            width="600"
-            height="450"
-            style={{ border: "0" }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          ></iframe>
-          {/* <h2>Email Us</h2>
-          <form onSubmit={handleSubmit}>
-            <div className="input-group">
-              <label>Email:</label>
-              <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>Subject:</label>
-              <input type="text" value={subject} onChange={(e) => setSubject(e.target.value)} />
-            </div>
-            <div className="input-group">
-              <label>Message:</label>
-              <textarea value={message} onChange={(e) => setMessage(e.target.value)}></textarea>
-            </div>
-            <button type="submit">Send</button>
-          </form> */}
         </div>
-        <div className="info-section">
-          <h2>Contact Info</h2>
-          <div className="contacTitle">Phone</div>
-          <p>(510) 552-7755 - Adnan Zaki</p>
-          <p>(510) 517-8397 - Mohammad Zaki</p>
-          <div className="contacTitle">Email</div>
-          <p>info@5pillarscemetery.com</p>
-          <div className="contacTitle">Hours</div>
-          <p>10 AM - 5 PM Mon - Sun</p>
-          <div className="contacTitle">Address</div>
-          <p>39675 Cedar Blvd. Ste: 1001A,</p>
-          <p>Newark, CA 94560</p>
+        <div className="lg:w-1/2 lg:pl-8">
+          <div className="hidden lg:block">
+            <Title content="Map" />
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.657283261851!2d-121.70941822415733!3d37.727721571997314!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fe12ff32b1385%3A0xf58f6aba7af5b5a3!2sFive%20Pillars%20Islamic%20Cemetery!5e0!3m2!1sen!2sus!4v1679177976590!5m2!1sen!2sus"
+              width="600"
+              height="450"
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
+          </div>
         </div>
       </div>
+    
     </div>
   );
 };

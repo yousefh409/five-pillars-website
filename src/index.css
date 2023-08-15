@@ -30,6 +30,15 @@ body {
   src: url(../public/NunitoSans_7pt-Medium.ttf);
 }
 
+.subtitle-font{
+  font-family: raleway;
+}
+
+@font-face {
+  font-family: raleway;
+  src: url(../public/Raleway-Bold.ttf);
+}
+
 div {
   font-family: "Asap", sans-serif;
 }
@@ -153,6 +162,3 @@ li {
   margin-bottom: 10px;
 }
 
-.pageContainer {
-  padding: 50px;
-}

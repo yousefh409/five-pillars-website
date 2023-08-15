@@ -1,15 +1,18 @@
 import React from "react";
 import "./Janaza.css"
+import Title from "../../components/Title/Title";
+import SubTitle from "../../components/Title/SubTitle";
+
 export const Janaza = () => {
   return (
-    <div className="janazaContainer">
-      <div>
-        <h1>Janaza</h1>
-      </div>
+    <div className="p-12 lg:px-64 pb-24">
+  
+      <Title content="Janaza"></Title>
+
       {/* <h1>About</h1> */}
       {/* <h1> Organizing Janazah </h1> */}
       <div>
-      <h2> Burial Procedure </h2> 
+        <SubTitle content="Burial Procedure"/>
       <p> 
           1. A grave is dug deep enough to totally hide the body of the deceased. <br/>
           2. The grave should be always perpendicular (Horizontal) to the direction of Qiblah. <br/>
@@ -30,8 +33,7 @@ export const Janaza = () => {
           <span className="duaContainer">Wa minhaa nukhrijukum taaratan ‘ukhraa [And from it shall We bring you out once again]" <br/></span>
 
       </p>
-
-      <h2>Funeral Prayers - Method </h2>
+<SubTitle content="Funeral Prayers - Method"/>
       <p> Some things to keep in mind: <br/>
         <ul>
           <li> It is preferable that Salatul Janazah be performed outside the Mosque/the Musalla.</li>
