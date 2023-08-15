@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /*
 body {
   margin: 0;
@@ -8,6 +11,25 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 */
+
+.title-font{
+  font-family: montserrat;
+}
+
+@font-face {
+  font-family: montserrat;
+  src: url(../public/Montserrat-Bold.ttf);
+}
+
+.text-font{
+  font-family: nunito;
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(../public/NunitoSans_7pt-Medium.ttf);
+}
+
 div {
   font-family: "Asap", sans-serif;
 }

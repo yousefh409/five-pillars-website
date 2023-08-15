@@ -9,25 +9,27 @@ function NavBar() {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="navbarWrapper">
-        <div className="navbarTitle">
+    <div className="bg-green-900 sticky top-0">
+      <div className="flex center">
+      <img className="navbarLogo" alt="" src={logo}></img>
+      <div className="text-center pt-6 lg:pt-12 pb-6 lg:pb-3 px-8 lg:px-16 title-font text-3xl lg:text-5xl text-white">
           Five Pillars Cemetery
         </div>
-      
-      <div className="navbarLogoContainer">
         <img className="navbarLogo" alt="" src={logo}></img>
-        <nav className="navbar">
-          <div className="nav-container">
-            {/* <NavLink exact to="/" className="nav-logo">
-              Five Pillars
-            </NavLink> */}
+
+      </div>
+       
+      <div >
+        
+        <nav >
+          <div className="flex justify-center items-center text-font text-white">
+
             <ul className={click ? "nav-menu active" : "nav-menu"}>
               <li className="nav-item">
                 <NavLink
                   exact
                   to="/"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Home
@@ -38,7 +40,6 @@ function NavBar() {
                   exact
                   to="/next-steps"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Next Steps
@@ -49,7 +50,6 @@ function NavBar() {
                   exact
                   to="/janaza"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Janaza
@@ -60,7 +60,6 @@ function NavBar() {
                   exact
                   to="/donations"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Donating
@@ -71,7 +70,6 @@ function NavBar() {
                   exact
                   to="/visiting"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Visiting
@@ -82,7 +80,6 @@ function NavBar() {
                   exact
                   to="/map"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Map
@@ -93,7 +90,6 @@ function NavBar() {
                   exact
                   to="/contact"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Contact Us
@@ -104,7 +100,6 @@ function NavBar() {
                   exact
                   to="/services"
                   activeClassName="active"
-                  className="nav-links"
                   onClick={handleClick}
                 >
                   Services
@@ -164,7 +159,6 @@ function NavBar() {
             </div>
           </div>
         </nav>
-        <img className="navbarLogo" alt="" src={logo}></img>
       </div>
     </div>
   );
