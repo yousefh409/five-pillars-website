@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
-import "./NavBar.css";
-import logo from "../../logo.png"
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
+import './NavBar.css';
+import logo from '../../logo.png';
 
 function NavBar() {
   const [click, setClick] = useState(false);
@@ -11,20 +11,26 @@ function NavBar() {
   return (
     <div className="bg-green-900 sticky top-0">
       <div className="flex center">
-      <img className="navbarLogo" alt="" src={logo}></img>
-      <div className="text-center pt-6 lg:pt-12 pb-6 lg:pb-3 px-8 lg:px-16 title-font text-3xl lg:text-5xl text-white">
-          Five Pillars Cemetery
-        </div>
         <img className="navbarLogo" alt="" src={logo}></img>
+        <ul className="text-center pt-6 lg:pt-12 pb-2 lg:pb-3 px-8 lg:px-16 title-font tracking-wide text-xl sm:text-2xl md: text-3xl lg:text-5xl text-white">
+          <a
+            href="/"
+            style={{
+              color: '#fff',
+              textDecoration: 'none',
+            }}
+          >
+            Five Pillars Cemetery
+          </a>
+        </ul>
 
+        <img className="navbarLogo" alt="" src={logo}></img>
       </div>
-       
-      <div >
-        
-        <nav >
-          <div className="flex justify-center items-center text-font text-white">
 
-            <ul className={click ? "nav-menu active" : "nav-menu"}>
+      <div className="">
+        <nav>
+          <div className="flex justify-center items-center text-font text-white ">
+            <ul className={click ? 'nav-menu active' : 'nav-menu'}>
               <li className="nav-item">
                 <NavLink
                   exact
@@ -154,8 +160,15 @@ function NavBar() {
                             </NavLink>
                           </li> */}
             </ul>
+
             <div className="nav-icon" onClick={handleClick}>
-              <i className={click ? "fas fa-times" : "fas fa-bars"}></i>
+              <i
+                className={
+                  click
+                    ? 'fas fa-times text-xl md:text-2xl pr-1'
+                    : 'fas fa-bars text-xl md:text-2xl pr-1'
+                }
+              ></i>
             </div>
           </div>
         </nav>

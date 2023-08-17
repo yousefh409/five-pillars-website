@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const Title = ({ content }) => {
+const InputField = ({ content }) => {
   return (
     <h1 className="title-font text-5xl text-green-900 text-left py-6 md: pb-6 px-auto my-2 md:my-4">
       {content}
@@ -8,4 +8,4 @@ const Title = ({ content }) => {
   );
 };
 
-export default Title;
+export default InputField;

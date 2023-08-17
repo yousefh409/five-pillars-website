@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import Title from "../../components/Title/Title";
+import React, { useState } from 'react';
+import Title from '../../components/Title/Title';
 
 export const Contact = () => {
   const [email, setEmail] = useState('');
@@ -26,17 +26,25 @@ export const Contact = () => {
             <div className="ml-6">
               {/* Contact Info */}
               <div className="ml-6">
-          <div className="subtitle-font text-3xl text-black py-4">Phone</div>
-          <p className='text-lg'>(510) 552-7755 - Adnan Zaki</p>
-          <p className='text-lg'>(510) 517-8397 - Mohammad Zaki</p>
-          <div className="subtitle-font text-3xl text-black py-4">Email</div>
-          <p className='text-lg'>info@5pillarscemetery.com</p>
-          <div className="subtitle-font text-3xl text-black py-4">Hours</div>
-          <p className='text-lg'>10 AM - 5 PM Mon - Sun</p>
-          <div className="subtitle-font text-3xl text-black py-4">Address</div>
-          <p className='text-lg'>39675 Cedar Blvd. Ste: 1001A,</p>
-          <p className='text-lg'>Newark, CA 94560</p>
-          </div>
+                <div className="subtitle-font text-3xl text-black py-4">
+                  Phone
+                </div>
+                <p className="text-lg">(510) 552-7755 - Adnan Zaki</p>
+                <p className="text-lg">(510) 517-8397 - Mohammad Zaki</p>
+                <div className="subtitle-font text-3xl text-black py-4">
+                  Email
+                </div>
+                <p className="text-lg">info@5pillarscemetery.com</p>
+                <div className="subtitle-font text-3xl text-black py-4">
+                  Hours
+                </div>
+                <p className="text-lg">10 AM - 5 PM Mon - Sun</p>
+                <div className="subtitle-font text-3xl text-black py-4">
+                  Address
+                </div>
+                <p className="text-lg">39675 Cedar Blvd. Ste: 1001A,</p>
+                <p className="text-lg">Newark, CA 94560</p>
+              </div>
             </div>
           </div>
           <div className="map-text lg:hidden">
@@ -69,7 +77,6 @@ export const Contact = () => {
           </div>
         </div>
       </div>
-    
     </div>
   );
 };

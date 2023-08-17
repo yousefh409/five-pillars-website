@@ -13,12 +13,12 @@ body {
 */
 
 .title-font{
-  font-family: montserrat;
+  font-family: rubik;
 }
 
 @font-face {
-  font-family: montserrat;
-  src: url(../public/Montserrat-Bold.ttf);
+  font-family: rubik;
+  src: url(../public/Rubik-Bold.ttf);
 }
 
 .text-font{
@@ -156,9 +156,5 @@ fieldset{
   border: 1px solid rgb(255,232,57);
   width: 400px;
   margin:auto;
-}
-
-li {
-  margin-bottom: 10px;
 }
 
