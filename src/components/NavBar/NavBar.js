@@ -12,7 +12,7 @@ function NavBar() {
     <div className="bg-green-900 sticky top-0">
       <div className="flex center">
         <img className="navbarLogo" alt="" src={logo}></img>
-        <ul className="text-center pt-6 lg:pt-12 pb-2 lg:pb-3 px-8 lg:px-16 title-font tracking-wide text-xl sm:text-2xl md: text-3xl lg:text-5xl text-white">
+        <ul className="text-center pt-6 lg:pt-12 pb-8 lg:pb-3 px-8 lg:px-16 title-font tracking-wide text-xl sm:text-2xl md: text-3xl lg:text-5xl text-white">
           <a
             href="/"
             style={{
@@ -64,11 +64,21 @@ function NavBar() {
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/donations"
+                  to="/services"
                   activeClassName="active"
                   onClick={handleClick}
                 >
-                  Donating
+                  Services
+                </NavLink>
+              </li>
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  to="/forms"
+                  activeClassName="active"
+                  onClick={handleClick}
+                >
+                  Forms
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -94,21 +104,21 @@ function NavBar() {
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/contact"
+                  to="/donations"
                   activeClassName="active"
                   onClick={handleClick}
                 >
-                  Contact Us
+                  Donating
                 </NavLink>
               </li>
               <li className="nav-item">
                 <NavLink
                   exact
-                  to="/services"
+                  to="/contact"
                   activeClassName="active"
                   onClick={handleClick}
                 >
-                  Services
+                  Contact Us
                 </NavLink>
               </li>
 
