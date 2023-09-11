@@ -52,21 +52,21 @@ export const Homepage = () => {
         <div class=" mx-auto px-6 ">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mx-auto px-12 lg:px-36 ">
             <div class="p-4 m-4 text-center bg-gray-500 bg-opacity-10 rounded-2xl">
-              <div className="subtitle-font text-2xl text-center text-black text-left pb-1 md: pb-6 px-auto my-2">
+              <div className="subtitle-font text-2xl text-center text-black text-left pb-1  px-auto mt-4">
                 {' '}
                 Visiting Hours
               </div>
-              <p className="mx-6 text-center py-6">
+              <p className="mx-6 text-center pt-4 pb-8">
                 Open 7 days a week including all public and Islamic holidays
               </p>
             </div>
 
             <div class="p-4 m-4 text-center bg-gray-500 bg-opacity-10 rounded-2xl">
-              <div className="subtitle-font text-2xl text-center text-black text-left pb-1 md: pb-6 px-auto my-2">
+              <div className="subtitle-font text-2xl text-center text-black text-left pb-1  px-auto mt-4">
                 {' '}
                 Burial Times
               </div>
-              <p className="mx-6 text-center py-6">
+              <p className="mx-6 text-center pt-4 pb-8">
                 Monday-Sunday 10 AM - 5 PM
               </p>
             </div>
@@ -74,7 +74,9 @@ export const Homepage = () => {
         </div>
       </div>
 
-      <ImageCarousel />
+      <div>
+        <ImageCarousel />
+      </div>
     </>
   );
 };

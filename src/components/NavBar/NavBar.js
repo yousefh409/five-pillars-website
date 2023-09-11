@@ -9,7 +9,7 @@ function NavBar() {
   const handleClick = () => setClick(!click);
 
   return (
-    <div className="bg-green-900 sticky top-0">
+    <div className="bg-green-900 sticky top-0 z-50">
       <div className="flex center">
         <img className="navbarLogo" alt="" src={logo}></img>
         <ul className="text-center pt-6 lg:pt-12 pb-8 lg:pb-3 px-8 lg:px-16 title-font tracking-wide text-xl sm:text-2xl md: text-3xl lg:text-5xl text-white">

@@ -48,7 +48,7 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import graves from '../../graves.jpeg';
 import gate from '../../gate.jpeg';
-import 'bootstrap-icons/font/bootstrap-icons.css'; // Import Bootstrap icons CSS
+import 'bootstrap-icons/font/bootstrap-icons.css'; 
 
 const ImageCarousel = () => {
   const settings = {
@@ -64,17 +64,16 @@ const ImageCarousel = () => {
   return (
     <div className="w-screen">
       <Slider {...settings}>
-        <div className="">
+        <div>
+          <img src={gate} alt="gate" className="mx-auto h-[calc(100vh/2)]" />
+        </div>
+        <div>
           <img
             src={graves}
-            alt="Image 1"
+            alt="graves"
             className="mx-auto h-[calc(100vh/2)]"
           />
         </div>
-        <div className="">
-          <img src={gate} alt="Image 2" className="mx-auto h-[calc(100vh/2)]" />
-        </div>
-        {/* Add more slides as needed */}
       </Slider>
     </div>
   );

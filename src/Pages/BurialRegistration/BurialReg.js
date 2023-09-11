@@ -8,7 +8,7 @@ import Title from '../../components/Title/Title';
 // import { ToastContainer } from 'react-toastify';
 // import { otherPropsFromToastConfigure } from 'react-toastify';
 // import StripeContainer from "./StripeContainer";
-import Collapsibles from './Collapsibles';
+// import Collapsibles from './Collapsibles';
 import Collapsible from './Collapsible';
 
 //product object
@@ -18,7 +18,7 @@ export const BurialReg = () => {
     <div className="p-12 lg:px-64 pb-24">
       <Title content="Burial Registration" />
       <Collapsible />
-      <Collapsibles />
+      {/* <Collapsibles /> */}
     </div>
   );
 };
