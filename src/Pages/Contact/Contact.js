@@ -38,7 +38,7 @@ export const Contact = () => {
                 <div className="subtitle-font text-3xl text-black py-4">
                   Hours
                 </div>
-                <p className="text-lg">10 AM - 5 PM Mon - Sun</p>
+                <p className="text-lg">Monday through Sunday, 10AM - 5PM</p>
                 <div className="subtitle-font text-3xl text-black py-4">
                   Address
                 </div>

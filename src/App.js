@@ -1,7 +1,7 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Homepage } from './Pages/Home/Home2';
+import { HomePage } from './Pages/Home/HomePage';
 import { Contact } from './Pages/Contact/Contact';
 import { Donations } from './Pages/Donation/Donations';
 import { Janaza } from './Pages/Janaza/Janaza';
@@ -20,7 +20,7 @@ function App() {
 
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/donations" element={<Donations />} />
             <Route path="/janaza" element={<Janaza />} />

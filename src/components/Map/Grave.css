@@ -56,3 +56,9 @@
     /* margin-bottom: 500px; */
     bottom: 500px;
 }
+
+.graveTooltip {
+    z-index: 100000000 !important;
+    position: fixed;
+    color: green; 
+}

@@ -12,7 +12,7 @@ import { loadStripe } from '@stripe/stripe-js';
 // import StripeContainer from "./StripeContainer";
 import { Elements } from '@stripe/react-stripe-js';
 import PaymentForm from './PaymentForm';
-import { countries } from '../../constants'; // Import the countries array
+import { countries } from './countries'; // Import the countries array
 
 export default function Collapsible() {
   const config = {
