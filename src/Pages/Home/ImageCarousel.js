@@ -5,6 +5,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import graves from '../../images/graves.jpeg';
 import gate from '../../images/gate.jpeg';
 import 'bootstrap-icons/font/bootstrap-icons.css'; 
+import './ImageCarousel.css';
 
 const ImageCarousel = () => {
   const settings = {
@@ -18,17 +19,13 @@ const ImageCarousel = () => {
   };
 
   return (
-    <div className="w-screen">
+    <div className="imageCarouselWrapper">
       <Slider {...settings}>
         <div>
-          <img src={gate} alt="gate" className="mx-auto h-[calc(100vh/2)]" />
+          <img src={gate} alt="gate" className="imageCarouselImage mx-auto h-[calc(100vh/2)]" />
         </div>
         <div>
-          <img
-            src={graves}
-            alt="graves"
-            className="mx-auto h-[calc(100vh/2)]"
-          />
+          <img src={graves} alt="graves" className="imageCarouselImage mx-auto h-[calc(100vh/2)]"/>
         </div>
       </Slider>
     </div>
