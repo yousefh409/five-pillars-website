@@ -16,7 +16,8 @@
 
 .walkwayPathVertical {
     background-color:rgb(211, 210, 210);
-    min-width: 100px;
+    /* min-width: 100px; */
+    /* width: ; */
     height: 95%;
     /* margin-top: 2px; */
     /* margin-bottom: 2px; */
@@ -27,7 +28,8 @@
     background-color: black;
     color: white;
     text-align: center;
-    font-size: large;
+    font-size: small;
+    padding: 2px;
     font-weight: bold;
     padding-top: 10px;
 }
@@ -35,7 +37,7 @@
 .walkwayPathHorizontal {
     background-color:rgb(211, 210, 210);
     min-height: 24px;
-    width: 100%vh;
+    width: 100%;
     /* margin-top: 2px; */
     /* margin-bottom: 2px; */
 }

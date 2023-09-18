@@ -15,13 +15,14 @@ class Row extends Component {
             width: 0,
             height: 0
         };
-        this.showFile(this.props.filename)
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
 
     componentDidMount() {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
+
+        this.showFile(this.props.filename)
       }
       
       componentWillUnmount() {
@@ -61,7 +62,7 @@ class Row extends Component {
                 <p className="blockTitle">Row {this.props.sectionID}</p>
                 <div>
                     {(this.state.width < 7000 && this.props.selectedSection != this.props.sectionID) || this.state.data.length == 0? 
-                        ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div id={"section-" + this.props.sectionID} className="rowBlankSelected"> Tap to see exact location</div>: <div className="rowBlank"></div>): 
+                        ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div className="rowBlankSelected"> Tap to see exact location</div>: <div className="rowBlank"></div>): 
                         (
                             <div>
                                 {this.state.data.map((option, index) => {

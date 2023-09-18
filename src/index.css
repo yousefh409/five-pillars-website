@@ -1,3 +1,6 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 /*
 body {
   margin: 0;
@@ -8,25 +11,51 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 */
+
+.title-font {
+  font-family: rubik;
+}
+
+@font-face {
+  font-family: rubik;
+  src: url(../public/fonts/Rubik-Bold.ttf);
+}
+
+.text-font {
+  font-family: nunito;
+}
+
+@font-face {
+  font-family: nunito;
+  src: url(../public/fonts/NunitoSans_7pt-Medium.ttf);
+}
+
+.subtitle-font {
+  font-family: raleway;
+}
+
+@font-face {
+  font-family: raleway;
+  src: url(../public/fonts/Raleway-Bold.ttf);
+}
+
 div {
-  font-family: "Asap", sans-serif;
+  font-family: 'Asap', sans-serif;
 }
 
 p {
   /* width: 80%; */
   margin: 0 auto;
-  font-family: "Asap", sans-serif;
+  font-family: 'Asap', sans-serif;
   font-weight: 100;
-  font-variant-ligatures: normal;
+  /* font-variant-ligatures: normal; */
   font-size: 24px;
   letter-spacing: 1px;
   text-align: left;
   /* margin-left: 0.5%; */
   /* margin-right: 5; */
-  font-weight: lighter;
-
+  /* font-weight: lighter; */
 }
-
 
 h1 {
   font-family: 'Montserrat';
@@ -41,16 +70,15 @@ h1 {
   margin-right: 1%;
   margin-top: 2%;
   margin-bottom: 2.5%;
-
 }
 
 h3 {
-	font-family: Gill Sans, Verdana;
-	font-size: 14px;
-	line-height: 14px;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-weight: bold;
+  font-family: Gill Sans, Verdana;
+  font-size: 14px;
+  line-height: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: bold;
   text-align: left;
   padding: 1%;
   padding-left: 3%;
@@ -58,18 +86,17 @@ h3 {
 
 h2 {
   font-family: times, Times New Roman, times-roman, georgia, serif;
-	color: #000000;
-	margin: 0;
-	padding: 0px 0px 6px 0px;
-	font-size: 35px;
-	line-height: 44px;
-	font-weight: bold;
+  color: #000000;
+  margin: 0;
+  padding: 0px 0px 6px 0px;
+  font-size: 35px;
+  line-height: 44px;
+  font-weight: bold;
   text-align: left;
   padding-bottom: 3%;
   padding-top: 3%;
   padding-left: 1.5px;
   /* padding-right: 70px; */
-
 }
 
 code {
@@ -93,14 +120,13 @@ code {
 }
 
 .zEmail {
-    text-align: left;
-    font-size: 3rem;
-    margin-left: 10%;
+  text-align: left;
+  font-size: 3rem;
+  margin-left: 10%;
 }
 .iMail {
   margin-left: 10%;
-  margin-bottom: 2%
-
+  margin-bottom: 2%;
 }
 .zName {
   text-align: left;
@@ -108,29 +134,14 @@ code {
   margin-left: 10%;
 }
 .iName {
-margin-left: 9.5%;
-margin-bottom: 2%
-
+  margin-left: 9.5%;
+  margin-bottom: 2%;
 }
 .boxy {
-  margin-top: 10%
+  margin-top: 10%;
 }
 
 #name {
   width: 3rem;
   height: 1rem;
-}
-
-fieldset{
-  border: 1px solid rgb(255,232,57);
-  width: 400px;
-  margin:auto;
-}
-
-li {
-  margin-bottom: 10px;
-}
-
-.pageContainer {
-  padding: 50px;
 }

@@ -1,27 +1,26 @@
-import "./App.css";
-import NavBar from "./components/NavBar";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { Homepage } from "./components/Pages/Home2";
-import { Contact } from "./components/Pages/Contact";
-import { Donations } from "./components/Pages/Donations";
-import { Janaza } from "./components/Pages/Janaza";
-import { NextSteps } from "./components/Pages/NextSteps";
-import { Visiting } from "./components/Pages/Visiting";
-import Map from "./components/Pages/Map";
-import Footer from "./components/Footer";
-import { Services } from "./components/Pages/Services";
-import { BurialReg } from "./components/Pages/BurialReg";
+import './App.css';
+import NavBar from './components/NavBar/NavBar';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { HomePage } from './Pages/Home/HomePage';
+import { Contact } from './Pages/Contact/Contact';
+import { Donations } from './Pages/Donation/Donations';
+import { Janaza } from './Pages/Janaza/Janaza';
+import { NextSteps } from './Pages/NextSteps/NextSteps';
+import { Visiting } from './Pages/Visiting/Visiting';
+import Map from './Pages/Map/Map';
+import Footer from './components/Footer/Footer';
+import { Services } from './Pages/Services/Services';
+import { BurialReg } from './Pages/BurialRegistration/BurialReg';
 
 function App() {
   return (
-
     <>
       <Router>
         <NavBar />
 
         <div className="pages">
           <Routes>
-            <Route path="/" element={<Homepage />} />
+            <Route path="/" element={<HomePage />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/donations" element={<Donations />} />
             <Route path="/janaza" element={<Janaza />} />
@@ -29,8 +28,7 @@ function App() {
             <Route path="/visiting" element={<Visiting />} />
             <Route path="/map" element={<Map />} />
             <Route path="/services" element={<Services />} />
-            <Route path="/zeForm" element={<BurialReg />} />
-
+            <Route path="/forms" element={<BurialReg />} />
           </Routes>
         </div>
 
