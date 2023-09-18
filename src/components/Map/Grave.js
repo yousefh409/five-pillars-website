@@ -24,12 +24,12 @@ class Grave extends Component {
         var id = this.props.sectionID + this.props.data.split(' ')[0];
         var dateOfDeath = this.props.data.split(' ').at(-1)
         var name = this.props.data.split(' ').slice(1, -1).join(' ')
-        var tooltiptest = 'this is <br /> a test';
         return (
             <div>
-                <div className={this.props.selectedId == id? "graveSelected": "grave"}  data-tooltip-id="my-tooltip" data-tooltip-html={name + " <br /> Date of Death: " + dateOfDeath} >
+                <div className={this.props.selectedId == id? "graveSelected": "grave"}  data-tooltip-id="my-tooltip" 
+                    data-tooltip-html={"<div className='graveTooltip'>" + name + " <br /> Date of Death: " + dateOfDeath + "<div />"} >
                     
-                    <div id={id+"-grave"} className="graveText">{id}</div>
+                    <div id={"grave-" + id} className="graveText">{id}</div>
                 </div>
             </div>
         )

@@ -1,5 +1,5 @@
 import React from 'react';
-import bury from '../../5pillars.jpg';
+import bury from '../../5Pillars.jpg';
 import ImageCarousel from './ImageCarousel';
 
 export const Homepage = () => {
