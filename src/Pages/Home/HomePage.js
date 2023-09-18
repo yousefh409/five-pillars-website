@@ -1,8 +1,8 @@
 import React from 'react';
-import bury from '../../5Pillars.jpg';
+import bury from '../../images/5Pillars.jpg';
 import ImageCarousel from './ImageCarousel';
 
-export const Homepage = () => {
+export const HomePage = () => {
   return (
     <>
       <div className="flex justify-center items-center md:pt-6 pb-8 px-auto sm:px-8">
@@ -81,4 +81,4 @@ export const Homepage = () => {
   );
 };
 
-export default Homepage;
+export default HomePage;
