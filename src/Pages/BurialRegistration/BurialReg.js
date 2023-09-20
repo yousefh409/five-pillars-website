@@ -18,7 +18,7 @@ export const BurialReg = () => {
     <div className="p-12 lg:px-64 pb-24">
       <Title content="Burial Registration" />
       <Collapsible />
-      <Collapsibles />
+      <Collapsibles/>
     </div>
   );
 };
