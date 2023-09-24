@@ -1,8 +1,6 @@
 .mapWrapper {
   display: flex;
   /* align-items flex-start; */
-  margin: 20px;
-  padding: 15px;
   /* border: dashed grey; */
   border: 25px solid transparent;
   overflow: auto;
@@ -13,4 +11,6 @@
   border-image-width: 1.5em 1.5em 1.5em 1.5em;
   border-image-outset: 0px 0px 0px 0px;
   border-image-repeat: round round;
+  margin-top: 20px;
+  /* padding: 5px; */
 }
