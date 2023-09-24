@@ -24,6 +24,7 @@ class Map extends React.Component {
     this.state = {
       names: [],
       selectedId: 'none',
+      selectedName: 'none',
       width: 0,
       height: 0,
       selectedSection: 'none',
@@ -75,7 +76,8 @@ class Map extends React.Component {
 
   selectSearch(record) {
     var selectedId = record.item.key
-    this.setState({ selectedId: selectedId });
+    var selectedName = record.item.value  
+    this.setState({ selectedId: selectedId, selectedName: selectedName });
     var element = document.getElementById('section-' + selectedId.slice(0, 2));
     scrollIntoView(
       element, {behavior: 'smooth', block: 'center', inline: 'center'}, {duration: 250}
@@ -117,6 +119,10 @@ class Map extends React.Component {
           />
         </div>
         <Tooltip id="my-tooltip" />
+        {this.state.selectedId !== "none"? 
+        <div>
+          <span style={{fontWeight: "bold"}}>{this.state.selectedName}</span> is located in {this.state.selectedId[1] == "S"? `Block ${this.state.selectedId[0]}`: `ROW ${this.state.selectedId.slice(0, 2)}`}, Grave #{this.state.selectedId.slice(2, 4)}
+        </div>: <div />} 
         <div className="mapWrapper">
           <div>
               <div id="section-AS" onClick={this.state.width < 7000? () => {this.selectSection('AS');}: () => {}}>
