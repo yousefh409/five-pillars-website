@@ -1,0 +1,18 @@
+p {
+  font-size: 16px;
+}
+
+.arabicDua {
+  font-size: 30px;
+}
+.translation {
+  font-size: 13px;
+}
+.nextStepsContainer {
+  margin-left: 10%;
+  margin-right:10%;
+  /*width: 80%; /* adjust as needed */
+  /*margin: auto;*/
+  /*height: 300px; /* adjust as needed */
+  overflow: auto; /* or 'scroll' to always show scrollbars */
+}

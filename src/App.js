@@ -11,6 +11,7 @@ import Map from './Pages/Map/Map';
 import Footer from './components/Footer/Footer';
 import { Services } from './Pages/Services/Services';
 import { BurialReg } from './Pages/BurialRegistration/BurialReg';
+import { Acknowledgement } from './Pages/Acknowledgement/Acknowledgement';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/map" element={<Map />} />
             <Route path="/services" element={<Services />} />
             <Route path="/forms" element={<BurialReg />} />
+            <Route path="/acknowledgement" element={<Acknowledgement />} />
           </Routes>
         </div>
 

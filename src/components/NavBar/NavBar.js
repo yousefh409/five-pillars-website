@@ -121,6 +121,16 @@ function NavBar() {
                   Contact Us
                 </NavLink>
               </li>
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  to="/acknowledgement"
+                  activeClassName="active"
+                  onClick={handleClick}
+                >
+                  Acknowledgements
+                </NavLink>
+              </li>
 
               {/* <li className="nav-item dropdown-toggle" onClick={handleDropdown}>
                             <NavLink

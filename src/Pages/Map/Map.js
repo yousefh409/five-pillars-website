@@ -29,6 +29,13 @@ class Map extends React.Component {
       height: 0,
       selectedSection: 'none',
     };
+    this.state.fuseConfigs = {
+      threshold: 0.6,
+      location: 0,
+      distance: 100,
+      minMatchCharLength: 1,
+      keys: ["value"],
+    }
     this.addToNamesList = this.addToNamesList.bind(this);
     this.selectSection = this.selectSection.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
@@ -53,7 +60,7 @@ class Map extends React.Component {
     if (!copy.includes({ key: id, value: name })) {
       copy.push({
         key: id,
-        value: name + ' (DOD: ' + dateOfDeath + ')',
+        value: name  + ' (DOD: ' + dateOfDeath + ')',
       });
     }
     this.setState({ names: copy });
@@ -116,6 +123,7 @@ class Map extends React.Component {
             data={this.state.names}
             onSelect={this.selectSearch}
             autoFocus
+            fuseConfigs={this.state.fuseConfigs}
           />
         </div>
         <Tooltip id="my-tooltip" />

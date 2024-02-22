@@ -19,6 +19,12 @@ const Footer = () => {
             >
               Contact Us
             </a>
+            <a
+              href="/acknowledgement"
+              className="text-white text-font hover:text-green-400 block mb-2"
+            >
+              Acknowledgements
+            </a>
             <p className="text-white text-font">
               1761 Laughlin Rd, Livermore, CA 94551
             </p>
@@ -32,6 +38,7 @@ const Footer = () => {
               (111) 111-1111
             </p>
           </div>
+          
           <div className="text-left  pl-8 mt-auto">
             <ul className="flex space-x-4">
               <li>
