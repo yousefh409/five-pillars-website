@@ -2,9 +2,9 @@ import React from 'react';
 
 const Title = ({ content }) => {
   return (
-    <h1 className="title-font text-5xl text-green-900 text-left py-6 md: pb-6 px-auto my-2 md:my-4">
+    <h2 className="title-font text-green-900 text-left py-6 md: pb-6 px-auto my-2 md:my-4">
       {content}
-    </h1>
+    </h2>
   );
 };
 

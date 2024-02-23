@@ -2,9 +2,9 @@ import React from 'react';
 
 const SubTitle = ({ content }) => {
   return (
-    <h1 className="subtitle-font text-4xl text-black text-left pt-4 pb-1 md: pb-6 px-auto my-2 md:my-4">
+    <h3 className="text-xl subtitle-font text-black text-left px-auto my-2 md:my-4">
       {content}
-    </h1>
+    </h3>
   );
 };
 
