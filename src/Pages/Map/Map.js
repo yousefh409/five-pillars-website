@@ -73,9 +73,9 @@ class Map extends React.Component {
       this.setState({ selectedSection: sectionID }, () => {
         if (this.state.selectedId != 'none' && this.state.selectedId.slice(0, 2) == sectionID) {
           var element = document.getElementById('grave-' + this.state.selectedId);
-          scrollIntoView(
-            element, {behavior: 'smooth', block: 'center', inline: 'center'}, {duration: 250}
-          );
+          // scrollIntoView(
+          //   element, {behavior: 'smooth', block: 'center', inline: 'center'}, {duration: 250}
+          // );
         }
       });
     }
@@ -86,9 +86,9 @@ class Map extends React.Component {
     var selectedName = record.item.value  
     this.setState({ selectedId: selectedId, selectedName: selectedName });
     var element = document.getElementById('section-' + selectedId.slice(0, 2));
-    scrollIntoView(
-      element, {behavior: 'smooth', block: 'center', inline: 'center'}, {duration: 250}
-    );
+    // scrollIntoView(
+    //   element, {behavior: 'smooth', block: 'center', inline: 'center'}, {duration: 250}
+    // );
   }
 
   render() {
