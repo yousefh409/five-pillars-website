@@ -5,7 +5,7 @@ import Title from '../../components/Title/Title';
 export const Visiting = () => {
   return (
     <div className="p-12 lg:px-64 pb-24">
-      <Title content="Visiting"></Title>
+      <Title content="Visit"></Title>
 
       <SubTitle content="Etiquettes and sunnahs when visiting the grave " />
 

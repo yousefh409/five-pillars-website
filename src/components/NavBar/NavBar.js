@@ -97,7 +97,7 @@ function NavBar() {
                   activeClassName="active"
                   onClick={() => {closeMenu(); handleClick();}}
                 >
-                  Janaza
+                  Process
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -127,7 +127,7 @@ function NavBar() {
                   activeClassName="active"
                   onClick={() => {closeMenu(); handleClick();}}
                 >
-                  Visiting
+                  Visit
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -140,7 +140,7 @@ function NavBar() {
                   Map
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   exact
                   to="/donations"
@@ -149,7 +149,7 @@ function NavBar() {
                 >
                   Donating
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
                   exact
@@ -157,7 +157,7 @@ function NavBar() {
                   activeClassName="active"
                   onClick={() => {closeMenu(); handleClick();}}
                 >
-                  Contact Us
+                  Contact
                 </NavLink>
               </li>
               <li className="nav-item">

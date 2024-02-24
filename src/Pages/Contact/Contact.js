@@ -42,8 +42,8 @@ export const Contact = () => {
                 <div className="subtitle-font text-3xl text-black py-4">
                   Address
                 </div>
-                <p className="text-lg">39675 Cedar Blvd. Ste: 1001A,</p>
-                <p className="text-lg">Newark, CA 94560</p>
+                <p className="text-lg">1761 Laughlin Rd,</p>
+                <p className="text-lg">Livermore, CA 94551</p>
               </div>
             </div>
           </div>

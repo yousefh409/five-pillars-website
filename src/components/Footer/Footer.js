@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -7,24 +8,24 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-auto">
           <div className="text-left mb-4 pl-8 sm:mb-0 sm:px-4 ">
             <h2 className="text-white text-xl title-font mb-3">Quick Links</h2>
-            <a
-              href="/"
+            <NavLink
+              to="/"
               className="text-white text-font hover:text-green-400 block mb-2"
             >
               Home
-            </a>
-            <a
-              href="/contact"
+            </NavLink>
+            <NavLink
+              to="/contact"
               className="text-white text-font hover:text-green-400 block mb-2"
             >
-              Contact Us
-            </a>
-            <a
-              href="/acknowledgement"
+              Contact
+            </NavLink>
+            <NavLink
+              to="/acknowledgement"
               className="text-white text-font hover:text-green-400 block mb-2"
             >
               Acknowledgements
-            </a>
+            </NavLink>
             <p className="text-white text-font">
               1761 Laughlin Rd, Livermore, CA 94551
             </p>
@@ -65,8 +66,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center mt-4 text-yellow-300">
-          &copy; {new Date().getFullYear()} Five Pillars Cemetery. Created by
-          Joe.
+          &copy; {new Date().getFullYear()} Five Pillars Cemetery. Made with ❤ in this Dunya, for the Akhirah 🤲🏻.
         </div>
       </div>
     </div>
