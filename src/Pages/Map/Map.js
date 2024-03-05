@@ -35,6 +35,8 @@ class Map extends React.Component {
       distance: 100,
       minMatchCharLength: 1,
       keys: ["value"],
+      shouldSort: true,
+      findAllMatches: true,
     }
     this.addToNamesList = this.addToNamesList.bind(this);
     this.selectSection = this.selectSection.bind(this);
@@ -93,7 +95,7 @@ class Map extends React.Component {
 
   render() {
     return (
-      <div className="p-12 pb-24">
+      <div className="p-6 lg:p-12 pb-24">
         <div>
           <Title content="Map"></Title>
           <SubTitle content="Legend" />
