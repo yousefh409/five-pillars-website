@@ -233,6 +233,14 @@ class Map extends React.Component {
               <div id="section-KK"   onClick={this.state.width < 7000? () => {this.selectSection('KK');}: () => {}}>
                   <Row sectionID="KK" filename="Five Pillars - Right Side - ROW KK.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
               </div>
+              <WalkwayPathHorizontal />
+              <div id="section-MM"   onClick={this.state.width < 7000? () => {this.selectSection('MM');}: () => {}}>
+                  <Row sectionID="MM" filename="Five Pillars - Right Side - ROW MM.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+              </div>
+              <WalkwayPathHorizontal />
+              <div id="section-LL"   onClick={this.state.width < 7000? () => {this.selectSection('LL');}: () => {}}>
+                  <Row sectionID="LL" filename="Five Pillars - Right Side - ROW LL.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId}/>
+              </div>
           </div>
         </div>
       </div>

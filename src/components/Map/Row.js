@@ -68,7 +68,9 @@ class Row extends Component {
                                 {this.state.data.map((option, index) => {
                                     return <div className="blockRow"> 
                                         {option.map((option, index) => {
-                                            var trimmed = option.trim()
+                                            console.log(option)
+                                            console.log(typeof(option))
+                                            var trimmed = option.toString().trim()
                                             return <div> 
                                                 {trimmed === "None"? 
                                                     <EmptyGrave />: 
