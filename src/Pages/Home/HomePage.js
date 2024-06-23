@@ -1,6 +1,7 @@
 import React from 'react';
 import bury from '../../images/5Pillars.jpg';
 import ImageCarousel from './ImageCarousel';
+import { Link } from 'react-router-dom';
 
 export const HomePage = () => {
   return (
@@ -16,7 +17,7 @@ export const HomePage = () => {
             />
           </div>
           <div className="w-108 flex flex-col min-w-screen">
-            <div className="title-font text-4xl text-green-900 text-left py-6 md: pb-6 px-10 my-2 md:my-4">
+            <div className="title-font text-4xl text-green-900 text-left px-10 my-2 md:my-4">
               About Five Pillars
             </div>
             <p className="text-left px-10">
@@ -28,6 +29,12 @@ export const HomePage = () => {
               related facilities at mosques is a priority to ensure that the
               Islamic traditions of burial are preserved for our families now
               and in the future.
+            </p>
+            <div className="title-font text-4xl text-green-900 text-left px-10 my-2 md:my-4">
+              Services
+            </div>
+            <p className="text-left px-10">
+              To view the services that our cemetry provides, as well as pricing information for graves, please visit the <Link className='font-medium text-blue-600 dark:text-blue-500 hover:underline' to='/services'>services page</Link>.
             </p>
           </div>
         </div>

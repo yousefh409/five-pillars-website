@@ -9,56 +9,114 @@ export const Services = () => {
   return (
     <div className="p-12 lg:px-64 pb-24">
       <Title content="Services"></Title>
-      <p class="ml-6 mb-4">
-        {' '}
-        Our staff can handle burial arrangements. Below is a breakdown of the
-        fees involved in the burial.
-      </p>
-      <p class="ml-6 mb-4">
-        To apply for burial arrangements, please fill out the following form:{' '}
-      </p>{' '}
-      <button
-        onClick={() => {
-          navigate('/forms');
-        }}
-        class="sacredButton flex justify-center text-font"
-      >
-        Burial Form
-      </button>
-      <SubTitle content="Prepaid Gravesite" />
-      <p className="ml-6 mb-4">
-        If you have already prepaid for a gravesite, services include:
-      </p>
-      <p className="ml-10 mb-8">
-        <ul className="mb-2">A. Concrete Liner & Installation </ul>
-        <ul className="mb-2">B. Opening & Closing of the Grave</ul>
-        <ul className="mb-2">C. Headstone/Marker Including Installation</ul>
-        <ul className="mb-2">
-          D. Paver Borders & Marble Chips Around Grave Site{' '}
-        </ul>
-        <ul className="mb-2">E. Endowment Fee</ul>
-        <br></br>
-        Total: $3900.00
-      </p>
-      <b></b>
-      <SubTitle content="Gravesite and Services" />
-      <p className="ml-6 mb-8">
-        For those who do not yet have a gravesite, an extra $2000 is needed to
-        purchase one. This package includes all of the preceding services. The
-        total will be $5900.
-      </p>
-      <SubTitle content="Children" />
-      <p className="ml-6 mb-8">
-        For children up to 34" in length, the burial fees are $2500.
-      </p>
-      <SubTitle content="Extra Fees" />
-      <p className="ml-6 mb-4">
-        If the burial is on a weekend or Holiday, an extra $500 will be charged.{' '}
-      </p>
-      <p className="ml-6 mb-4">
-        If the burial goes beyond the scheduled time, and extra $150 will be
-        charged per hour.
-      </p>
+      <div class="relative overflow-x-auto rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+              <caption class="p-5 text-lg font-semibold text-left rtl:text-right text-gray-900 bg-white dark:text-white dark:bg-gray-800">
+                Gravesite & Burial Costs
+                <p class="mt-1 text-sm font-normal text-gray-500 dark:text-gray-400">Below are prices for the gravesite and burial, as well as any additional fees. Data on website was last updated as of May 6, 2024, and is prone to change upon arrival.</p>
+              </caption>
+              <thead class="text-s text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                  <tr>
+                      <th scope="col" class="px-6 py-3">
+                          Item
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Amount
+                      </th>
+                      <th scope="col" class="px-6 py-3">
+                          Sales Tax
+                      </th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                         Plot
+                      </th>
+                      <td class="px-6 py-4">
+                          $2,100.00
+                      </td>
+                      <td class="px-6 py-4">
+                          
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                         Open/Close/All Installation Fees
+                      </th>
+                      <td class="px-6 py-4">
+                          $3,152.00
+                      </td>
+                      <td class="px-6 py-4">
+                          
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                         Grave Liner
+                      </th>
+                      <td class="px-6 py-4">
+                          $360.00
+                      </td>
+                      <td class="px-6 py-4">
+                          $36.90
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                         Headstone*
+                      </th>
+                      <td class="px-6 py-4">
+                          $500.00
+                      </td>
+                      <td class="px-6 py-4">
+                          $51.25
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                         Post-Burial Maintenance Fee
+                      </th>
+                      <td class="px-6 py-4">
+                          $300.00
+                      </td>
+                      <td class="px-6 py-4">
+          
+                      </td>
+                  </tr>
+              </tbody>
+              <tfoot>
+                  <tr class="font-medium uppercase bg-gray-50 text-black">
+                      <th scope="row" class="px-6 py-3">Total</th>
+                      <td class="px-6 py-3">$6,412.00</td>
+                      <td class="px-6 py-3">$88.15</td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                         Weekend Rate Increase
+                      </th>
+                      <td class="px-6 py-4">
+                          $750.00
+                      </td>
+                      <td class="px-6 py-4">
+                          
+                      </td>
+                  </tr>
+                  <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                      <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                         After 5:30pm Rate Increase
+                      </th>
+                      <td class="px-6 py-4">
+                          $150.00
+                      </td>
+                      <td class="px-6 py-4">
+
+                      </td>
+                  </tr>
+              </tfoot>
+          </table>
+          <p className='text-s pt-5'>*Note that headstone purchased via retail would coast at least double. Hence, it is offered through us at a volume discount.</p>
+      </div>
     </div>
   );
 };

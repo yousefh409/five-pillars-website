@@ -77,7 +77,18 @@ function NavBar() {
                   activeClassName="active"
                   onClick={() => {closeMenu(); handleClick();}}
                 >
-                  Home
+                  Five Pillars
+                </NavLink>
+              </li>
+              
+              <li className="nav-item">
+                <NavLink
+                  exact
+                  to="/services"
+                  activeClassName="active"
+                  onClick={() => {closeMenu(); handleClick();}}
+                >
+                  Services
                 </NavLink>
               </li>
               <li className="nav-item">
@@ -100,17 +111,7 @@ function NavBar() {
                   Process
                 </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  exact
-                  to="/services"
-                  activeClassName="active"
-                  onClick={() => {closeMenu(); handleClick();}}
-                >
-                  Services
-                </NavLink>
-              </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   exact
                   to="/forms"
@@ -119,7 +120,7 @@ function NavBar() {
                 >
                   Forms
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
                   exact
