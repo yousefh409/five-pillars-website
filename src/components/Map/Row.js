@@ -3,6 +3,7 @@ import "./Block.css";
 import EmptyGrave from "./EmptyGrave";
 import Grave from "./Grave";
 import Walkway from "./Walkway";
+import axios from 'axios'; // Import Axios
 
 const { convertCSVToArray } = require('convert-csv-to-array');
 const converter = require('convert-csv-to-array');
@@ -13,7 +14,9 @@ class Row extends Component {
         this.state = {
             data: [],
             width: 0,
-            height: 0
+            height: 0,
+            isLoaded: false
+
         };
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     }
@@ -22,7 +25,10 @@ class Row extends Component {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
 
-        this.showFile(this.props.filename)
+        if (!this.state.isLoaded) {
+            this.showFile(this.props.fileSource)
+            this.setState({isLoaded: true})
+        }
       }
       
       componentWillUnmount() {
@@ -33,14 +39,29 @@ class Row extends Component {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
       }
 
+      parseCSV = (csvText) => {
+        const rows = csvText.split(/\r?\n/);        // Use a regular expression to split the CSV text into rows while handling '\r'
+        const headers = rows[0].split(',');        // Extract headers (assumes the first row is the header row)
+        const data = [];        // Initialize an array to store the parsed data
+        for (let i = 0; i < rows.length; i++) {
+            const rowData = rows[i].split(',');          // Use the regular expression to split the row while handling '\r'
+            var rowObject = [];
+            for (let j = 0; j < headers.length; j++) {
+                rowObject = [...rowObject, rowData[j]];
+            }
+            data.push(rowObject);
+        }
+        return data;
+    }
+
     showFile = async (file) => {
-        fetch("/data/" + file)
-            .then((response) => response.text())
-            .then((textContent) => {
-                const csv = convertCSVToArray(textContent + "\n", {
-                    type: 'array',
-                    separator: ',',
-                  });
+        this.props.setIsLoading(this.props.sectionID, true)
+        var csv = []
+        if (this.props.isOnline) {
+            axios.get(file)    // Use Axios to fetch the CSV data
+            .then((response) => {
+                const parsedCsvData = this.parseCSV(response.data);        // Parse the CSV data into an array of objects
+                csv = parsedCsvData;
                 this.setState({data: csv})
                 for (const row of csv) {
                     for (const grave of row) {
@@ -53,7 +74,37 @@ class Row extends Component {
                         }
                     }
                 }
+                this.props.setIsLoading(this.props.sectionID, false)
+            })
+            .catch((error) => {
+                console.error('Error fetching CSV data:', error);
             });
+        } else {
+            fetch("/data/" + file)
+                .then((response) => response.text())
+                .then((textContent) => {
+                    // Note: We add a "\n" here since the "convert-csv-to-array" package requires that
+                    //       all CSV lines end in a newline character (which google sheet downloaded CSVs do not have)
+                    const csv = convertCSVToArray(textContent + "\n", {
+                        type: 'array',
+                        separator: ',',
+                    });
+                    this.setState({data: csv})
+                    
+                    for (const row of csv) {
+                        for (const grave of row) {
+                            var trimmed = grave.trim()
+                            if (!(trimmed === "Empty" || trimmed === "None" || trimmed === "WALK WAY")) {
+                                var id = this.props.sectionID + trimmed.split(' ')[0];
+                                var dateOfDeath = trimmed.split(' ').at(-1)
+                                var name = trimmed.split(' ').slice(1, -1).join(' ')
+                                this.props.addToNamesList(id, name, dateOfDeath)
+                            }
+                        }
+                    }
+                    this.props.setIsLoading(this.props.sectionID, false)
+                });
+        }
     }
 
     render = () => {
