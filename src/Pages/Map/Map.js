@@ -18,6 +18,10 @@ import { scrollIntoView } from 'seamless-scroll-polyfill';
 import SubTitle from '../../components/Title/SubTitle';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 // import { BookLoader } from "react-awesome-loaders";
+import { ThreeDots   } from 'react-loading-icons'
+import { hatch } from 'ldrs'
+
+hatch.register()
 
 class Map extends React.Component {
   constructor(props) {
@@ -145,7 +149,15 @@ class Map extends React.Component {
         </div>
         <Tooltip id="my-tooltip" />
         {this.isMapLoading()?
-          <div>Loading</div>: <div/>}
+          <div className='flex justify-center items-center m-5'>
+            <l-hatch
+              size="40"
+              stroke="4"
+              speed="3.5" 
+              color="rgb(20 83 45)" 
+            ></l-hatch>
+          </div>
+          : <div/>}
         {this.state.selectedId !== "none"? 
         <div>
           <span style={{fontWeight: "bold"}}>{this.state.selectedName}</span> is located in {this.state.selectedId[1] == "S"? `Block ${this.state.selectedId[0]}`: `ROW ${this.state.selectedId.slice(0, 2)}`}, Grave #{this.state.selectedId.slice(2, 4)}

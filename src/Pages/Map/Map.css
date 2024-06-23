@@ -23,3 +23,8 @@
 .lineInRow {
   display: flex;
 }
+
+.mapLoadingBar {
+  text-align: center;
+  margin: auto auto;
+}
