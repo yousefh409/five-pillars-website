@@ -60,7 +60,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="text-center mt-4 text-yellow-300">
-          &copy; {new Date().getFullYear()} Five Pillars Cemetery. Made with ❤ in this Dunya, for the Akhirah 🤲🏻.
+          &copy; {new Date().getFullYear()} Janazas. Made with ❤ in this Dunya, for the Akhirah 🤲🏻.
         </div>
       </div>
     </div>
