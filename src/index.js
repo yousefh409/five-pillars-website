@@ -11,11 +11,9 @@ import {loadStripe} from "@stripe/stripe-js"
   //you'll want to change this to whatever your publishable key is from stripe
   const stripePromise = loadStripe('pk_test_51MrSm9Ipjb8xd8GP5cQIYeRavMUQDHys9hzs4GnIPo7TtQW8fiNfaxixJSIdXyIwsKSDAQ2XJCfIiDbUPzRQOHDF00IStxnPIj')
   ReactDOM.render(
-    <React.StrictMode>
       <Elements stripe={stripePromise}>
       <App />
-      </Elements>
-    </React.StrictMode>,
+      </Elements>,
     document.getElementById('root')
   );
 })()

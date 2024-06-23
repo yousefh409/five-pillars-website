@@ -26,12 +26,23 @@ export const Contact = () => {
             <div className="ml-6">
               {/* Contact Info */}
               <div className="ml-6">
-            
+                <div className="subtitle-font text-3xl text-black py-4">
                   Email
                 </div>
                 <p className="text-lg">info@janazas.org</p>
                 <div className="subtitle-font text-3xl text-black py-4">
-                
+                  Feedback Form
+                </div>
+                <a className="text-lg" href='https://forms.gle/TPwkujaF2xnPvbEH8'>Click Here: Feedback</a>
+                {/* <div className="subtitle-font text-3xl text-black py-4">
+                  Hours
+                </div>
+                <p className="text-lg">Monday through Sunday, 10AM - 5PM</p>
+                <div className="subtitle-font text-3xl text-black py-4">
+                  Address
+                </div>
+                <p className="text-lg">1761 Laughlin Rd,</p>
+                <p className="text-lg">Livermore, CA 94551</p> */}
               </div>
             </div>
           </div>

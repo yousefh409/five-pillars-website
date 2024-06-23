@@ -30,6 +30,20 @@
     padding: 4px;
 }
 
+.smallBlockBlank {
+    width: 19vw;
+    min-width: 80px;
+    height: 40.5px;
+}
+
+.smallBlockBlankSelected {
+    background-color: rgb(147, 235, 147);
+    height: 35px;
+    font-size: small;
+    text-align: center;
+    padding: 4px;
+}
+
 .rowBlank {
     width: 40vw;
     min-width: 160px;

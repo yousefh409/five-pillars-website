@@ -10,7 +10,7 @@
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^14.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "axios": "^1.4.0",
+    "axios": "^1.7.2",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",
     "convert-csv-to-array": "^1.0.3",

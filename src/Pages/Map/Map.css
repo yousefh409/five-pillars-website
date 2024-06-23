@@ -14,3 +14,12 @@
   border-image-repeat: round round; */
   margin-top: 20px;
 }
+
+.mapInvisbible {
+  opacity: 0;
+  height: 0;
+}
+
+.lineInRow {
+  display: flex;
+}
