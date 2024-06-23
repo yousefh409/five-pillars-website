@@ -18,7 +18,6 @@ import { scrollIntoView } from 'seamless-scroll-polyfill';
 import SubTitle from '../../components/Title/SubTitle';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 // import { BookLoader } from "react-awesome-loaders";
-import { ThreeDots   } from 'react-loading-icons'
 import { hatch } from 'ldrs'
 
 hatch.register()
