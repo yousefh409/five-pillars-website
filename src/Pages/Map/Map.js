@@ -314,12 +314,40 @@ class Map extends React.Component {
                     <Row sectionID="KK" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vTmL2MN2rQ7_wuyL82P9GZ6y8Jp_FNhS-sd-rJWjdxJDsbOARHFjzKTDf99F7Dl4uRb0EyDtmDNRad3/pub?gid=544373758&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
                 </div>
                 <WalkwayPathHorizontal />
+                <div id="section-LL"   onClick={this.state.width < 7000? () => {this.selectSection('LL');}: () => {}}>
+                    <Row sectionID="LL" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vRyx_YQBCAPWz34VinKXVQ3DUnZrC77hSa73gd4b2Va2R9LfIk5Yvn2sQHroOSSfn1no7oWzpz3AIGu/pub?gid=1125781368&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
                 <div id="section-MM"   onClick={this.state.width < 7000? () => {this.selectSection('MM');}: () => {}}>
                     <Row sectionID="MM" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSWk6PXoMBIYngpx-mwRatYk84UOLN5S0W5p3YF8FN_AYBZOxZ8_cPYu2Hyg2qDRkoBn9zRC-ocI_-3/pub?gid=319635090&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-LL"   onClick={this.state.width < 7000? () => {this.selectSection('LL');}: () => {}}>
-                    <Row sectionID="LL" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vRyx_YQBCAPWz34VinKXVQ3DUnZrC77hSa73gd4b2Va2R9LfIk5Yvn2sQHroOSSfn1no7oWzpz3AIGu/pub?gid=1125781368&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                <div id="section-NN"   onClick={this.state.width < 7000? () => {this.selectSection('NN');}: () => {}}>
+                    <Row sectionID="NN" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSFbtenovE560Lmkm8PUuUNa9Wv0LzFcSbcJxUMeYt3D6czma9uC9LUnkzmiLlioBQLuq4N-0yU1giG/pub?gid=319635090&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-OO"   onClick={this.state.width < 7000? () => {this.selectSection('OO');}: () => {}}>
+                    <Row sectionID="OO" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-PP"   onClick={this.state.width < 7000? () => {this.selectSection('PP');}: () => {}}>
+                    <Row sectionID="PP" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-QQ"   onClick={this.state.width < 7000? () => {this.selectSection('QQ');}: () => {}}>
+                    <Row sectionID="QQ" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-RR"   onClick={this.state.width < 7000? () => {this.selectSection('RR');}: () => {}}>
+                    <Row sectionID="RR" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-SS"   onClick={this.state.width < 7000? () => {this.selectSection('SS');}: () => {}}>
+                    <Row sectionID="SS" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-TT"   onClick={this.state.width < 7000? () => {this.selectSection('TT');}: () => {}}>
+                    <Row sectionID="TT" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
                 </div>
             </div>
           </div>
