@@ -1,59 +1,75 @@
-ENTRIES TO ADD TO EXISTING GOOGLE SHEETS
-==========================================
-Find these sections in your Google Drive folder and add these entries
-to the appropriate plot positions (replace "Empty" with the entry).
+===========================================
+UPDATES FOR EXISTING GOOGLE SHEETS
+===========================================
 
-Format: [Plot#] [NAME IN CAPS] [DATE]
+These are individual cell updates - find the plot number in your 
+existing sheet and replace "None" or empty with the new entry.
 
---- BLOCK I (Left Side) ---
-  Plot 46: 46 MOHAMMAD KARIM SOLTANI 6/10/2024
-  Plot 47: 47 PARWEEN ABASSI 8/16/2024
-  Plot 48: 48 FARID M. AZIM 9/18/25
-  Plot 49: 49 SAYED A. SADAT 9/18/25
-  Plot 50: 50 LATIFA NOORZAI 11/14/2025
-  Plot 51: 51 SAID HABIB SAID 1/25/26
+-------------------------------------------
+BLOCK I (Left Side)
+-------------------------------------------
+Find these cells and paste the entry:
 
---- BLOCK N (Left Side) ---
-  Plot 27: 27 MAHPAWAR OLOMI 1/11/2024
-  Plot 28: 28 ALLI SADAT 3/14/24
-  Plot 29: 29 AZIZ RAHMAN UTMANZAI 3/23/24
-  Plot 31: 31 PAINDA MOHAMMAD GULZADA 5/23/2024
-  Plot 32: 32 MAHGULL ABDULLAH 7/5/2024
-  Plot 33: 33 ALIA HASHIMI 4/3/2025
-  Plot 34: 34 MUNIR MALIK 12/26/2025
+Plot 46: 46 Mohammad Karim Soltani 6/10/2024
+Plot 47: 47 Parween Abassi 8/16/2024
+Plot 48: 48 Farid M. Azim 9/18/25
+Plot 49: 49 Sayed A. Sadat 9/18/25
+Plot 50: 50 Latifa Noorzai 11/14/2025
+Plot 51: 51 Said Habib Said 1/25/26
 
---- BLOCK V (Left Side) ---
-  Plot 27: 27 ALI AHMAD MARDANZAI 2/6/24
-  Plot 28: 28 MAHSOOMA SARWARI 8/8/2024
-  Plot 31: 31 ALIA AZAMI 8/13/2024
-  Plot 32: 32 NAZIMA NIAZ 9/7/2024
-  Plot 33: 33 ZIBA MASHKOOR 10/17/2024
-  Plot 34: 34 SAFORA SAFDARI 5/27/2025
-  Plot 35: 35 SAAD ABASSI 7/8/2025
-  Plot 36: 36 HABIBULLAH AMONI 12/6/2025
+-------------------------------------------
+BLOCK N (Left Side)
+-------------------------------------------
+Plot 27: 27 Mahpawar Olomi 1/11/2024
+Plot 28: 28 Alli Sadat 3/14/24
+Plot 29: 29 Aziz Rahman Utmanzai 3/23/24
+Plot 31: 31 Painda Mohammad Gulzada 5/23/2024
+Plot 32: 32 Mahgull Abdullah 7/5/2024
+Plot 33: 33 Alia Hashimi 4/3/2025
+Plot 34: 34 Munir Malik 12/26/2025
 
---- BLOCK S (Left Side) ---
-  Plot 36: 36 MOHAMMAD QASEEM PANJSHERI 2/16/24
-  Plot 37: 37 ANWAR OMAR NECKO 1/17/2025
-  Plot 38: 38 MOHAMMAD FARID EBRAHIMI 1/26/2025
-  Plot 40: 40 MARZIA ROOSHEN SAADAT 8/1/2024
+-------------------------------------------
+BLOCK V (Left Side)
+-------------------------------------------
+Plot 27: 27 Ali Ahmad Mardanzai 2/6/24
+Plot 28: 28 Mahsooma Sarwari 8/8/2024
+Plot 31: 31 Alia Azami 8/13/2024
+Plot 32: 32 Nazima Niaz 9/7/2024
+Plot 33: 33 Ziba Mashkoor 10/17/2024
+Plot 34: 34 Safora Safdari 5/27/2025
+Plot 35: 35 Saad Abassi 7/8/2025
+Plot 36: 36 Habibullah Amoni 12/6/2025
 
---- BLOCK R (Left Side) ---
-  Plot 9: 9 HAJIRA LATIFI 6/26/2025
-  Plot 15: 15 JAMALLUDIN SAYED 2/12/24
-  Plot 16: 16 ABDUL HADI BARAKZAI 8/14/2025
+-------------------------------------------
+BLOCK S (Left Side)
+-------------------------------------------
+Plot 36: 36 Mohammad Qaseem Panjsheri 2/16/24
+Plot 37: 37 Anwar Omar Necko 1/17/2025
+Plot 38: 38 Mohammad Farid Ebrahimi 1/26/2025
+Plot 40: 40 Marzia Rooshen Saadat 8/1/2024
 
---- BLOCK T (Left Side) ---
-  Plot 7: 7 KARIM PANJSHIR 10/24/2024
+-------------------------------------------
+BLOCK R (Left Side)
+-------------------------------------------
+Plot 9: 9 Hajira Latifi 6/26/2025
+Plot 15: 15 Jamalludin Sayed 2/12/24
+Plot 16: 16 Abdul Hadi Barakzai 8/14/2025
 
---- BLOCK U (Left Side) ---
-  Plot 49: 49 HESHAM M. KAMEL 11/27/2024
-  Plot 51: 51 SADULI ZUBAIR 7/5/2024
+-------------------------------------------
+BLOCK T (Left Side)
+-------------------------------------------
+Plot 7: 7 Karim Panjshir 10/24/2024
 
+-------------------------------------------
+BLOCK U (Left Side)
+-------------------------------------------
+Plot 49: 49 Hesham M. Kamel 11/27/2024
+Plot 51: 51 Saduli Zubair 7/5/2024
 
-NEXT STEPS:
-1. Create 3 new Google Sheets in your folder for OO, PP, QQ
-2. Copy the data from the corresponding files into each sheet
-3. Publish each sheet (File > Share > Publish to web > CSV format)
-4. Share the published URLs with me so I can update the code
-5. Update the existing sheets (I, N, V, S, R, T, U) with the entries above
+===========================================
+HOW TO UPDATE:
+1. Open the Google Sheet for that section
+2. Find the column with that plot number
+3. Replace "None" or empty cell with the entry above
+4. The sheet auto-publishes, no need to re-publish
+===========================================
