@@ -327,15 +327,15 @@ class Map extends React.Component {
                 </div>
                 <WalkwayPathHorizontal />
                 <div id="section-OO"   onClick={this.state.width < 7000? () => {this.selectSection('OO');}: () => {}}>
-                    <Row sectionID="OO" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                    <Row sectionID="OO" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSqzqHjbRjueLGg_29DfVo_LU6lQYgC2CEdttZ3F9swOBH83qR7rxNgcfJurFrzcdyPM8EZx5aotPnR/pub?output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
                 </div>
                 <WalkwayPathHorizontal />
                 <div id="section-PP"   onClick={this.state.width < 7000? () => {this.selectSection('PP');}: () => {}}>
-                    <Row sectionID="PP" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                    <Row sectionID="PP" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vT3gpwFa4P9AHtFHhXHzrYQl4Ec_LND9nL7b1dxtc6uroakF9lvrvq7d4hpVK8Y7_Dw_GDLyqmR6tYV/pub?output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
                 </div>
                 <WalkwayPathHorizontal />
                 <div id="section-QQ"   onClick={this.state.width < 7000? () => {this.selectSection('QQ');}: () => {}}>
-                    <Row sectionID="QQ" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                    <Row sectionID="QQ" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSNKZ6pscFjLsY97zd7Sm7rcLkK9qghB3QaqSOIKsuI6oBL3rGg0-IhUFksPK6oWk2R1NNsBXp62qo1/pub?output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
                 </div>
                 <WalkwayPathHorizontal />
                 <div id="section-RR"   onClick={this.state.width < 7000? () => {this.selectSection('RR');}: () => {}}>
