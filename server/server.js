@@ -21,7 +21,7 @@ app.use(
 
 const stripe = require("stripe")(process.env.STRIPE_PRIVATE_KEY)
 
-app.listen(3000);
+app.listen(3001);
 
 const burialOptions = new Map([
     [1, { priceInCents: 390000, name: "Prepaid Burial"}],
