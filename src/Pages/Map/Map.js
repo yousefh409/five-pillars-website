@@ -32,7 +32,8 @@ class Map extends React.Component {
       width: 0,
       height: 0,
       selectedSection: 'none',
-      sectionIsLoadings: {}
+      sectionIsLoadings: {},
+      lastUpdated: null
     };
     this.state.fuseConfigs = {
       threshold: 0.6,
@@ -83,6 +84,35 @@ class Map extends React.Component {
         value: name  + ' (DOD: ' + dateOfDeath + ')',
       });
     }
+    
+    // Track the most recent date for "Last Updated"
+    if (dateOfDeath && dateOfDeath !== 'None') {
+      // Parse date handling 2-digit years (e.g., "1/16/26" -> 2026)
+      const parts = dateOfDeath.split('/');
+      if (parts.length === 3) {
+        let year = parseInt(parts[2], 10);
+        // Convert 2-digit years: 00-99 -> 2000-2099
+        if (year >= 0 && year < 100) {
+          year = 2000 + year;
+        }
+        // Only accept reasonable years (2000-2099)
+        if (year >= 2000 && year <= 2099) {
+          const month = parseInt(parts[0], 10);
+          const day = parseInt(parts[1], 10);
+          if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
+            const parsedDate = new Date(year, month - 1, day);
+            if (!isNaN(parsedDate.getTime())) {
+              const currentLastUpdated = this.state.lastUpdated;
+              if (!currentLastUpdated || parsedDate > currentLastUpdated) {
+                this.setState({ names: copy, lastUpdated: parsedDate });
+                return;
+              }
+            }
+          }
+        }
+      }
+    }
+    
     this.setState({ names: copy });
   }
 
@@ -111,11 +141,22 @@ class Map extends React.Component {
     // );
   }
 
+  formatLastUpdated() {
+    if (!this.state.lastUpdated) return null;
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return this.state.lastUpdated.toLocaleDateString('en-US', options);
+  }
+
   render() {
     return (
       <div className="p-6 lg:p-12 pb-24">
         <div>
           <Title content="Map"></Title>
+          {this.state.lastUpdated && !this.isMapLoading() && (
+            <div className="text-gray-600 text-sm mb-4">
+              Last Updated: {this.formatLastUpdated()}
+            </div>
+          )}
           <SubTitle content="Legend" />
           <div className="bg-green-500 bg-opacity-10 rounded-2xl p-6">
             <div className="flex items-start">
