@@ -14,7 +14,7 @@ export const Acknowledgement = () => {
           <br></br>
         We would like to thank the members of MTC who worked on this project, specifically: Selin Musa, Yousef Helal, Abdullah Mansour, Nasreddine Belhoucine, Riyya Ahmed, and Misbah Syed.
         <br></br>
-        We would also like to thank members of the comunity who contributed extensivley to making this project a reality: Shazia Kajani, Basil Rizwan, and Imam Tahir.
+        We would also like to thank members of the community who contributed extensivley to making this project a reality: Shazia Kajani, Basil Rizwan, and Imam Tahir.
         <br></br>
         </p>
       </div>
