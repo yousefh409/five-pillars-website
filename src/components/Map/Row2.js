@@ -49,50 +49,87 @@ class Row2 extends Component {
         }
     }
 
-    // Convert flat data into 2D grid format using row_index and col_index
+    // Convert flat data into 2D grid format with walkway support
     getRowData() {
         const { sectionData, sectionID } = this.props;
         if (!sectionData || sectionData.length === 0) return [];
 
-        // Group by row_index
-        const rowsMap = {};
-        let maxCol = 0;
+        // Separate graves and walkway marker
+        const graves = [];
+        let walkwaySplitPoint = null;
         
         for (const record of sectionData) {
-            const rowIdx = record.row_index;
-            const colIdx = record.col_index;
-            
-            if (!rowsMap[rowIdx]) {
-                rowsMap[rowIdx] = {};
+            if (record.location.includes('_WALKWAY')) {
+                // date_of_death contains the split point (last grave before walkway)
+                walkwaySplitPoint = parseInt(record.date_of_death, 10);
+            } else {
+                graves.push(record);
             }
-            rowsMap[rowIdx][colIdx] = record;
-            maxCol = Math.max(maxCol, colIdx);
         }
-        
-        // Convert to 2D array
-        const grid = [];
-        const rowIndices = Object.keys(rowsMap).map(Number).sort((a, b) => a - b);
-        
-        for (const rowIdx of rowIndices) {
-            const row = [];
-            for (let colIdx = 0; colIdx <= maxCol; colIdx++) {
-                const record = rowsMap[rowIdx][colIdx];
-                if (record) {
-                    if (record.name === 'WALK WAY') {
-                        row.push('WALK WAY');
-                    } else {
-                        // Extract plot number from location
-                        const plotNum = record.location.replace(sectionID, '').padStart(2, '0');
-                        row.push(`${plotNum} ${record.name} ${record.date_of_death || 'None'}`);
-                    }
+
+        // Sort graves by plot number
+        graves.sort((a, b) => {
+            const numA = parseInt(a.location.replace(sectionID, ''), 10);
+            const numB = parseInt(b.location.replace(sectionID, ''), 10);
+            return numA - numB;
+        });
+
+        // If there's a walkway, split into 3 rows: before, walkway, after
+        if (walkwaySplitPoint !== null) {
+            const beforeWalkway = [];
+            const afterWalkway = [];
+            
+            for (const grave of graves) {
+                const plotNum = parseInt(grave.location.replace(sectionID, ''), 10);
+                if (plotNum <= walkwaySplitPoint) {
+                    beforeWalkway.push(grave);
                 } else {
-                    row.push('None');
+                    afterWalkway.push(grave);
                 }
             }
-            grid.push(row);
+            
+            // Determine the number of columns (max of before and after counts)
+            const numCols = Math.max(beforeWalkway.length, afterWalkway.length);
+            
+            // Build the grid
+            const grid = [];
+            
+            // Row 0: graves before walkway
+            const row0 = beforeWalkway.map(record => {
+                const graveNum = record.location.replace(sectionID, '').padStart(2, '0');
+                return `${graveNum} ${record.name} ${record.date_of_death || 'None'}`;
+            });
+            // Pad with None if needed
+            while (row0.length < numCols) {
+                row0.push('None');
+            }
+            grid.push(row0);
+            
+            // Row 1: walkway
+            const walkwayRow = Array(numCols).fill('WALK WAY');
+            grid.push(walkwayRow);
+            
+            // Row 2: graves after walkway
+            const row2 = afterWalkway.map(record => {
+                const graveNum = record.location.replace(sectionID, '').padStart(2, '0');
+                return `${graveNum} ${record.name} ${record.date_of_death || 'None'}`;
+            });
+            // Pad with None if needed
+            while (row2.length < numCols) {
+                row2.push('None');
+            }
+            grid.push(row2);
+            
+            return grid;
         }
         
-        return grid;
+        // No walkway - single row
+        const row = graves.map(record => {
+            const graveNum = record.location.replace(sectionID, '').padStart(2, '0');
+            return `${graveNum} ${record.name} ${record.date_of_death || 'None'}`;
+        });
+        
+        return [row];
     }
 
     render = () => {

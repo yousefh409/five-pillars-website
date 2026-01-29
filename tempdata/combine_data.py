@@ -14,15 +14,11 @@ def parse_cell(cell_value, section_id, row_index, col_index):
     if cell in ['None', 'Empty', '']:
         return None
     
-    # Handle walkway
+    # Handle walkway - return a marker
     if cell == 'WALK WAY':
         return {
-            'location': f"{section_id}_W{row_index}_{col_index}",
-            'name': 'WALK WAY',
-            'date_of_death': '',
-            'row_index': row_index,
-            'col_index': col_index,
-            'is_walkway': True
+            'type': 'walkway',
+            'row_index': row_index
         }
     
     # Skip special entries (broken vaults, etc.)
@@ -44,7 +40,7 @@ def parse_cell(cell_value, section_id, row_index, col_index):
     if not number_match:
         return None
     
-    plot_number = number_match.group(1)
+    plot_number = int(number_match.group(1))
     name = remaining[number_match.end():].strip()
     
     if not name:
@@ -53,27 +49,44 @@ def parse_cell(cell_value, section_id, row_index, col_index):
     location = f"{section_id}{plot_number}"
     
     return {
+        'type': 'grave',
         'location': location,
         'name': name,
         'date_of_death': date,
         'row_index': row_index,
-        'col_index': col_index,
-        'is_walkway': False
+        'plot_number': plot_number
     }
 
 def process_csv_file(filepath, section_id):
-    """Process a single CSV file and return list of records."""
+    """Process a single CSV file and return list of records and walkway info."""
     records = []
+    walkway_row = None
+    max_plot_before_walkway = 0
     
     with open(filepath, 'r', encoding='utf-8') as f:
         reader = csv.reader(f)
-        for row_index, row in enumerate(reader):
-            for col_index, cell in enumerate(row):
-                result = parse_cell(cell, section_id, row_index, col_index)
-                if result:
-                    records.append(result)
+        rows_data = list(reader)
     
-    return records
+    # First pass: find walkway row
+    for row_index, row in enumerate(rows_data):
+        for cell in row:
+            if cell.strip() == 'WALK WAY':
+                walkway_row = row_index
+                break
+        if walkway_row is not None:
+            break
+    
+    # Second pass: process graves and find split point
+    for row_index, row in enumerate(rows_data):
+        for col_index, cell in enumerate(row):
+            result = parse_cell(cell, section_id, row_index, col_index)
+            if result and result['type'] == 'grave':
+                records.append(result)
+                # Track max plot number before walkway
+                if walkway_row is not None and row_index < walkway_row:
+                    max_plot_before_walkway = max(max_plot_before_walkway, result['plot_number'])
+    
+    return records, walkway_row, max_plot_before_walkway
 
 def main():
     script_dir = Path(__file__).parent
@@ -85,39 +98,54 @@ def main():
     for csv_file in sorted(csv_files):
         section_id = csv_file.stem  # filename without extension (e.g., 'AA', 'AS')
         print(f"Processing {csv_file.name}...")
-        records = process_csv_file(csv_file, section_id)
-        all_records.extend(records)
+        records, walkway_row, split_point = process_csv_file(csv_file, section_id)
         
-        # Count walkways and graves
-        walkways = sum(1 for r in records if r['is_walkway'])
-        graves = len(records) - walkways
-        print(f"  Found {graves} graves, {walkways} walkways")
+        # Add grave records (without row_index, just location/name/date)
+        for r in records:
+            all_records.append({
+                'location': r['location'],
+                'name': r['name'],
+                'date_of_death': r['date_of_death']
+            })
+        
+        # Add walkway marker if this section has a walkway
+        # Format: AA_WALKWAY, WALK WAY, <split_point> (last grave number before walkway)
+        if walkway_row is not None and split_point > 0:
+            all_records.append({
+                'location': f"{section_id}_WALKWAY",
+                'name': 'WALK WAY',
+                'date_of_death': str(split_point)  # Store the split point (last grave before walkway)
+            })
+            print(f"  Found {len(records)} graves, walkway after grave {split_point}")
+        else:
+            print(f"  Found {len(records)} graves, no walkway")
     
-    # Sort by section, then row_index, then col_index
+    # Sort: graves by location, walkway markers at end of each section
     def sort_key(record):
         loc = record['location']
-        section = record['location'].split('_')[0] if '_' in record['location'] else re.match(r'([A-Z]+)', loc).group(1)
-        return (section, record['row_index'], record['col_index'])
+        if '_WALKWAY' in loc:
+            section = loc.replace('_WALKWAY', '')
+            return (section, 999999)
+        else:
+            match = re.match(r'([A-Z]+)(\d+)', loc)
+            if match:
+                letters, numbers = match.groups()
+                return (letters, int(numbers))
+        return (loc, 0)
     
     all_records.sort(key=sort_key)
     
-    # Write combined file
+    # Write combined file - simple 3-column format
     output_file = script_dir / 'combined_data.csv'
     with open(output_file, 'w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=['location', 'name', 'date_of_death', 'row_index', 'col_index'])
-        writer.writeheader()
+        writer = csv.writer(f)
+        writer.writerow(['location', 'name', 'date_of_death'])
         for record in all_records:
-            writer.writerow({
-                'location': record['location'],
-                'name': record['name'],
-                'date_of_death': record['date_of_death'],
-                'row_index': record['row_index'],
-                'col_index': record['col_index']
-            })
+            writer.writerow([record['location'], record['name'], record['date_of_death']])
     
-    total_walkways = sum(1 for r in all_records if r['is_walkway'])
-    total_graves = len(all_records) - total_walkways
-    print(f"\nDone! Combined {total_graves} graves and {total_walkways} walkways into {output_file.name}")
+    grave_count = sum(1 for r in all_records if '_WALKWAY' not in r['location'])
+    walkway_count = sum(1 for r in all_records if '_WALKWAY' in r['location'])
+    print(f"\nDone! Combined {grave_count} graves and {walkway_count} walkway markers into {output_file.name}")
 
 if __name__ == '__main__':
     main()

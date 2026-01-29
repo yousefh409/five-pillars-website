@@ -49,45 +49,44 @@ class Block2 extends Component {
         }
     }
 
-    // Convert flat data into 2D grid format using row_index and col_index
+    // Convert flat data into 2D grid format
     getGridData() {
         const { sectionData, sectionID } = this.props;
         if (!sectionData || sectionData.length === 0) return [];
 
-        // Group by row_index
-        const rowsMap = {};
-        let maxCol = 0;
+        // Separate graves and walkway marker
+        const graves = [];
+        let walkwaySplitPoint = null;
         
         for (const record of sectionData) {
-            const rowIdx = record.row_index;
-            const colIdx = record.col_index;
-            
-            if (!rowsMap[rowIdx]) {
-                rowsMap[rowIdx] = {};
+            if (record.location.includes('_WALKWAY')) {
+                // date_of_death contains the split point
+                walkwaySplitPoint = parseInt(record.date_of_death, 10);
+            } else {
+                graves.push(record);
             }
-            rowsMap[rowIdx][colIdx] = record;
-            maxCol = Math.max(maxCol, colIdx);
         }
-        
-        // Convert to 2D array
+
+        // Sort graves by plot number
+        graves.sort((a, b) => {
+            const numA = parseInt(a.location.replace(sectionID, ''), 10);
+            const numB = parseInt(b.location.replace(sectionID, ''), 10);
+            return numA - numB;
+        });
+
+        // Blocks (AS, BS, etc.) don't have internal walkways
+        // Just arrange graves into rows of 10 columns
+        const cols = this.props.isSmallBlock ? 5 : 10;
         const grid = [];
-        const rowIndices = Object.keys(rowsMap).map(Number).sort((a, b) => a - b);
         
-        for (const rowIdx of rowIndices) {
-            const row = [];
-            for (let colIdx = 0; colIdx <= maxCol; colIdx++) {
-                const record = rowsMap[rowIdx][colIdx];
-                if (record) {
-                    if (record.name === 'WALK WAY') {
-                        row.push('WALK WAY');
-                    } else {
-                        // Extract plot number from location (e.g., "AS81" -> "81")
-                        const plotNum = record.location.replace(sectionID, '').padStart(2, '0');
-                        row.push(`${plotNum} ${record.name} ${record.date_of_death || 'None'}`);
-                    }
-                } else {
-                    row.push('Empty');
-                }
+        for (let i = 0; i < graves.length; i += cols) {
+            const row = graves.slice(i, i + cols).map(record => {
+                const graveNum = record.location.replace(sectionID, '').padStart(2, '0');
+                return `${graveNum} ${record.name} ${record.date_of_death || 'None'}`;
+            });
+            // Pad row with empty graves if needed
+            while (row.length < cols) {
+                row.push('Empty');
             }
             grid.push(row);
         }
