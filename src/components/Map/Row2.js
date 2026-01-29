@@ -35,37 +35,64 @@ class Row2 extends Component {
     }
 
     processData() {
-        // Add names to the search list
-        const { sectionData, sectionID, addToNamesList } = this.props;
+        // Add names to the search list (skip walkways)
+        const { sectionData, addToNamesList } = this.props;
         if (sectionData && sectionData.length > 0) {
             for (const record of sectionData) {
-                const id = record.location;
-                const name = record.name;
-                const dateOfDeath = record.date_of_death || 'None';
-                addToNamesList(id, name, dateOfDeath);
+                if (record.name !== 'WALK WAY') {
+                    const id = record.location;
+                    const name = record.name;
+                    const dateOfDeath = record.date_of_death || 'None';
+                    addToNamesList(id, name, dateOfDeath);
+                }
             }
         }
     }
 
-    // Convert flat data into single row format for display
+    // Convert flat data into 2D grid format using row_index and col_index
     getRowData() {
         const { sectionData, sectionID } = this.props;
         if (!sectionData || sectionData.length === 0) return [];
 
-        // Sort by grave number
-        const sorted = [...sectionData].sort((a, b) => {
-            const numA = parseInt(a.location.replace(sectionID, ''), 10);
-            const numB = parseInt(b.location.replace(sectionID, ''), 10);
-            return numA - numB;
-        });
-
-        // Rows display as a single horizontal row
-        const row = sorted.map(record => {
-            const graveNum = record.location.replace(sectionID, '').padStart(2, '0');
-            return `${graveNum} ${record.name} ${record.date_of_death || 'None'}`;
-        });
+        // Group by row_index
+        const rowsMap = {};
+        let maxCol = 0;
         
-        return [row]; // Return as 2D array with single row for consistent rendering
+        for (const record of sectionData) {
+            const rowIdx = record.row_index;
+            const colIdx = record.col_index;
+            
+            if (!rowsMap[rowIdx]) {
+                rowsMap[rowIdx] = {};
+            }
+            rowsMap[rowIdx][colIdx] = record;
+            maxCol = Math.max(maxCol, colIdx);
+        }
+        
+        // Convert to 2D array
+        const grid = [];
+        const rowIndices = Object.keys(rowsMap).map(Number).sort((a, b) => a - b);
+        
+        for (const rowIdx of rowIndices) {
+            const row = [];
+            for (let colIdx = 0; colIdx <= maxCol; colIdx++) {
+                const record = rowsMap[rowIdx][colIdx];
+                if (record) {
+                    if (record.name === 'WALK WAY') {
+                        row.push('WALK WAY');
+                    } else {
+                        // Extract plot number from location
+                        const plotNum = record.location.replace(sectionID, '').padStart(2, '0');
+                        row.push(`${plotNum} ${record.name} ${record.date_of_death || 'None'}`);
+                    }
+                } else {
+                    row.push('None');
+                }
+            }
+            grid.push(row);
+        }
+        
+        return grid;
     }
 
     render = () => {
