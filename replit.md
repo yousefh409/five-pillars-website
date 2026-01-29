@@ -40,6 +40,16 @@ A React-based website for the Five Pillars Cemetery, a Muslim cemetery in the Sa
 - Stripe integration (@stripe/react-stripe-js)
 - React Slick (carousel)
 - Tailwind CSS
+- react-search-box with Fuse.js for grave search
+- Fuse.js for fuzzy text search
+
+## Map Page Search
+The map page uses react-search-box with a cached Fuse.js instance for searching graves by name. Key features:
+- Tuned Fuse config (threshold: 0.35, distance: 200) for better accuracy
+- "No results found" feedback when search returns empty
+- ARIA labels and keyboard navigation hints for accessibility
+- Styled search container with improved UX
 
 ## Recent Changes
+- January 29, 2026: Improved map page search - tuned Fuse.js config, added no-results feedback, cached Fuse instance for efficiency, added accessibility improvements
 - January 28, 2026: Initial Replit setup - configured port 5000, added environment variables for host check bypass
