@@ -35,42 +35,59 @@ class Block2 extends Component {
     }
 
     processData() {
-        // Add names to the search list
-        const { sectionData, sectionID, addToNamesList } = this.props;
+        // Add names to the search list (skip walkways)
+        const { sectionData, addToNamesList } = this.props;
         if (sectionData && sectionData.length > 0) {
             for (const record of sectionData) {
-                const id = record.location;
-                const name = record.name;
-                const dateOfDeath = record.date_of_death || 'None';
-                addToNamesList(id, name, dateOfDeath);
+                if (record.name !== 'WALK WAY') {
+                    const id = record.location;
+                    const name = record.name;
+                    const dateOfDeath = record.date_of_death || 'None';
+                    addToNamesList(id, name, dateOfDeath);
+                }
             }
         }
     }
 
-    // Convert flat data into 2D grid format for display
+    // Convert flat data into 2D grid format using row_index and col_index
     getGridData() {
         const { sectionData, sectionID } = this.props;
         if (!sectionData || sectionData.length === 0) return [];
 
-        // Sort by grave number
-        const sorted = [...sectionData].sort((a, b) => {
-            const numA = parseInt(a.location.replace(sectionID, ''), 10);
-            const numB = parseInt(b.location.replace(sectionID, ''), 10);
-            return numA - numB;
-        });
-
-        // Determine grid dimensions (blocks typically have 10 columns)
-        const cols = this.props.isSmallBlock ? 5 : 10;
-        const grid = [];
+        // Group by row_index
+        const rowsMap = {};
+        let maxCol = 0;
         
-        for (let i = 0; i < sorted.length; i += cols) {
-            const row = sorted.slice(i, i + cols).map(record => {
-                const graveNum = record.location.replace(sectionID, '').padStart(2, '0');
-                return `${graveNum} ${record.name} ${record.date_of_death || 'None'}`;
-            });
-            // Pad row with empty graves if needed
-            while (row.length < cols) {
-                row.push('Empty');
+        for (const record of sectionData) {
+            const rowIdx = record.row_index;
+            const colIdx = record.col_index;
+            
+            if (!rowsMap[rowIdx]) {
+                rowsMap[rowIdx] = {};
+            }
+            rowsMap[rowIdx][colIdx] = record;
+            maxCol = Math.max(maxCol, colIdx);
+        }
+        
+        // Convert to 2D array
+        const grid = [];
+        const rowIndices = Object.keys(rowsMap).map(Number).sort((a, b) => a - b);
+        
+        for (const rowIdx of rowIndices) {
+            const row = [];
+            for (let colIdx = 0; colIdx <= maxCol; colIdx++) {
+                const record = rowsMap[rowIdx][colIdx];
+                if (record) {
+                    if (record.name === 'WALK WAY') {
+                        row.push('WALK WAY');
+                    } else {
+                        // Extract plot number from location (e.g., "AS81" -> "81")
+                        const plotNum = record.location.replace(sectionID, '').padStart(2, '0');
+                        row.push(`${plotNum} ${record.name} ${record.date_of_death || 'None'}`);
+                    }
+                } else {
+                    row.push('Empty');
+                }
             }
             grid.push(row);
         }

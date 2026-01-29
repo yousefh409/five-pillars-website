@@ -82,20 +82,30 @@ class Map2 extends React.Component {
         const location = values[0]?.trim() || '';
         const name = values[1]?.trim() || '';
         const date_of_death = values[2]?.trim() || '';
+        const row_index = parseInt(values[3]?.trim() || '0', 10);
+        const col_index = parseInt(values[4]?.trim() || '0', 10);
 
         if (name && location) {
-          // Extract section ID (e.g., "AA" from "AA1", "AS" from "AS12")
-          const sectionMatch = location.match(/^([A-Z]+)/);
-          if (sectionMatch) {
-            const sectionID = sectionMatch[1];
+          // Extract section ID - handle both "AA1" format and "AA_W1_0" (walkway) format
+          let sectionID;
+          if (location.includes('_W')) {
+            // Walkway format: "AA_W1_0" -> section is "AA"
+            sectionID = location.split('_')[0];
+          } else {
+            // Regular format: "AA1" -> section is "AA"
+            const sectionMatch = location.match(/^([A-Z]+)/);
+            sectionID = sectionMatch ? sectionMatch[1] : null;
+          }
+          
+          if (sectionID) {
             if (!groupedData[sectionID]) {
               groupedData[sectionID] = [];
             }
-            groupedData[sectionID].push({ location, name, date_of_death });
+            groupedData[sectionID].push({ location, name, date_of_death, row_index, col_index });
           }
 
-          // Track latest date for "Last Updated"
-          if (date_of_death) {
+          // Track latest date for "Last Updated" (skip walkways)
+          if (date_of_death && name !== 'WALK WAY') {
             const parts = date_of_death.split('/');
             if (parts.length === 3) {
               let year = parseInt(parts[2], 10);
