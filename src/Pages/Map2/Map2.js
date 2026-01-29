@@ -254,53 +254,53 @@ class Map2 extends React.Component {
             <div>
               <div className='lineInRow'>
                 <div>
-                    <div id="section-AS" onClick={this.state.width < 7000 ? () => {this.selectSection('AS');}: () => {}}>
-                        <Block2 sectionID="AS" sectionData={this.getSectionData('AS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-A" onClick={this.state.width < 7000 ? () => {this.selectSection('A');}: () => {}}>
+                        <Block2 sectionID="A" sectionData={this.getSectionData('A')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-BS" onClick={this.state.width < 7000 ? () => {this.selectSection('BS');}: () => {}}>
-                        <Block2 sectionID="BS" sectionData={this.getSectionData('BS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-B" onClick={this.state.width < 7000 ? () => {this.selectSection('B');}: () => {}}>
+                        <Block2 sectionID="B" sectionData={this.getSectionData('B')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-CS" onClick={this.state.width < 7000 ? () => {this.selectSection('CS');}: () => {}}>
-                        <Block2 sectionID="CS" sectionData={this.getSectionData('CS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-C" onClick={this.state.width < 7000 ? () => {this.selectSection('C');}: () => {}}>
+                        <Block2 sectionID="C" sectionData={this.getSectionData('C')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-DS" onClick={this.state.width < 7000 ? () => {this.selectSection('DS');}: () => {}}>
-                        <Block2 sectionID="DS" sectionData={this.getSectionData('DS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-D" onClick={this.state.width < 7000 ? () => {this.selectSection('D');}: () => {}}>
+                        <Block2 sectionID="D" sectionData={this.getSectionData('D')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-ES" onClick={this.state.width < 7000 ? () => {this.selectSection('ES');}: () => {}}>
-                        <Block2 sectionID="ES" sectionData={this.getSectionData('ES')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-E" onClick={this.state.width < 7000 ? () => {this.selectSection('E');}: () => {}}>
+                        <Block2 sectionID="E" sectionData={this.getSectionData('E')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-FS" onClick={this.state.width < 7000 ? () => {this.selectSection('FS');}: () => {}}>
-                        <Block2 sectionID="FS" sectionData={this.getSectionData('FS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-F" onClick={this.state.width < 7000 ? () => {this.selectSection('F');}: () => {}}>
+                        <Block2 sectionID="F" sectionData={this.getSectionData('F')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                 </div>
                 <div>
-                    <div id="section-GS" onClick={this.state.width < 7000 ? () => {this.selectSection('GS');}: () => {}}>
-                        <Block2 sectionID="GS" sectionData={this.getSectionData('GS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-G" onClick={this.state.width < 7000 ? () => {this.selectSection('G');}: () => {}}>
+                        <Block2 sectionID="G" sectionData={this.getSectionData('G')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-HS" onClick={this.state.width < 7000 ? () => {this.selectSection('HS');}: () => {}}>
-                        <Block2 sectionID="HS" sectionData={this.getSectionData('HS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-H" onClick={this.state.width < 7000 ? () => {this.selectSection('H');}: () => {}}>
+                        <Block2 sectionID="H" sectionData={this.getSectionData('H')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-IS" onClick={this.state.width < 7000 ? () => {this.selectSection('IS');}: () => {}}>
-                        <Block2 sectionID="IS" sectionData={this.getSectionData('IS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-I" onClick={this.state.width < 7000 ? () => {this.selectSection('I');}: () => {}}>
+                        <Block2 sectionID="I" sectionData={this.getSectionData('I')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-JS" onClick={this.state.width < 7000 ? () => {this.selectSection('JS');}: () => {}}>
-                        <Block2 sectionID="JS" sectionData={this.getSectionData('JS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-J" onClick={this.state.width < 7000 ? () => {this.selectSection('J');}: () => {}}>
+                        <Block2 sectionID="J" sectionData={this.getSectionData('J')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-KS" onClick={this.state.width < 7000 ? () => {this.selectSection('KS');}: () => {}}>
-                        <Block2 sectionID="KS" sectionData={this.getSectionData('KS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-K" onClick={this.state.width < 7000 ? () => {this.selectSection('K');}: () => {}}>
+                        <Block2 sectionID="K" sectionData={this.getSectionData('K')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                     <WalkwayPathHorizontal />
-                    <div id="section-LS" onClick={this.state.width < 7000 ? () => {this.selectSection('LS');}: () => {}}>
-                        <Block2 sectionID="LS" sectionData={this.getSectionData('LS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                    <div id="section-L" onClick={this.state.width < 7000 ? () => {this.selectSection('L');}: () => {}}>
+                        <Block2 sectionID="L" sectionData={this.getSectionData('L')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                     </div>
                 </div>
               </div>
@@ -309,48 +309,48 @@ class Map2 extends React.Component {
               </div>
             </div>
             <div>
-                <div id="section-MS" onClick={this.state.width < 7000 ? () => {this.selectSection('MS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="MS" sectionData={this.getSectionData('MS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-M" onClick={this.state.width < 7000 ? () => {this.selectSection('M');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="M" sectionData={this.getSectionData('M')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-NS" onClick={this.state.width < 7000 ? () => {this.selectSection('NS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="NS" sectionData={this.getSectionData('NS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-N" onClick={this.state.width < 7000 ? () => {this.selectSection('N');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="N" sectionData={this.getSectionData('N')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-PS" onClick={this.state.width < 7000 ? () => {this.selectSection('PS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="PS" sectionData={this.getSectionData('PS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-P" onClick={this.state.width < 7000 ? () => {this.selectSection('P');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="P" sectionData={this.getSectionData('P')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-QS" onClick={this.state.width < 7000 ? () => {this.selectSection('QS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="QS" sectionData={this.getSectionData('QS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-Q" onClick={this.state.width < 7000 ? () => {this.selectSection('Q');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="Q" sectionData={this.getSectionData('Q')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-RS" onClick={this.state.width < 7000 ? () => {this.selectSection('RS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="RS" sectionData={this.getSectionData('RS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-R" onClick={this.state.width < 7000 ? () => {this.selectSection('R');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="R" sectionData={this.getSectionData('R')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
                 <div id="section-SS" onClick={this.state.width < 7000 ? () => {this.selectSection('SS');}: () => {}}>
                     <Block2 isSmallBlock={true} sectionID="SS" sectionData={this.getSectionData('SS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-TS" onClick={this.state.width < 7000 ? () => {this.selectSection('TS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="TS" sectionData={this.getSectionData('TS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-T" onClick={this.state.width < 7000 ? () => {this.selectSection('T');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="T" sectionData={this.getSectionData('T')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-US" onClick={this.state.width < 7000 ? () => {this.selectSection('US');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="US" sectionData={this.getSectionData('US')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-U" onClick={this.state.width < 7000 ? () => {this.selectSection('U');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="U" sectionData={this.getSectionData('U')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-VS" onClick={this.state.width < 7000 ? () => {this.selectSection('VS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="VS" sectionData={this.getSectionData('VS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-V" onClick={this.state.width < 7000 ? () => {this.selectSection('V');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="V" sectionData={this.getSectionData('V')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-WS" onClick={this.state.width < 7000 ? () => {this.selectSection('WS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="WS" sectionData={this.getSectionData('WS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-W" onClick={this.state.width < 7000 ? () => {this.selectSection('W');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="W" sectionData={this.getSectionData('W')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
                 <WalkwayPathHorizontal />
-                <div id="section-XS" onClick={this.state.width < 7000 ? () => {this.selectSection('XS');}: () => {}}>
-                    <Block2 isSmallBlock={true} sectionID="XS" sectionData={this.getSectionData('XS')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                <div id="section-X" onClick={this.state.width < 7000 ? () => {this.selectSection('X');}: () => {}}>
+                    <Block2 isSmallBlock={true} sectionID="X" sectionData={this.getSectionData('X')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
             </div>
 
