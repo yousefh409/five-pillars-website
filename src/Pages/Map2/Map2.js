@@ -82,15 +82,13 @@ class Map2 extends React.Component {
         const location = values[0]?.trim() || '';
         const name = values[1]?.trim() || '';
         const date_of_death = values[2]?.trim() || '';
-        const row_index = parseInt(values[3]?.trim() || '0', 10);
-        const col_index = parseInt(values[4]?.trim() || '0', 10);
 
         if (name && location) {
-          // Extract section ID - handle both "AA1" format and "AA_W1_0" (walkway) format
+          // Extract section ID - handle both "AA1" format and "AA_WALKWAY" format
           let sectionID;
-          if (location.includes('_W')) {
-            // Walkway format: "AA_W1_0" -> section is "AA"
-            sectionID = location.split('_')[0];
+          if (location.includes('_WALKWAY')) {
+            // Walkway marker: "AA_WALKWAY" -> section is "AA"
+            sectionID = location.replace('_WALKWAY', '');
           } else {
             // Regular format: "AA1" -> section is "AA"
             const sectionMatch = location.match(/^([A-Z]+)/);
@@ -101,7 +99,8 @@ class Map2 extends React.Component {
             if (!groupedData[sectionID]) {
               groupedData[sectionID] = [];
             }
-            groupedData[sectionID].push({ location, name, date_of_death, row_index, col_index });
+            // For walkway markers, date_of_death contains the row index
+            groupedData[sectionID].push({ location, name, date_of_death });
           }
 
           // Track latest date for "Last Updated" (skip walkways)
