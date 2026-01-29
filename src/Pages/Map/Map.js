@@ -33,22 +33,24 @@ class Map extends React.Component {
       height: 0,
       selectedSection: 'none',
       sectionIsLoadings: {},
-      lastUpdated: null
+      lastUpdated: null,
+      searchQuery: '',
+      showNoResults: false
     };
     this.state.fuseConfigs = {
-      threshold: 0.6,
+      threshold: 0.35,
       location: 0,
-      distance: 100,
-      minMatchCharLength: 1,
+      distance: 200,
+      minMatchCharLength: 2,
       keys: ["value"],
       shouldSort: true,
-      findAllMatches: true,
-      limit: 10
+      findAllMatches: true
     }
     this.addToNamesList = this.addToNamesList.bind(this);
     this.selectSection = this.selectSection.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-    this.selectSearch = this.selectSearch.bind(this)
+    this.selectSearch = this.selectSearch.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
     this.setIsLoading = this.setIsLoading.bind(this)
     this.isMapLoading = this.isMapLoading.bind(this)
   }
@@ -134,11 +136,24 @@ class Map extends React.Component {
   selectSearch(record) {
     var selectedId = record.item.key
     var selectedName = record.item.value  
-    this.setState({ selectedId: selectedId, selectedName: selectedName });
+    this.setState({ selectedId: selectedId, selectedName: selectedName, showNoResults: false });
     var element = document.getElementById('section-' + selectedId.slice(0, 2));
     // scrollIntoView(
     //   element, {behavior: 'smooth', block: 'center', inline: 'center'}, {duration: 250}
     // );
+  }
+
+  handleSearchChange(query) {
+    this.setState({ searchQuery: query });
+    if (query && query.length >= 2 && this.state.names.length > 0) {
+      const lowerQuery = query.toLowerCase();
+      const hasMatch = this.state.names.some(item => 
+        item.value.toLowerCase().includes(lowerQuery)
+      );
+      this.setState({ showNoResults: !hasMatch });
+    } else {
+      this.setState({ showNoResults: false });
+    }
   }
 
   formatLastUpdated() {
@@ -175,17 +190,27 @@ class Map extends React.Component {
             </div>
           </div>
         </div>
-        <div className="m-6">
+        <div className="m-6 search-container" role="search" aria-label="Search for graves">
           <ReactSearchBox
             placeholder="Search for a name here"
-            value="Doe"
-            leftIcon={<i className={`bi-${'search'}`}></i>}
+            leftIcon={<i className={`bi-${'search'}`} aria-hidden="true"></i>}
             iconBoxSize="48px"
             data={this.state.names}
             onSelect={this.selectSearch}
+            onChange={this.handleSearchChange}
             autoFocus
             fuseConfigs={this.state.fuseConfigs}
+            inputFontSize="16px"
+            inputHeight="48px"
           />
+          <div className="search-help-text">
+            Use arrow keys to navigate results, Enter to select
+          </div>
+          {this.state.showNoResults && (
+            <div className="no-results-message" role="alert">
+              No results found for "{this.state.searchQuery}". Try a different spelling or check the name format.
+            </div>
+          )}
         </div>
         <Tooltip id="my-tooltip" />
         {this.isMapLoading()?
@@ -199,8 +224,8 @@ class Map extends React.Component {
           </div>
           : <div/>}
         {this.state.selectedId !== "none"? 
-        <div>
-          <span style={{fontWeight: "bold"}}>{this.state.selectedName}</span> is located in {this.state.selectedId[1] == "S"? `Block ${this.state.selectedId[0]}`: `ROW ${this.state.selectedId.slice(0, 2)}`}, Grave #{this.state.selectedId.slice(2, 4)}
+        <div className="search-result-location">
+          <span style={{fontWeight: "bold"}}>{this.state.selectedName}</span> is located in {this.state.selectedId[1] === "S"? `Block ${this.state.selectedId[0]}`: `ROW ${this.state.selectedId.slice(0, 2)}`}, Grave #{this.state.selectedId.slice(2, 4)}
         </div>: <div />} 
           <div className={this.isMapLoading()? "mapInvisbible": "mapWrapper"}>
             <div>
