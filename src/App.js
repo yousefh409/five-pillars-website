@@ -8,6 +8,7 @@ import { Janaza } from './Pages/Janaza/Janaza';
 import { NextSteps } from './Pages/NextSteps/NextSteps';
 import { Visiting } from './Pages/Visiting/Visiting';
 import Map from './Pages/Map/Map';
+import Map2 from './Pages/Map2/Map2';
 import Footer from './components/Footer/Footer';
 import { Services } from './Pages/Services/Services';
 import { BurialReg } from './Pages/BurialRegistration/BurialReg';
@@ -28,6 +29,7 @@ function App() {
             <Route path="/next-steps" element={<NextSteps />} />
             <Route path="/visiting" element={<Visiting />} />
             <Route path="/map" element={<Map />} />
+            <Route path="/map2" element={<Map2 />} />
             <Route path="/services" element={<Services />} />
             <Route path="/forms" element={<BurialReg />} />
             <Route path="/acknowledgement" element={<Acknowledgement />} />
