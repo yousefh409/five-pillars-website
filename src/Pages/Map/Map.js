@@ -212,9 +212,6 @@ class Map extends React.Component {
             inputFontSize="16px"
             inputHeight="48px"
           />
-          <div className="search-help-text">
-            Use arrow keys to navigate results, Enter to select
-          </div>
           {this.state.showNoResults && (
             <div className="no-results-message" role="alert">
               No results found for "{this.state.searchQuery}". Try a different spelling or check the name format.
