@@ -19,6 +19,7 @@ import SubTitle from '../../components/Title/SubTitle';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 // import { BookLoader } from "react-awesome-loaders";
 import { hatch } from 'ldrs'
+import Fuse from 'fuse.js'
 
 hatch.register()
 
@@ -51,8 +52,9 @@ class Map extends React.Component {
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     this.selectSearch = this.selectSearch.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
-    this.setIsLoading = this.setIsLoading.bind(this)
-    this.isMapLoading = this.isMapLoading.bind(this)
+    this.setIsLoading = this.setIsLoading.bind(this);
+    this.isMapLoading = this.isMapLoading.bind(this);
+    this.fuseInstance = null;
   }
 
   componentDidMount() {
@@ -106,7 +108,12 @@ class Map extends React.Component {
             if (!isNaN(parsedDate.getTime())) {
               const currentLastUpdated = this.state.lastUpdated;
               if (!currentLastUpdated || parsedDate > currentLastUpdated) {
-                this.setState({ names: copy, lastUpdated: parsedDate });
+                this.setState({ names: copy, lastUpdated: parsedDate }, () => {
+                  this.fuseInstance = new Fuse(this.state.names, {
+                    ...this.state.fuseConfigs,
+                    keys: ['value']
+                  });
+                });
                 return;
               }
             }
@@ -115,7 +122,12 @@ class Map extends React.Component {
       }
     }
     
-    this.setState({ names: copy });
+    this.setState({ names: copy }, () => {
+      this.fuseInstance = new Fuse(this.state.names, {
+        ...this.state.fuseConfigs,
+        keys: ['value']
+      });
+    });
   }
 
   selectSection(sectionID) {
@@ -145,12 +157,9 @@ class Map extends React.Component {
 
   handleSearchChange(query) {
     this.setState({ searchQuery: query });
-    if (query && query.length >= 2 && this.state.names.length > 0) {
-      const lowerQuery = query.toLowerCase();
-      const hasMatch = this.state.names.some(item => 
-        item.value.toLowerCase().includes(lowerQuery)
-      );
-      this.setState({ showNoResults: !hasMatch });
+    if (query && query.length >= 2 && this.fuseInstance) {
+      const results = this.fuseInstance.search(query);
+      this.setState({ showNoResults: results.length === 0 });
     } else {
       this.setState({ showNoResults: false });
     }
