@@ -68,7 +68,8 @@ class Map2 extends React.Component {
 
   loadData = async () => {
     try {
-      const response = await fetch('/data/combined_data.csv');
+      // Fetch from published Google Sheets CSV
+      const response = await fetch('https://docs.google.com/spreadsheets/d/e/2PACX-1vRQ6Df5jiCtxWg-JEO0aIKo54Q69TzAKWq067YKxNa95KS2P9Dggn2tIc7pp4Jrz1FkQ0vnhhl0gjO3/pub?gid=277253390&single=true&output=csv');
       const csvText = await response.text();
       const rows = csvText.split('\n');
       
