@@ -51,7 +51,7 @@ export const HomePage = () => {
 
       <div class="flex items-center justify-center pt-6 pb-16 ">
         <div class=" mx-auto px-6 ">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-3 mx-auto px-12 lg:px-36 ">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mx-auto px-12 lg:px-36 ">
             <div class="p-4 m-4 text-center bg-gray-500 bg-opacity-10 rounded-2xl">
               <div className="subtitle-font text-2xl text-center text-black text-left pb-1  px-auto mt-4">
                 {' '}
