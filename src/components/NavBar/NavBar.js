@@ -81,7 +81,7 @@ function NavBar() {
                 </NavLink>
               </li>
               
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   exact
                   to="/services"
@@ -90,7 +90,7 @@ function NavBar() {
                 >
                   Services
                 </NavLink>
-              </li>
+              </li> */}
               <li className="nav-item">
                 <NavLink
                   exact

@@ -30,12 +30,6 @@ export const HomePage = () => {
               Islamic traditions of burial are preserved for our families now
               and in the future.
             </p>
-            <div className="title-font text-4xl text-green-900 text-left px-10 my-2 md:my-4">
-              Services
-            </div>
-            <p className="text-left px-10">
-              To view the services that our cemetry provides, as well as pricing information for graves, please visit the <Link className='font-medium text-blue-600 dark:text-blue-500 hover:underline' to='/services'>services page</Link>.
-            </p>
           </div>
         </div>
       </div>
@@ -75,6 +69,17 @@ export const HomePage = () => {
               </div>
               <p className="mx-6 text-center pt-4 pb-8">
                 Monday-Sunday 10 AM - 5 PM
+              </p>
+            </div>
+
+            <div class="p-4 m-4 text-center bg-gray-500 bg-opacity-10 rounded-2xl">
+              <div className="subtitle-font text-2xl text-center text-black text-left pb-1  px-auto mt-4">
+                {' '}
+                Contact
+              </div>
+              <p className="mx-6 text-center pt-4 pb-8">
+                Reshma Inamdar (341) 465-7302<br />
+                Omar Latif (341) 465-7690
               </p>
             </div>
           </div>
