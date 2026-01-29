@@ -288,7 +288,7 @@ class Map extends React.Component {
                 </div>
               </div>
               <div id="section-YY" onClick={this.state.width < 7000? () => {this.selectSection('YY');}: () => {}}>
-                    <Row sectionID="YY" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSOSJ5ebiSq4oLtvHKceSPf9WRxRDeDIzs8cGCm23AjLiq8LrTIUjocEX0RgioBr2leg7E5p_SWVJPH/pub?gid=1851413578&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                    <Row sectionID="YY" displayTitle="Section Y" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSOSJ5ebiSq4oLtvHKceSPf9WRxRDeDIzs8cGCm23AjLiq8LrTIUjocEX0RgioBr2leg7E5p_SWVJPH/pub?gid=1851413578&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
               </div>
             </div>
             <div>

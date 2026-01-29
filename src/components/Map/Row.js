@@ -110,7 +110,7 @@ class Row extends Component {
     render = () => {
         return (
             <div className="blockWrapper">
-                <p className="blockTitle">Row {this.props.sectionID}</p>
+                <p className="blockTitle">{this.props.displayTitle || `Row ${this.props.sectionID}`}</p>
                 <div>
                     {(this.state.width < 7000 && this.props.selectedSection != this.props.sectionID) || this.state.data.length == 0? 
                         ((this.props.selectedId.slice(0, this.props.sectionID.length) === this.props.sectionID)?  <div className="rowBlankSelected"> Tap to see exact location</div>: <div className="rowBlank"></div>): 
