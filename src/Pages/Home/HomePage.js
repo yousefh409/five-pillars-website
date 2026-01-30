@@ -68,7 +68,7 @@ export const HomePage = () => {
                 Burial Times
               </div>
               <p className="mx-6 text-center pt-4 pb-8">
-                Monday-Sunday 10 AM - 5 PM
+                Monday-Sunday<br />10 AM - 5 PM
               </p>
             </div>
 
@@ -78,8 +78,9 @@ export const HomePage = () => {
                 Contact
               </div>
               <p className="mx-6 text-center pt-4 pb-8">
-                Reshma Inamdar (341) 465-7302<br />
-                Omar Latif (341) 465-7690
+                Reshma Inamdar<br />(341) 465-7302
+                <br /><br />
+                Omar Latif<br />(341) 465-7690
               </p>
             </div>
           </div>

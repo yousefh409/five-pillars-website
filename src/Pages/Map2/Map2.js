@@ -304,8 +304,8 @@ class Map2 extends React.Component {
                     </div>
                 </div>
               </div>
-              <div id="section-YY" onClick={this.state.width < 7000 ? () => {this.selectSection('YY');}: () => {}}>
-                    <Row2 sectionID="YY" displayTitle="Section Y" sectionData={this.getSectionData('YY')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+              <div id="section-Y" onClick={this.state.width < 7000 ? () => {this.selectSection('Y');}: () => {}}>
+                    <Row2 sectionID="Y" displayTitle="Section Y" sectionData={this.getSectionData('Y')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
               </div>
             </div>
             <div>
@@ -433,6 +433,30 @@ class Map2 extends React.Component {
                 <WalkwayPathHorizontal />
                 <div id="section-TT" onClick={this.state.width < 7000 ? () => {this.selectSection('TT');}: () => {}}>
                     <Row2 sectionID="TT" sectionData={this.getSectionData('TT')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-UU" onClick={this.state.width < 7000 ? () => {this.selectSection('UU');}: () => {}}>
+                    <Row2 sectionID="UU" sectionData={this.getSectionData('UU')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-VV" onClick={this.state.width < 7000 ? () => {this.selectSection('VV');}: () => {}}>
+                    <Row2 sectionID="VV" sectionData={this.getSectionData('VV')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-WW" onClick={this.state.width < 7000 ? () => {this.selectSection('WW');}: () => {}}>
+                    <Row2 sectionID="WW" sectionData={this.getSectionData('WW')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-XX" onClick={this.state.width < 7000 ? () => {this.selectSection('XX');}: () => {}}>
+                    <Row2 sectionID="XX" sectionData={this.getSectionData('XX')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-YY" onClick={this.state.width < 7000 ? () => {this.selectSection('YY');}: () => {}}>
+                    <Row2 sectionID="YY" sectionData={this.getSectionData('YY')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-ZZ" onClick={this.state.width < 7000 ? () => {this.selectSection('ZZ');}: () => {}}>
+                    <Row2 sectionID="ZZ" sectionData={this.getSectionData('ZZ')} addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} />
                 </div>
             </div>
           </div>
