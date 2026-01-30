@@ -77,13 +77,13 @@ export const HomePage = () => {
                 {' '}
                 Contact
               </div>
-              <div className="flex justify-center gap-8 pt-4 pb-8">
-                <div className="text-center">
+              <div className="mx-6 flex justify-center gap-8 pt-4 pb-8">
+                <p className="text-center">
                   Reshma Inamdar<br />(341) 465-7302
-                </div>
-                <div className="text-center">
+                </p>
+                <p className="text-center">
                   Omar Latif<br />(341) 465-7690
-                </div>
+                </p>
               </div>
             </div>
           </div>
