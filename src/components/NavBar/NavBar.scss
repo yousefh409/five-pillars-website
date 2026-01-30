@@ -92,6 +92,10 @@
       position: relative;
       z-index: 100;
 
+      @include breakpoint(md) {
+          justify-content: center;
+      }
+
       &__nav {
           top: 0;
           right: 100%;
