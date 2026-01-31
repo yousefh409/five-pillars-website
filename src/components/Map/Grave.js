@@ -24,11 +24,16 @@ class Grave extends Component {
         var id = this.props.sectionID + this.props.data.split(' ')[0];
         var dateOfDeath = this.props.data.split(' ').at(-1)
         var name = this.props.data.split(' ').slice(1, -1).join(' ')
+
+        // Allow disabling tooltip (e.g., for legend)
+        const tooltipProps = this.props.hideTooltip ? {} : {
+            'data-tooltip-id': 'my-tooltip',
+            'data-tooltip-html': "<div className='graveTooltip'>" + name + " <br /> Date of Death: " + dateOfDeath + "<div />"
+        };
+
         return (
             <div>
-                <div className={this.props.selectedId == id? "graveSelected": "grave"}  data-tooltip-id="my-tooltip" 
-                    data-tooltip-html={"<div className='graveTooltip'>" + name + " <br /> Date of Death: " + dateOfDeath + "<div />"} >
-                    
+                <div className={this.props.selectedId == id? "graveSelected": "grave"} {...tooltipProps}>
                     <div id={"grave-" + id} className="graveText">{id}</div>
                 </div>
             </div>

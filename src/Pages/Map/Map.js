@@ -62,6 +62,7 @@ class Map extends React.Component {
     this.fuseInstance = null;
     this.fuseRebuildTimer = null;
     this.latestDate = null; // Track synchronously (state is async)
+    this.dateUpdateTimer = null; // Debounce date display updates
   }
 
   componentDidMount() {
@@ -101,6 +102,22 @@ class Map extends React.Component {
     if (this.fuseRebuildTimer) {
       clearTimeout(this.fuseRebuildTimer);
     }
+    if (this.dateUpdateTimer) {
+      clearTimeout(this.dateUpdateTimer);
+    }
+  }
+
+  // Debounced date display update - prevents jitter during rapid data loading
+  scheduleDateUpdate = () => {
+    if (this.dateUpdateTimer) {
+      clearTimeout(this.dateUpdateTimer);
+    }
+    this.dateUpdateTimer = setTimeout(() => {
+      if (this.latestDate) {
+        this.setState({ lastUpdated: this.latestDate });
+        this.saveCachedLastUpdated(this.latestDate);
+      }
+    }, 500); // Update display 500ms after last date change
   }
 
   updateWindowDimensions() {
@@ -182,13 +199,12 @@ class Map extends React.Component {
     const newTime = parsedDate ? parsedDate.getTime() : 0;
 
     if (newTime > currentTime) {
-      // Found a newer date - update synchronous tracker immediately
+      // Found a newer date - update synchronous tracker and schedule debounced display update
       this.latestDate = parsedDate;
-      this.setState({ names: copy, lastUpdated: parsedDate });
-      this.saveCachedLastUpdated(parsedDate);
-    } else {
-      this.setState({ names: copy });
+      this.scheduleDateUpdate();
     }
+
+    this.setState({ names: copy });
 
     // Schedule debounced Fuse rebuild
     this.scheduleFuseRebuild();
@@ -240,7 +256,7 @@ class Map extends React.Component {
       <div className="p-6 lg:p-12 pb-24">
         <div>
           <Title content="Map"></Title>
-          {this.state.lastUpdated && !this.isMapLoading() && (
+          {this.state.lastUpdated && (
             <div className="text-gray-600 text-sm mb-4">
               Last Updated: {this.formatLastUpdated()}
             </div>
@@ -249,7 +265,7 @@ class Map extends React.Component {
           <div className="bg-green-500 bg-opacity-10 rounded-2xl p-6">
             <div className="flex flex-wrap justify-center items-start gap-8 sm:gap-12">
               <div className="flex flex-col items-center">
-                <Grave addToNamesList={() => {}} sectionID={'-'} data={'- - -'} />
+                <Grave addToNamesList={() => {}} sectionID={'-'} data={'- - -'} hideTooltip />
                 <div className="mt-2 text-font text-sm">Grave</div>
               </div>
               <div className="flex flex-col items-center">
@@ -283,21 +299,11 @@ class Map extends React.Component {
           )}
         </div>
         <Tooltip id="my-tooltip" />
-        {this.isMapLoading()?
-          <div className='flex justify-center items-center m-5'>
-            <l-hatch
-              size="40"
-              stroke="4"
-              speed="3.5" 
-              color="rgb(20 83 45)" 
-            ></l-hatch>
-          </div>
-          : <div/>}
-        {this.state.selectedId !== "none"? 
+        {this.state.selectedId !== "none"?
         <div className="search-result-location">
           <span style={{fontWeight: "bold"}}>{this.state.selectedName}</span> is located in {this.state.selectedId[1] === "S"? `Block ${this.state.selectedId[0]}`: `ROW ${this.state.selectedId.slice(0, 2)}`}, Grave #{this.state.selectedId.slice(2, 4)}
-        </div>: <div />} 
-          <div className={this.isMapLoading()? "mapInvisbible": "mapWrapper"}>
+        </div>: <div />}
+          <div className="mapWrapper">
             <div>
               <div className='lineInRow'>
                 <div>
