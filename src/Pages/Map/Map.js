@@ -183,19 +183,19 @@ class Map extends React.Component {
           )}
           <SubTitle content="Legend" />
           <div className="bg-green-500 bg-opacity-10 rounded-2xl p-6">
-            <div className="flex items-start">
-              <div className="ml-5 text-font">&nbsp; • Grave = &nbsp;</div>
-              <Grave addToNamesList={() => {}} sectionID={'-'} data={'- - -'} />
-            </div>
-            <div className="flex items-start">
-              <div className="ml-5 text-font">
-                &nbsp; • Empty Grave = &nbsp;
+            <div className="flex flex-wrap justify-center items-start gap-8 sm:gap-12">
+              <div className="flex flex-col items-center">
+                <Grave addToNamesList={() => {}} sectionID={'-'} data={'- - -'} />
+                <div className="mt-2 text-font text-sm">Grave</div>
               </div>
-              <EmptyGrave />
-            </div>
-            <div className="flex items-start">
-              <div className="ml-5 text-font">&nbsp; • Walkway = &nbsp;</div>
-              <BigWalkway />
+              <div className="flex flex-col items-center">
+                <EmptyGrave />
+                <div className="mt-2 text-font text-sm">Empty Grave</div>
+              </div>
+              <div className="flex flex-col items-center">
+                <BigWalkway />
+                <div className="mt-2 text-font text-sm">Walkway</div>
+              </div>
             </div>
           </div>
         </div>
