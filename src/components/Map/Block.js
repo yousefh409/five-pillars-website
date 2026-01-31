@@ -3,10 +3,14 @@ import "./Block.css";
 import EmptyGrave from "./EmptyGrave";
 import Grave from "./Grave";
 import Walkway from "./Walkway";
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
 const { convertCSVToArray } = require('convert-csv-to-array');
 const converter = require('convert-csv-to-array');
+
+// Cache configuration
+const CACHE_PREFIX = 'fivePillars_block_';
+const CACHE_TTL_MS = 5 * 60 * 1000; // 5 minutes
 
 class Block extends Component {
     constructor(props) {
@@ -55,55 +59,103 @@ class Block extends Component {
         return data;
     }
 
+    getCacheKey = () => CACHE_PREFIX + this.props.sectionID;
+
+    loadFromCache = () => {
+        try {
+            const cached = localStorage.getItem(this.getCacheKey());
+            if (!cached) return null;
+            const { data, timestamp } = JSON.parse(cached);
+            // Return cached data if it exists (we'll refresh in background regardless)
+            return data || null;
+        } catch (error) {
+            return null;
+        }
+    }
+
+    saveToCache = (data) => {
+        try {
+            localStorage.setItem(this.getCacheKey(), JSON.stringify({
+                data,
+                timestamp: Date.now()
+            }));
+        } catch (error) {
+            // Silently fail if localStorage is full
+        }
+    }
+
+    processData = (csv) => {
+        for (const row of csv) {
+            for (const grave of row) {
+                var trimmed = grave.trim()
+                if (!(trimmed === "Empty" || trimmed === "None" || trimmed === "WALK WAY")) {
+                    var id = this.props.sectionID + trimmed.split(' ')[0];
+                    var dateOfDeath = trimmed.split(' ').at(-1)
+                    var name = trimmed.split(' ').slice(1, -1).join(' ')
+                    this.props.addToNamesList(id, name, dateOfDeath)
+                }
+            }
+        }
+    }
+
     showFile = async (file) => {
-        this.props.setIsLoading(this.props.sectionID, true)
-        var csv = []
+        // Try to load from cache first for instant display
+        const cachedData = this.loadFromCache();
+        if (cachedData && cachedData.length > 0) {
+            // Show cached data immediately
+            this.setState({ data: cachedData });
+            this.processData(cachedData);
+            this.props.setIsLoading(this.props.sectionID, false);
+            // Fetch fresh data in background (don't await)
+            this.fetchFreshData(file, true);
+        } else {
+            // No cache - show loading and fetch
+            this.props.setIsLoading(this.props.sectionID, true);
+            this.fetchFreshData(file, false);
+        }
+    }
+
+    fetchFreshData = (file, isBackgroundRefresh) => {
         if (this.props.isOnline) {
-            axios.get(file)    // Use Axios to fetch the CSV data
+            axios.get(file)
             .then((response) => {
-                const parsedCsvData = this.parseCSV(response.data);        // Parse the CSV data into an array of objects
-                csv = parsedCsvData;
-                this.setState({data: csv})
-                for (const row of csv) {
-                    for (const grave of row) {
-                        var trimmed = grave.trim()
-                        if (!(trimmed === "Empty" || trimmed === "None" || trimmed === "WALK WAY")) {
-                            var id = this.props.sectionID + trimmed.split(' ')[0];
-                            var dateOfDeath = trimmed.split(' ').at(-1)
-                            var name = trimmed.split(' ').slice(1, -1).join(' ')
-                            this.props.addToNamesList(id, name, dateOfDeath)
-                        }
+                const csv = this.parseCSV(response.data);
+                this.saveToCache(csv);
+                // Only update UI if data changed or not a background refresh
+                if (!isBackgroundRefresh || JSON.stringify(csv) !== JSON.stringify(this.state.data)) {
+                    this.setState({ data: csv });
+                    if (!isBackgroundRefresh) {
+                        this.processData(csv);
                     }
                 }
-                this.props.setIsLoading(this.props.sectionID, false)
+                if (!isBackgroundRefresh) {
+                    this.props.setIsLoading(this.props.sectionID, false);
+                }
             })
             .catch((error) => {
                 console.error('Error fetching CSV data:', error);
+                if (!isBackgroundRefresh) {
+                    this.props.setIsLoading(this.props.sectionID, false);
+                }
             });
         } else {
             fetch("/data/" + file)
                 .then((response) => response.text())
                 .then((textContent) => {
-                    // Note: We add a "\n" here since the "convert-csv-to-array" package requires that
-                    //       all CSV lines end in a newline character (which google sheet downloaded CSVs do not have)
                     const csv = convertCSVToArray(textContent + "\n", {
                         type: 'array',
                         separator: ',',
                     });
-                    this.setState({data: csv})
-                    
-                    for (const row of csv) {
-                        for (const grave of row) {
-                            var trimmed = grave.trim()
-                            if (!(trimmed === "Empty" || trimmed === "None" || trimmed === "WALK WAY")) {
-                                var id = this.props.sectionID + trimmed.split(' ')[0];
-                                var dateOfDeath = trimmed.split(' ').at(-1)
-                                var name = trimmed.split(' ').slice(1, -1).join(' ')
-                                this.props.addToNamesList(id, name, dateOfDeath)
-                            }
+                    this.saveToCache(csv);
+                    if (!isBackgroundRefresh || JSON.stringify(csv) !== JSON.stringify(this.state.data)) {
+                        this.setState({ data: csv });
+                        if (!isBackgroundRefresh) {
+                            this.processData(csv);
                         }
                     }
-                    this.props.setIsLoading(this.props.sectionID, false)
+                    if (!isBackgroundRefresh) {
+                        this.props.setIsLoading(this.props.sectionID, false);
+                    }
                 });
         }
     }
