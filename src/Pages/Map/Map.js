@@ -17,11 +17,16 @@ import ReactSearchBox from 'react-search-box';
 import { scrollIntoView } from 'seamless-scroll-polyfill';
 import SubTitle from '../../components/Title/SubTitle';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-// import { BookLoader } from "react-awesome-loaders";
 import { hatch } from 'ldrs'
 import Fuse from 'fuse.js'
 
 hatch.register()
+
+// Debounce delay for rebuilding Fuse index (ms)
+const FUSE_REBUILD_DELAY = 300;
+
+// Cache key for last updated date
+const LAST_UPDATED_CACHE_KEY = 'fivePillars_lastUpdated';
 
 class Map extends React.Component {
   constructor(props) {
@@ -55,15 +60,47 @@ class Map extends React.Component {
     this.setIsLoading = this.setIsLoading.bind(this);
     this.isMapLoading = this.isMapLoading.bind(this);
     this.fuseInstance = null;
+    this.fuseRebuildTimer = null;
+    this.latestDate = null; // Track synchronously (state is async)
   }
 
   componentDidMount() {
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
+    // Load cached lastUpdated date for instant display
+    this.loadCachedLastUpdated();
+  }
+
+  loadCachedLastUpdated = () => {
+    try {
+      const cached = localStorage.getItem(LAST_UPDATED_CACHE_KEY);
+      if (cached) {
+        const parsedDate = new Date(cached);
+        if (!isNaN(parsedDate.getTime())) {
+          this.latestDate = parsedDate; // Set synchronous tracker
+          this.setState({ lastUpdated: parsedDate });
+        }
+      }
+    } catch (error) {
+      // Silently fail
+    }
+  }
+
+  saveCachedLastUpdated = (date) => {
+    try {
+      if (date) {
+        localStorage.setItem(LAST_UPDATED_CACHE_KEY, date.toISOString());
+      }
+    } catch (error) {
+      // Silently fail
+    }
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.updateWindowDimensions);
+    if (this.fuseRebuildTimer) {
+      clearTimeout(this.fuseRebuildTimer);
+    }
   }
 
   updateWindowDimensions() {
@@ -80,54 +117,81 @@ class Map extends React.Component {
     return Object.values(this.state.sectionIsLoadings).includes(true);
   }
 
-  addToNamesList(id, name, dateOfDeath) {
-    let copy = this.state.names;
-    if (!copy.includes({ key: id, value: name })) {
-      copy.push({
-        key: id,
-        value: name  + ' (DOD: ' + dateOfDeath + ')',
-      });
+  // Debounced Fuse index rebuild - only rebuilds after names stop being added
+  scheduleFuseRebuild = () => {
+    if (this.fuseRebuildTimer) {
+      clearTimeout(this.fuseRebuildTimer);
     }
-    
-    // Track the most recent date for "Last Updated"
-    if (dateOfDeath && dateOfDeath !== 'None') {
-      // Parse date handling 2-digit years (e.g., "1/16/26" -> 2026)
-      const parts = dateOfDeath.split('/');
-      if (parts.length === 3) {
-        let year = parseInt(parts[2], 10);
-        // Convert 2-digit years: 00-99 -> 2000-2099
-        if (year >= 0 && year < 100) {
-          year = 2000 + year;
-        }
-        // Only accept reasonable years (2000-2099)
-        if (year >= 2000 && year <= 2099) {
-          const month = parseInt(parts[0], 10);
-          const day = parseInt(parts[1], 10);
-          if (month >= 1 && month <= 12 && day >= 1 && day <= 31) {
-            const parsedDate = new Date(year, month - 1, day);
-            if (!isNaN(parsedDate.getTime())) {
-              const currentLastUpdated = this.state.lastUpdated;
-              if (!currentLastUpdated || parsedDate > currentLastUpdated) {
-                this.setState({ names: copy, lastUpdated: parsedDate }, () => {
-                  this.fuseInstance = new Fuse(this.state.names, {
-                    ...this.state.fuseConfigs,
-                    keys: ['value']
-                  });
-                });
-                return;
-              }
-            }
-          }
-        }
-      }
-    }
-    
-    this.setState({ names: copy }, () => {
+    this.fuseRebuildTimer = setTimeout(() => {
       this.fuseInstance = new Fuse(this.state.names, {
         ...this.state.fuseConfigs,
         keys: ['value']
       });
-    });
+    }, FUSE_REBUILD_DELAY);
+  }
+
+  parseDate = (dateStr) => {
+    if (!dateStr || dateStr === 'None' || dateStr === 'N/A' || dateStr === '-') {
+      return null;
+    }
+
+    // Clean up the date string
+    const cleaned = dateStr.trim();
+
+    // Try MM/DD/YY or MM/DD/YYYY format
+    const parts = cleaned.split('/');
+    if (parts.length === 3) {
+      let month = parseInt(parts[0], 10);
+      let day = parseInt(parts[1], 10);
+      let year = parseInt(parts[2], 10);
+
+      // Handle 2-digit years
+      if (year >= 0 && year < 100) {
+        year = 2000 + year;
+      }
+
+      // Validate
+      if (year >= 2000 && year <= 2099 &&
+          month >= 1 && month <= 12 &&
+          day >= 1 && day <= 31) {
+        const date = new Date(year, month - 1, day);
+        if (!isNaN(date.getTime())) {
+          return date;
+        }
+      }
+    }
+
+    return null;
+  }
+
+  addToNamesList(id, name, dateOfDeath) {
+    let copy = this.state.names;
+    // Check if already exists (use proper comparison)
+    if (!copy.some(item => item.key === id)) {
+      copy.push({
+        key: id,
+        value: name + ' (DOD: ' + dateOfDeath + ')',
+      });
+    }
+
+    // Track the most recent date for "Last Updated"
+    const parsedDate = this.parseDate(dateOfDeath);
+
+    // Compare with latestDate (synchronous) instead of state (async)
+    const currentTime = this.latestDate ? this.latestDate.getTime() : 0;
+    const newTime = parsedDate ? parsedDate.getTime() : 0;
+
+    if (newTime > currentTime) {
+      // Found a newer date - update synchronous tracker immediately
+      this.latestDate = parsedDate;
+      this.setState({ names: copy, lastUpdated: parsedDate });
+      this.saveCachedLastUpdated(parsedDate);
+    } else {
+      this.setState({ names: copy });
+    }
+
+    // Schedule debounced Fuse rebuild
+    this.scheduleFuseRebuild();
   }
 
   selectSection(sectionID) {
