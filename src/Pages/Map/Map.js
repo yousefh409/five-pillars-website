@@ -287,8 +287,8 @@ class Map extends React.Component {
                     </div>
                 </div>
               </div>
-              <div id="section-YY" onClick={this.state.width < 7000? () => {this.selectSection('YY');}: () => {}}>
-                    <Row sectionID="YY" displayTitle="Section Y" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSOSJ5ebiSq4oLtvHKceSPf9WRxRDeDIzs8cGCm23AjLiq8LrTIUjocEX0RgioBr2leg7E5p_SWVJPH/pub?gid=1851413578&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+              <div id="section-Y" onClick={this.state.width < 7000? () => {this.selectSection('Y');}: () => {}}>
+                    <Row sectionID="Y" displayTitle="Section Y" isOnline={true} fileSource="https://docs.google.com/spreadsheets/d/e/2PACX-1vSOSJ5ebiSq4oLtvHKceSPf9WRxRDeDIzs8cGCm23AjLiq8LrTIUjocEX0RgioBr2leg7E5p_SWVJPH/pub?gid=1851413578&single=true&output=csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
               </div>
             </div>
             <div>
@@ -420,6 +420,30 @@ class Map extends React.Component {
                 <WalkwayPathHorizontal />
                 <div id="section-TT"   onClick={this.state.width < 7000? () => {this.selectSection('TT');}: () => {}}>
                     <Row sectionID="TT" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-UU"   onClick={this.state.width < 7000? () => {this.selectSection('UU');}: () => {}}>
+                    <Row sectionID="UU" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-VV"   onClick={this.state.width < 7000? () => {this.selectSection('VV');}: () => {}}>
+                    <Row sectionID="VV" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-WW"   onClick={this.state.width < 7000? () => {this.selectSection('WW');}: () => {}}>
+                    <Row sectionID="WW" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-XX"   onClick={this.state.width < 7000? () => {this.selectSection('XX');}: () => {}}>
+                    <Row sectionID="XX" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-YY"   onClick={this.state.width < 7000? () => {this.selectSection('YY');}: () => {}}>
+                    <Row sectionID="YY" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
+                </div>
+                <WalkwayPathHorizontal />
+                <div id="section-ZZ"   onClick={this.state.width < 7000? () => {this.selectSection('ZZ');}: () => {}}>
+                    <Row sectionID="ZZ" isOnline={false} fileSource="Five Pillars - Right Side - EMPTY Row.csv" addToNamesList={this.addToNamesList} selectedSection={this.state.selectedSection} selectedId={this.state.selectedId} setIsLoading={this.setIsLoading}/>
                 </div>
             </div>
           </div>
